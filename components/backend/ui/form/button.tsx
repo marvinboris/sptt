@@ -1,6 +1,7 @@
 import React, { type ReactNode } from "react";
 
-import { classNames } from "../../../../app/helpers/utils";
+import { classNames } from "@/app/helpers/utils";
+import IconType from "@/app/types/icon";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   color?: string;

@@ -9,18 +9,21 @@ import { Transition } from "@headlessui/react";
 import Link from "next/link";
 import { Fragment, ReactNode } from "react";
 
-import { useContentContext } from "../../../../../app/contexts/content";
-import { useSideDrawerContext } from "../../../../../app/contexts/side-drawer";
-import { resourceIcon } from "../../../../../app/helpers/utils";
-import { useAppSelector, useWindowSize } from "../../../../../app/hooks";
-import { NotificationInterface } from "../../../../../app/models/notification";
-import ResourceType from "../../../../../app/types/resource";
+import { useContentContext } from "@/app/contexts/content";
+import { useSideDrawerContext } from "@/app/contexts/side-drawer";
+import { resourceIcon } from "@/app/helpers/utils";
+import { useWindowSize } from "@/app/hooks";
 
-import { selectAuth } from "../../../../../features/auth/authSlice";
+import UserAccountType from "@/app/types/account/user";
+import NotificationInterface from "@/app/types/models/notification";
+import ResourceType from "@/app/types/resource";
 
 import Logo from "../../../../ui/logo";
 
 import NavItem from "./nav-item";
+import RoleInterface from "@/app/types/models/role";
+import { useAccountContext } from "@/app/contexts/account";
+import { useRoleContext } from "@/app/contexts/role";
 
 const Group = (props: { title: string; children?: ReactNode }) => (
   <div>
@@ -37,8 +40,8 @@ const GroupTitle = (props: { children?: ReactNode }) => (
 
 const UserNavItem = (props: { resource: ResourceType }) => {
   const { content } = useContentContext();
-
-  const { role, data } = useAppSelector(selectAuth);
+  const { account: data } = useAccountContext()
+  const { role } = useRoleContext()
 
   const {
     cms: { backend: cms },
@@ -69,19 +72,15 @@ export default function SideDrawer() {
   const { width } = useWindowSize();
   const { open, setOpen } = useSideDrawerContext();
   const { content } = useContentContext();
-
-  const { role, data } = useAppSelector(selectAuth);
+  const { account: data } = useAccountContext()
+  const { role } = useRoleContext()
 
   const {
     cms: { backend: cms },
   } = content!;
 
-  const account = data!;
   const notifications = (
-    (account.notifications as {
-      notification: NotificationInterface;
-      readAt?: Date;
-    }[]) || []
+    data.notifications || []
   ).filter(({ readAt }) => !readAt);
 
   return (

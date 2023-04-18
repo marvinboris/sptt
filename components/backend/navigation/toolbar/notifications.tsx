@@ -1,19 +1,20 @@
 import { BellIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-import { useContentContext } from "../../../../app/contexts/content";
+import { useContentContext } from "@/app/contexts/content";
 import {
   classNames,
   convertDate,
   convertTime,
-} from "../../../../app/helpers/utils";
-import { useAppSelector } from "../../../../app/hooks";
-import { NotificationInterface } from "../../../../app/models/notification";
+} from "@/app/helpers/utils";
+import NotificationInterface from "@/app/types/models/notification";
 
-import { selectAuth } from "../../../../features/auth/authSlice";
+import { useAccountContext } from "@/app/contexts/account";
+import { useRoleContext } from "@/app/contexts/role";
 
 export default function Notifications() {
-  const { role, data } = useAppSelector(selectAuth);
+  const { account: data } = useAccountContext()
+  const { role } = useRoleContext()
 
   const { content } = useContentContext();
   const {

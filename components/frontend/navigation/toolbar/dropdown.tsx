@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, ReactNode } from "react";
 
+import IconType from "@/app/types/icon";
+
 const classNames = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
 interface Action {

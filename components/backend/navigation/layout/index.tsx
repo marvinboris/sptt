@@ -3,8 +3,6 @@ import NextHead from "next/head";
 import { useRouter } from "next/router";
 
 import SideDrawerContext from "../../../../app/contexts/side-drawer";
-import { useAppSelector } from "../../../../app/hooks";
-import { selectAuth } from "../../../../features/auth/authSlice";
 
 import Footer from "../footer";
 import Toolbar from "../toolbar";
@@ -18,14 +16,8 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const { token } = useAppSelector(selectAuth);
 
-  useEffect(() => {
-    const isAuth = localStorage.getItem("token") !== null;
-    if ((!token && isAuth) || !isAuth) router.push("/");
-  }, [token, router]);
-
-  return token ? (
+  return (
     <SideDrawerContext.Provider value={{ open, setOpen }}>
       <div className="font-body relative flex h-screen overflow-hidden">
         <SideDrawer />
@@ -37,7 +29,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </div>
     </SideDrawerContext.Provider>
-  ) : null;
+  );
 }
 
 export interface PageParams {

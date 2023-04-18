@@ -1,6 +1,3 @@
-import { EventInterface } from "../models/event";
-import { MinistryInterface } from "../models/ministry";
-
 export default interface ContentType {
   cms: {
     [key: string]: any;
@@ -733,6 +730,4 @@ export default interface ContentType {
       };
     };
   };
-  events: (EventInterface & { _id: string; link: string })[];
-  ministries: (MinistryInterface & { _id: string; link: string })[];
 }

@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js -p $PORT",
+    "start": "next start",
     "lint": "next lint",
     "export": "next build && next export",
-    "format": "prettier {app,data,hoc,lib,pages,components,features,styles}/**/*.{css,js,ts,jsx,tsx} --write",
-    "seed": "ts-node --project tsconfig.seed.json seed.ts"
+    "format": "prettier {app,data,hoc,lib,pages,components,features,styles}/**/*.{css,js,ts,jsx,tsx} --write"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",

@@ -1,3 +1,5 @@
+import IconType from "@/app/types/icon";
+
 interface SectionTitleProps {
   title: string;
   description: string;

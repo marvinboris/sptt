@@ -4,8 +4,6 @@ import Link from "next/link";
 
 import Logo from "../../ui/logo";
 import { useRouter } from "next/router";
-import { useAppSelector } from "../../../app/hooks";
-import { selectAuth } from "../../../features/auth/authSlice";
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,13 +11,8 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
-  const { token, role } = useAppSelector(selectAuth);
 
-  useEffect(() => {
-    if (token) router.push(`/${role}/dashboard`);
-  }, [token, router, role]);
-
-  return !token ? (
+  return (
     <div className="relative z-0 overflow-hidden bg-grid-primary-600/[0.05]">
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-primary-600/50 to-transparent" />
 
@@ -37,7 +30,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </div>
     </div>
-  ) : null;
+  );
 }
 
 export interface PageParams {

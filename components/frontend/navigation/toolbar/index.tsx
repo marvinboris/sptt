@@ -67,8 +67,6 @@ export default function Toolbar() {
   const { content } = useContentContext();
 
   const {
-    events,
-    ministries,
     cms: {
       global: { app_name },
       frontend: {
@@ -102,7 +100,7 @@ export default function Toolbar() {
                 <div className="flex items-center">
                   <Popover.Group
                     as="nav"
-                    className="hidden space-x-5 md:flex lg:space-x-8 overflow-visible"
+                    className="hidden space-x-5 overflow-visible md:flex lg:space-x-8"
                   >
                     <NavItem href="/" home>
                       Home
@@ -122,9 +120,9 @@ export default function Toolbar() {
                 <div>
                   <Link
                     href="/"
-                    className="h-12 inline-block rounded-full bg-gradient-to-r from-primary-400 to-blue text-sm font-medium p-px"
+                    className="inline-block h-12 rounded-full bg-gradient-to-r from-primary-400 to-blue p-px text-sm font-medium"
                   >
-                    <div className="flex h-full w-full items-center px-6 rounded-full bg-secondary-900 overflow-hidden relative z-0 before:absolute before:inset-0 before:bg-night/20">
+                    <div className="relative z-0 flex h-full w-full items-center overflow-hidden rounded-full bg-secondary-900 px-6 before:absolute before:inset-0 before:bg-night/20">
                       Create account
                     </div>
                   </Link>

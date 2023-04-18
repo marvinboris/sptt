@@ -6,14 +6,14 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { useContentContext } from "../../../../app/contexts/content";
 
-import { useSideDrawerContext } from "../../../../app/contexts/side-drawer";
-import { useThemeContext } from "../../../../app/contexts/theme";
-import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
-import Theme from "../../../../app/types/enums/theme";
+import { useContentContext } from "@/app/contexts/content";
+import { useAccountContext } from "@/app/contexts/account";
+import { useRoleContext } from "@/app/contexts/role";
+import { useSideDrawerContext } from "@/app/contexts/side-drawer";
+import { useThemeContext } from "@/app/contexts/theme";
 
-import { logout, selectAuth } from "../../../../features/auth/authSlice";
+import Theme from "@/app/types/enums/theme";
 
 import LanguageSelect from "./language-select";
 import Logout from "./logout";
@@ -22,9 +22,8 @@ import Notifications from "./notifications";
 export default function Toolbar() {
   const { open, setOpen } = useSideDrawerContext();
   const { setTheme } = useThemeContext();
-
-  const dispatch = useAppDispatch();
-  const { role, data } = useAppSelector(selectAuth);
+  const { account } = useAccountContext();
+  const { role } = useRoleContext();
 
   const { content } = useContentContext();
   const {
@@ -33,9 +32,7 @@ export default function Toolbar() {
     },
   } = content!;
 
-  const account = data!;
-
-  const handleLogout = () => dispatch(logout());
+  const handleLogout = () => {};
 
   const toggleDark = () => {
     const dark = localStorage.getItem("dark");

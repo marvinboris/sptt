@@ -2,16 +2,17 @@ import { ComponentProps, ReactNode, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-import { useSideDrawerContext } from "../../../../../app/contexts/side-drawer";
-import { classNames } from "../../../../../app/helpers/utils";
-import { useWindowSize } from "../../../../../app/hooks";
+import { useSideDrawerContext } from "@/app/contexts/side-drawer";
+import { classNames } from "@/app/helpers/utils";
+import { useWindowSize } from "@/app/hooks";
+import IconType from "@/app/types/icon";
 
 interface NavItemProps {
   href: string;
   children?: ReactNode;
   main?: boolean;
   items?: { href: string; label: string }[];
-  icon: (props: ComponentProps<"svg">) => JSX.Element;
+  icon: IconType;
 }
 
 export default function NavItem({

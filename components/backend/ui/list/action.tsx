@@ -6,12 +6,13 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-import { useAppSelector } from "../../../../app/hooks";
-import ApiAccountUserType from "../../../../app/types/api/account/user";
+import { useAccountContext } from "@/app/contexts/account";
+import { useRoleContext } from "@/app/contexts/role";
 
-import { selectAuth } from "../../../../features/auth/authSlice";
+import ApiAccountUserType from "@/app/types/api/account/user";
 
 import Delete from "./delete";
+import UserAccountType from "@/app/types/account/user";
 
 type ActionProps = {
   item: { _id?: string; link?: string } & any;
@@ -20,14 +21,15 @@ type ActionProps = {
 };
 
 export default function Action({ item, resource, props }: ActionProps) {
-  const { role, data } = useAppSelector(selectAuth);
+  const {account: data} = useAccountContext();
+  const { role } = useRoleContext();
 
   if (props) {
     resource = resource.split("_").join("-");
 
     let additionalContent;
     if (role === "user") {
-      const feature = (data as ApiAccountUserType).role.features.find(
+      const feature = data.role.features.find(
         (f) => f.prefix === resource
       );
 

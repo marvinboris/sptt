@@ -1,26 +1,7 @@
 import NextImage from "next/image";
 import { ReactElement } from "react";
 
-import {
-  Event,
-  Image,
-  Ministry,
-  Publication,
-  Testimonial,
-} from "../app/models";
-import { CategoryInterface } from "../app/models/category";
-import { EventInterface } from "../app/models/event";
-import { ImageInterface } from "../app/models/image";
-import { MinistryInterface } from "../app/models/ministry";
-import { PublicationInterface } from "../app/models/publication";
-import { TestimonialInterface } from "../app/models/testimonial";
-
 import Layout, { Head } from "../components/frontend/navigation/layout";
-import EventBlock from "../components/frontend/ui/blocks/event";
-import ImageBlock from "../components/frontend/ui/blocks/image";
-import MinistryBlock from "../components/frontend/ui/blocks/ministry";
-import PublicationBlock from "../components/frontend/ui/blocks/publication";
-import TestimonialBlock from "../components/frontend/ui/blocks/testimonial";
 
 import { NextPageWithLayout } from "./_app";
 import Button from "@/components/frontend/ui/form/button";
@@ -49,27 +30,9 @@ const params = {
     "Bienvenue à l'église du Palais sur le Rocher (PSR)! Découvrez l'amour de Dieu au travers de nos différents ministères.",
 };
 
-type EventType = EventInterface & { _id: string; link: string };
-type ImageType = ImageInterface & { _id: string };
-type MinistryType = MinistryInterface & { _id: string; link: string };
-type PublicationType = PublicationInterface & {
-  category: CategoryInterface;
-};
-type TestimonialType = TestimonialInterface & { _id: string };
 
-interface HomeDataType {
-  publications: PublicationType[];
-  ministries: MinistryType[];
-  gallery: ImageType[];
-  events: EventType[];
-  testimonies: TestimonialType[];
-}
 
-interface HomePageProps {
-  home: HomeDataType;
-}
-
-const HomePage: NextPageWithLayout<HomePageProps> = ({ home }) => {
+const HomePage: NextPageWithLayout = () => {
   const packs = [250, 500, 1000, 2000, 5000, 10000].map((amount, i) => (
     <PackBlock key={`pack-${i}`} amount={amount} name={`Starter ${i + 1}`} />
   ));
@@ -842,27 +805,5 @@ const HomePage: NextPageWithLayout<HomePageProps> = ({ home }) => {
 HomePage.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
-
-export async function getServerSideProps() {
-  const gallery = await Image.find().limit(12);
-  const publications = await Publication.find()
-    .populate<{ category: CategoryInterface }>("category")
-    .limit(3);
-  const ministries = await Ministry.find().limit(4);
-  const events = await Event.find().limit(4);
-  const testimonies = await Testimonial.find().limit(3);
-
-  const home = JSON.parse(
-    JSON.stringify({
-      publications: publications.map((publication) => publication.toObject()),
-      testimonies: testimonies.map((testimonial) => testimonial.toObject()),
-      ministries: ministries.map((ministry) => ministry.toObject()),
-      gallery: gallery.map((image) => image.toObject()),
-      events: events.map((event) => event.toObject()),
-    })
-  );
-
-  return { props: { home } };
-}
 
 export default HomePage;
