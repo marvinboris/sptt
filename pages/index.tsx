@@ -1,10 +1,3 @@
-import NextImage from "next/image";
-import { ReactElement } from "react";
-
-import Layout, { Head } from "../components/frontend/navigation/layout";
-
-import { NextPageWithLayout } from "./_app";
-import Button from "@/components/frontend/ui/form/button";
 import {
   ArrowDownOnSquareIcon,
   ArrowRightIcon,
@@ -16,21 +9,26 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import { PlayCircleIcon } from "@heroicons/react/20/solid";
-import PackBlock from "@/components/frontend/ui/blocks/pack";
-import SvgIcon from "@/components/ui/svg-icon";
+import NextImage from "next/image";
+import { ReactElement } from "react";
+
 import { classNames } from "@/app/helpers/utils";
+import Layout, { Head } from "@/components/frontend/navigation/layout";
+import PackBlock from "@/components/frontend/ui/blocks/pack";
+import Button from "@/components/frontend/ui/form/button";
 import Input from "@/components/frontend/ui/form/input";
-import TextArea from "@/components/frontend/ui/form/text-area";
 import Select from "@/components/frontend/ui/form/select";
+import TextArea from "@/components/frontend/ui/form/text-area";
+import SvgIcon from "@/components/ui/svg-icon";
+
+import { NextPageWithLayout } from "./_app";
 
 const params = {
   link: "/",
   title: process.env.NEXT_PUBLIC_COMPANY_NAME!,
   description:
-    "Bienvenue à l'église du Palais sur le Rocher (PSR)! Découvrez l'amour de Dieu au travers de nos différents ministères.",
+    "Spread Tech Token is a new cryptocurrency that aims to revolutionize the tech industry. This Next.js app includes a Home page, Login and Registration pages, as well as Admin and Customer panel interfaces which are coming soon. Built with Next.js, React, TypeScript, and Tailwind CSS. Get started by cloning the repository and follow the instructions to install dependencies and run the development server. Contributions are welcome!",
 };
-
-
 
 const HomePage: NextPageWithLayout = () => {
   const packs = [250, 500, 1000, 2000, 5000, 10000].map((amount, i) => (

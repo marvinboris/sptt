@@ -17,8 +17,8 @@ To get started with this app, you will need to have Node.js and npm installed on
 This app includes the following features:
 
 - Home page with information about Spread Tech Token and links to other pages.
-- Login page (coming soon)
-- Registration page (coming soon)
+- Login page
+- Registration page
 - Admin panel interface (coming soon)
 - Customer panel interface (coming soon)
 

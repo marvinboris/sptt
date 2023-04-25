@@ -13,12 +13,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { useContentContext } from "@/app/contexts/content";
+import { classNames } from "@/app/helpers/utils";
 import IconType from "@/app/types/icon";
 
 import Logo from "@/components/ui/logo";
+import SvgIcon from "@/components/ui/svg-icon";
 
 import NavItem from "./nav-item";
-import SvgIcon from "@/components/ui/svg-icon";
 
 const RenderMobileNavItem = (
   item: {
@@ -63,7 +64,7 @@ const RenderMobileNavItem = (
   );
 };
 
-export default function Toolbar() {
+export default function Toolbar({ auth = false }) {
   const { content } = useContentContext();
 
   const {
@@ -88,7 +89,7 @@ export default function Toolbar() {
       {({ close }) => (
         <>
           <div className="container">
-            <div className="flex pt-10">
+            <div className={classNames("flex transition-all duration-200", auth ? "pt-5" : "pt-10")}>
               <div className="flex justify-start">
                 <Link href="/" className="cursor-pointer">
                   <span className="sr-only">{app_name}</span>
@@ -102,7 +103,7 @@ export default function Toolbar() {
                     as="nav"
                     className="hidden space-x-5 overflow-visible md:flex lg:space-x-8"
                   >
-                    <NavItem href="/" home>
+                    <NavItem exact href="/" home>
                       Home
                     </NavItem>
                     <NavItem href="/about">About Us</NavItem>
@@ -112,17 +113,17 @@ export default function Toolbar() {
                   </Popover.Group>
                 </div>
 
-                <div className="flex items-end gap-2">
+                <Link href="/login" className="flex items-end gap-2">
                   <SvgIcon name="sign-in" className="w-[30px]" />
                   <div className="border-b-2 border-blue">Sign In</div>
-                </div>
+                </Link>
 
                 <div>
                   <Link
-                    href="/"
+                    href="/register"
                     className="inline-block h-12 rounded-full bg-gradient-to-r from-primary-400 to-blue p-px text-sm font-medium"
                   >
-                    <div className="relative z-0 flex h-full w-full items-center overflow-hidden rounded-full bg-secondary-900 px-6 before:absolute before:inset-0 before:bg-night/20">
+                    <div className={classNames("relative z-0 flex h-full w-full items-center overflow-hidden rounded-full bg-secondary-900 px-6 before:absolute before:inset-0 before:transition-all before:duration-200", auth ? "before:bg-translate" : "before:bg-night/20")}>
                       Create account
                     </div>
                   </Link>

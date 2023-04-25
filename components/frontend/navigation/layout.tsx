@@ -1,19 +1,25 @@
-import { useState, ComponentProps } from "react";
 import NextHead from "next/head";
+import { ComponentProps } from "react";
 
 import Footer from "./footer";
 import Toolbar from "./toolbar";
+import { classNames } from "@/app/helpers/utils";
 
-export default function Layout({ children }: ComponentProps<"div">) {
+export default function Layout({
+  auth,
+  children,
+}: ComponentProps<"div"> & { auth?: boolean }) {
   return (
-      <div className="flex min-h-screen flex-col">
-        <Toolbar />
+    <div className="flex min-h-screen flex-col">
+      <Toolbar auth={auth} />
 
-        <div className="main-wrapper">{children}</div>
-
-        <Footer />
+      <div className={classNames("main-wrapper", auth ? "relative pt-36 overflow-x-clip" : "")}>
+        {children}
       </div>
-    );
+
+      {auth ? null : <Footer />}
+    </div>
+  );
 }
 
 export interface PageParams {

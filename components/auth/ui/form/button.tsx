@@ -2,7 +2,7 @@ import React, { type ReactNode } from "react";
 
 import { classNames } from "@/app/helpers/utils";
 import Status from "@/app/types/enums/status";
-import IconType from '@/app/types/icon';
+import IconType from "@/app/types/icon";
 
 type ButtonProps = React.ComponentProps<"button"> & {
   color?: string;
@@ -16,31 +16,29 @@ type ButtonProps = React.ComponentProps<"button"> & {
 export default function Button({
   color = "primary",
   size = "",
-  icon,
+  icon: Icon,
   className,
   children,
   status,
   onClick,
 }: ButtonProps) {
-  const Icon = icon;
-
   return (
     <button
       onClick={onClick}
       className={classNames(
-        `btn btn-${color} group relative`,
-        icon ? "btn-icon" : "px-6",
+        `btn btn-auth btn-${color} group relative`,
+        Icon ? "btn-icon" : "px-6",
         size === "sm" ? "h-10 px-4" : "",
-        className || ''
+        className || ""
       )}
     >
-      <span className={classNames(size === "sm" ? "" : "mr-2 font-bold")}>
+      <span className={classNames(size === "sm" ? "" : "mr-2 font-bold text-lg")}>
         {status ? (
           <>
             <div
               className={classNames(
                 status === Status.LOADING ? "opacity-100" : "opacity-0",
-                "absolute top-1/2 left-1/2 z-0 -ml-4 -mt-4 h-8 w-8 animate-spin rounded-full border-[2px] border-white border-t-transparent transition-all duration-200"
+                "absolute left-1/2 top-1/2 z-0 -ml-4 -mt-4 h-8 w-8 animate-spin rounded-full border-[2px] border-white border-t-transparent transition-all duration-200"
               )}
             />
             <div
@@ -69,7 +67,7 @@ export default function Button({
               className={classNames(
                 color === "white"
                   ? "text-primary-600/40 group-hover:text-primary-600"
-                  : "text-white group-hover:text-white",
+                  : "text-white/40 group-hover:text-white",
                 "w-6 transition-all duration-200"
               )}
             />

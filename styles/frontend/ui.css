@@ -71,6 +71,10 @@ main.page-main section {
 
 .btn {
   @apply inline-flex h-[60px] items-center justify-center rounded-full px-6 text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2;
+
+  &.btn-auth {
+    @apply rounded-xl;
+  }
 }
 
 .btn-primary {
