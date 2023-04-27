@@ -1,22 +1,21 @@
 import Head from "next/head";
-import Image from "next/image";
-import { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 
-import ContentContext from "../utils/contexts/content";
-import CountriesContext from "../utils/contexts/countries";
-import LanguageContext from "../utils/contexts/language";
-import ThemeContext from "../utils/contexts/theme";
+import tailwindConfig from "@/tailwind.config";
 
-import { getContent } from "../utils/resources/content";
-import { getCountries } from "../utils/resources/countries";
-import { getLanguages } from "../utils/resources/languages";
+import ContentContext from "@/utils/contexts/content";
+import CountriesContext from "@/utils/contexts/countries";
+import LanguageContext from "@/utils/contexts/language";
+import ThemeContext from "@/utils/contexts/theme";
 
-import ContentType from "../utils/types/content";
-import CountryType from "../utils/types/country";
-import Theme from "../utils/types/enums/theme";
-import LanguageType from "../utils/types/language";
+import { getContent } from "@/utils/resources/content";
+import { getCountries } from "@/utils/resources/countries";
+import { getLanguages } from "@/utils/resources/languages";
 
-import tailwindConfig from "../tailwind.config";
+import ContentType from "@/utils/types/content";
+import CountryType from "@/utils/types/country";
+import Theme from "@/utils/types/enums/theme";
+import LanguageType from "@/utils/types/language";
 
 interface WrapperProps {
   children: ReactNode;
