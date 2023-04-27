@@ -734,11 +734,12 @@
     "header": {
       "menu": {
         "home": "Accueil",
-        "about": "A propos",
-        "events": "Nos Evènements",
-        "ministries": "Ministères",
-        "contact": "Contact",
-        "quote": "Devis"
+        "about": "About Us",
+        "white_paper": "White Paper",
+        "team": "Team",
+        "partners": "Partners",
+        "sign_in": "Sign In",
+        "create_account": "Create account"
       }
     },
     "footer": {

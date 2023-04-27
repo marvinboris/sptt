@@ -3,10 +3,12 @@ import {
   XMarkIcon,
   HomeIcon,
   IdentificationIcon,
-  Bars3BottomRightIcon,
-  PhoneIcon,
-  WrenchIcon,
-  ShoppingBagIcon,
+  Squares2X2Icon,
+  UserGroupIcon,
+  UsersIcon,
+  UserIcon,
+  ArrowRightOnRectangleIcon,
+  DocumentTextIcon,
 } from "@heroicons/react/24/outline";
 import { Fragment } from "react";
 import Link from "next/link";
@@ -79,9 +81,15 @@ export default function Toolbar({ auth = false }) {
   const mobileNavItems = [
     { name: menu.home, href: "/", icon: HomeIcon },
     { name: menu.about, href: "/about", icon: IdentificationIcon },
-    { name: menu.events, href: "/events", icon: WrenchIcon },
-    { name: menu.ministries, href: "/ministries", icon: ShoppingBagIcon },
-    { name: menu.contact, href: "/contact", icon: PhoneIcon },
+    { name: menu.white_paper, href: "/white-paper", icon: DocumentTextIcon },
+    { name: menu.team, href: "/team", icon: UserGroupIcon },
+    { name: menu.partners, href: "/partners", icon: UsersIcon },
+    { name: menu.sign_in, href: "/login", icon: UserIcon },
+    {
+      name: menu.create_account,
+      href: "/register",
+      icon: ArrowRightOnRectangleIcon,
+    },
   ];
 
   return (
@@ -89,7 +97,12 @@ export default function Toolbar({ auth = false }) {
       {({ close }) => (
         <>
           <div className="container">
-            <div className={classNames("flex transition-all duration-200", auth ? "pt-5" : "pt-10")}>
+            <div
+              className={classNames(
+                "flex pt-10 transition-all duration-200",
+                auth ? "md:pt-5" : ""
+              )}
+            >
               <div className="flex justify-start">
                 <Link href="/" className="cursor-pointer">
                   <span className="sr-only">{app_name}</span>
@@ -101,7 +114,7 @@ export default function Toolbar({ auth = false }) {
                 <div className="flex items-center">
                   <Popover.Group
                     as="nav"
-                    className="hidden space-x-5 overflow-visible md:flex lg:space-x-8"
+                    className="hidden items-center space-x-5 overflow-visible md:flex lg:space-x-8"
                   >
                     <NavItem exact href="/" home>
                       Home
@@ -110,29 +123,34 @@ export default function Toolbar({ auth = false }) {
                     <NavItem href="/white-paper">White paper</NavItem>
                     <NavItem href="/team">Team</NavItem>
                     <NavItem href="/partners">Partners</NavItem>
+
+                    <Link href="/login" className="flex items-end gap-2">
+                      <SvgIcon name="sign-in" className="w-[30px]" />
+                      <div className="border-b-2 border-blue">Sign In</div>
+                    </Link>
+
+                    <div>
+                      <Link
+                        href="/register"
+                        className="inline-block h-12 rounded-full bg-gradient-to-r from-primary-400 to-blue p-px text-sm font-medium"
+                      >
+                        <div
+                          className={classNames(
+                            "relative z-0 flex h-full w-full items-center overflow-hidden rounded-full bg-secondary-900 px-6 before:absolute before:inset-0 before:transition-all before:duration-200",
+                            auth ? "before:bg-translate" : "before:bg-night/20"
+                          )}
+                        >
+                          Create account
+                        </div>
+                      </Link>
+                    </div>
                   </Popover.Group>
                 </div>
 
-                <Link href="/login" className="flex items-end gap-2">
-                  <SvgIcon name="sign-in" className="w-[30px]" />
-                  <div className="border-b-2 border-blue">Sign In</div>
-                </Link>
-
-                <div>
-                  <Link
-                    href="/register"
-                    className="inline-block h-12 rounded-full bg-gradient-to-r from-primary-400 to-blue p-px text-sm font-medium"
-                  >
-                    <div className={classNames("relative z-0 flex h-full w-full items-center overflow-hidden rounded-full bg-secondary-900 px-6 before:absolute before:inset-0 before:transition-all before:duration-200", auth ? "before:bg-translate" : "before:bg-night/20")}>
-                      Create account
-                    </div>
-                  </Link>
-                </div>
-
                 <div className="ml-auto md:hidden">
-                  <Popover.Button className="-m-2 flex h-10 items-center justify-center rounded-md bg-primary-600/10 p-2 text-primary-600 focus:outline-none">
+                  <Popover.Button className="flex h-10 items-center justify-center rounded-md focus:outline-none">
                     <span className="sr-only">Ouvrir le menu</span>
-                    <Bars3BottomRightIcon className="w-6" aria-hidden="true" />
+                    <Squares2X2Icon className="w-9" aria-hidden="true" />
                   </Popover.Button>
                 </div>
               </div>

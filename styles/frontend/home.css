@@ -1,35 +1,33 @@
-/* Publications */
-section#publications {
-  background-image: url("/images/bruno-van-der-kraan-v2HgNzRDfII-unsplash.jpg");
-  @apply relative z-10 bg-cover bg-no-repeat after:absolute after:inset-0 after:-z-10 after:bg-primary-600/50 after:backdrop-blur-sm after:backdrop-filter;
+.section-title {
+  @apply bg-gradient-to-r from-primary-200 to-primary-400 bg-clip-text text-center text-[35px] font-bold text-transparent md:text-left md:text-white;
 }
 
-section#publications .section-header-title {
-  @apply text-secondary-100;
-}
+.owl-stage {
+  @apply flex items-center !important;
 
-section#publications .section-header-subtitle {
-  @apply text-secondary-50;
-}
+  .owl-item.active.center {
+    .opacity-0 {
+      @apply max-h-20 opacity-100 !important;
+    }
 
-section#testimonials .section-header {
-  @apply lg:text-left;
-}
+    .team-member {
+      @apply shadow-xl p-px !important;
 
-/* Newsletter */
-section#newsletter {
-  background-image: url("/images/cathy-mu-UWFjqxYWAmA-unsplash.jpg");
-  @apply relative z-10 bg-cover bg-center after:absolute after:inset-0 after:-z-10 after:bg-primary-50/80 after:backdrop-blur-sm after:backdrop-filter dark:after:bg-secondary-800/80;
-}
+      .relative {
+        @apply after:bg-black/10 pt-8 !important;
 
-section#newsletter .section-header {
-  @apply text-primary-900 dark:text-inherit lg:text-left;
-}
+        .h-24 {
+          @apply h-32 w-32 border-[12px] outline-8 !important;
+        }
 
-section#newsletter .section-header-title {
-  @apply text-primary-900 dark:text-white;
-}
+        .max-h-0 {
+          @apply mt-[22px] max-h-2 bg-white/10 !important;
+        }
 
-section#newsletter .section-body {
-  @apply lg:mt-0;
+        .text-xl\/none {
+          @apply mt-2.5 !important;
+        }
+      }
+    }
+  }
 }

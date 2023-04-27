@@ -13,11 +13,20 @@ export default function Layout({
     <div className="flex min-h-screen flex-col">
       <Toolbar auth={auth} />
 
-      <div className={classNames("main-wrapper", auth ? "relative pt-36 overflow-x-clip" : "")}>
+      <div
+        className={classNames(
+          "main-wrapper",
+          auth
+            ? "relative flex flex-col justify-center overflow-x-clip pt-32 pb-24 md:justify-start md:pt-36"
+            : ""
+        )}
+      >
         {children}
       </div>
 
-      {auth ? null : <Footer />}
+      <div className={auth ? "md:hidden" : "bg-night/80"}>
+        <Footer />
+      </div>
     </div>
   );
 }

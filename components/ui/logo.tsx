@@ -9,6 +9,7 @@ export default function Logo({
         height={500}
         width={500}
         {...props}
+        priority
         src="/sptt.svg"
         alt="Logo"
         className="h-[60px] w-auto"

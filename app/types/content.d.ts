@@ -623,10 +623,11 @@ export default interface ContentType {
         menu: {
           home: string;
           about: string;
-          events: string;
-          ministries: string;
-          contact: string;
-          give: string;
+          white_paper: string;
+          team: string;
+          partners: string;
+          sign_in: string;
+          create_account: string;
         };
       };
       footer: {
