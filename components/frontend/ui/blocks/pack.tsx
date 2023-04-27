@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import React from 'react';
 
 import SvgIcon from "@/components/ui/svg-icon";
 import Button from "../form/button";

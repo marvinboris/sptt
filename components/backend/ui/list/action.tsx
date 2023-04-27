@@ -5,14 +5,16 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import React from 'react';
 
-import { useAccountContext } from "@/app/contexts/account";
-import { useRoleContext } from "@/app/contexts/role";
+import UserAccountType from "@/utils/types/account/user";
 
-import ApiAccountUserType from "@/app/types/api/account/user";
+import ApiAccountUserType from "@/utils/types/api/account/user";
+
+import { useAccountContext } from "@/utils/contexts/account";
+import { useRoleContext } from "@/utils/contexts/role";
 
 import Delete from "./delete";
-import UserAccountType from "@/app/types/account/user";
 
 type ActionProps = {
   item: { _id?: string; link?: string } & any;

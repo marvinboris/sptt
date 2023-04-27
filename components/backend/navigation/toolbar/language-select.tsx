@@ -1,11 +1,11 @@
-import { Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-
-import { useLanguageContext } from "../../../../app/contexts/language";
-
-import LanguageType from "../../../../app/types/language";
 import Image from "next/image";
+import React, { Fragment } from "react";
+
+import { useLanguageContext } from "@/utils/contexts/language";
+
+import LanguageType from "@/utils/types/language";
 
 export default function LanguageSelect() {
   const { language, setLanguage, languages } = useLanguageContext();

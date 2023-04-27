@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
 import { Switch as HSwitch } from "@headlessui/react";
-import { classNames } from "../../../../app/helpers/utils";
+import React, { ReactNode } from "react";
+
+import { classNames } from "@/utils/helpers";
 
 type SwitchProps = {
   checked?: boolean;

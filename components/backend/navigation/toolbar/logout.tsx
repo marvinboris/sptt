@@ -1,7 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { ArrowRightOnRectangleIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { ComponentProps, Fragment, useState } from "react";
-import { useContentContext } from "../../../../app/contexts/content";
+import React, { ComponentProps, Fragment, useState } from "react";
+
+import { useContentContext } from "@/utils/contexts/content";
 import Button from "../../ui/form/button";
 
 type LogoutProps = ComponentProps<"div"> & {

@@ -1,4 +1,6 @@
-import IconType from "@/app/types/icon";
+import React from 'react';
+
+import IconType from "@/utils/types/icon";
 
 interface SectionTitleProps {
   title: string;

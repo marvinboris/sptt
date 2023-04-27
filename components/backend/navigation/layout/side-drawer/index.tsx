@@ -7,23 +7,23 @@ import {
 } from "@heroicons/react/24/outline";
 import { Transition } from "@headlessui/react";
 import Link from "next/link";
-import { Fragment, ReactNode } from "react";
-
-import { useContentContext } from "@/app/contexts/content";
-import { useSideDrawerContext } from "@/app/contexts/side-drawer";
-import { resourceIcon } from "@/app/helpers/utils";
-import { useWindowSize } from "@/app/hooks";
-
-import UserAccountType from "@/app/types/account/user";
-import NotificationInterface from "@/app/types/models/notification";
-import ResourceType from "@/app/types/resource";
-
-import Logo from "../../../../ui/logo";
+import React, { Fragment, ReactNode } from "react";
 
 import NavItem from "./nav-item";
-import RoleInterface from "@/app/types/models/role";
-import { useAccountContext } from "@/app/contexts/account";
-import { useRoleContext } from "@/app/contexts/role";
+
+import Logo from "@/components/ui/logo";
+
+import { useAccountContext } from "@/utils/contexts/account";
+import { useContentContext } from "@/utils/contexts/content";
+import { useRoleContext } from "@/utils/contexts/role";
+import { useSideDrawerContext } from "@/utils/contexts/side-drawer";
+import { resourceIcon } from "@/utils/helpers";
+import { useWindowSize } from "@/utils/hooks";
+
+import UserAccountType from "@/utils/types/account/user";
+import NotificationInterface from "@/utils/types/models/notification";
+import RoleInterface from "@/utils/types/models/role";
+import ResourceType from "@/utils/types/resource";
 
 const Group = (props: { title: string; children?: ReactNode }) => (
   <div>

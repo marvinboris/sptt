@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function PageError() {
   return (
     <div className="py-5 text-center text-2xl text-white">

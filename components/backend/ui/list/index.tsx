@@ -7,7 +7,7 @@ import {
   PlusIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import {
+import React, {
   ChangeEvent,
   ComponentProps,
   ReactNode,
@@ -15,8 +15,8 @@ import {
   useState,
 } from "react";
 
-import { useContentContext } from "../../../../app/contexts/content";
-import { classNames } from "../../../../app/helpers/utils";
+import { useContentContext } from "../../../../utils/contexts/content";
+import { classNames } from "../../../../utils/helpers";
 
 import Button from "../form/button";
 import Input from "../form/input";

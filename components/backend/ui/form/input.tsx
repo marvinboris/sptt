@@ -1,10 +1,10 @@
 import { CheckIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import { ChangeEvent, InputHTMLAttributes, ReactNode, useState } from "react";
+import React, { ChangeEvent, InputHTMLAttributes, ReactNode, useState } from "react";
 
-import { checkValidity, classNames } from "@/app/helpers/utils";
+import { checkValidity, classNames } from "@/utils/helpers";
 
-import IconType from "@/app/types/icon";
-import ValidationType from "@/app/types/validation";
+import IconType from "@/utils/types/icon";
+import ValidationType from "@/utils/types/validation";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   icon?: IconType;

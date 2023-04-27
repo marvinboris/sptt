@@ -4,9 +4,9 @@ import path from "path";
 import formidable from "formidable";
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { message } from "../../app/helpers/utils";
+import { message } from "../../utils/helpers";
 
-import ContentType from "../../app/types/content";
+import ContentType from "../../utils/types/content";
 
 export const getCms = (example?: boolean) => {
   const jsonString = fs.readFileSync(

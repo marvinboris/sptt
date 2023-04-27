@@ -1,9 +1,9 @@
-import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-
-import { useCountriesContext } from "../../../../../app/contexts/countries";
 import Image from "next/image";
+import React, { Fragment, useState } from "react";
+
+import { useCountriesContext } from "@/utils/contexts/countries";
 
 interface CountrySelectProps {
   value: string;

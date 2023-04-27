@@ -1,8 +1,8 @@
 import React, { type ReactNode } from "react";
 
-import { classNames } from "@/app/helpers/utils";
-import Status from "@/app/types/enums/status";
-import IconType from "@/app/types/icon";
+import { classNames } from "@/utils/helpers";
+import Status from "@/utils/types/enums/status";
+import IconType from "@/utils/types/icon";
 
 type ButtonProps = React.ComponentProps<"button"> & {
   color?: string;

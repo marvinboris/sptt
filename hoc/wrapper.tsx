@@ -2,19 +2,19 @@ import Head from "next/head";
 import Image from "next/image";
 import { ReactNode, useEffect, useState } from "react";
 
-import ContentContext from "../app/contexts/content";
-import CountriesContext from "../app/contexts/countries";
-import LanguageContext from "../app/contexts/language";
-import ThemeContext from "../app/contexts/theme";
+import ContentContext from "../utils/contexts/content";
+import CountriesContext from "../utils/contexts/countries";
+import LanguageContext from "../utils/contexts/language";
+import ThemeContext from "../utils/contexts/theme";
 
-import { getContent } from "../app/resources/content";
-import { getCountries } from "../app/resources/countries";
-import { getLanguages } from "../app/resources/languages";
+import { getContent } from "../utils/resources/content";
+import { getCountries } from "../utils/resources/countries";
+import { getLanguages } from "../utils/resources/languages";
 
-import ContentType from "../app/types/content";
-import CountryType from "../app/types/country";
-import Theme from "../app/types/enums/theme";
-import LanguageType from "../app/types/language";
+import ContentType from "../utils/types/content";
+import CountryType from "../utils/types/country";
+import Theme from "../utils/types/enums/theme";
+import LanguageType from "../utils/types/language";
 
 import tailwindConfig from "../tailwind.config";
 

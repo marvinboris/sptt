@@ -1,9 +1,9 @@
 import NextHead from "next/head";
-import { ComponentProps } from "react";
+import React, { ComponentProps } from "react";
 
 import Footer from "./footer";
 import Toolbar from "./toolbar";
-import { classNames } from "@/app/helpers/utils";
+import { classNames } from "@/utils/helpers";
 
 export default function Layout({
   auth,

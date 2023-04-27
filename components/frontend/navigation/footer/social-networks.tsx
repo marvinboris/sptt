@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { useContentContext } from "../../../../app/contexts/content";
+import React from 'react';
+
+import { useContentContext } from "@/utils/contexts/content";
 
 export default function SocialNetworks() {
   return (

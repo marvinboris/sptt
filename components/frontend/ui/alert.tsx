@@ -1,4 +1,6 @@
-import { classNames } from "../../../app/helpers/utils";
+import React from 'react';
+
+import { classNames } from "@/utils/helpers";
 
 type AlertProps = React.ComponentProps<"div"> & {
   color?: "info" | "danger" | "success" | "warning";

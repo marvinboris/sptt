@@ -1,5 +1,6 @@
-import { InputHTMLAttributes, ReactNode } from "react";
-import { classNames } from "../../../../app/helpers/utils";
+import React, { InputHTMLAttributes, ReactNode } from "react";
+
+import { classNames } from "@/utils/helpers";
 
 type InputProps = InputHTMLAttributes<HTMLTextAreaElement> & {
   inputSize?: "sm" | "lg";

@@ -1,9 +1,9 @@
-import { ReactNode, useEffect } from "react";
 import NextHead from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { ReactNode, useEffect } from "react";
 
 import Logo from "../../ui/logo";
-import { useRouter } from "next/router";
 
 interface LayoutProps {
   children: ReactNode;

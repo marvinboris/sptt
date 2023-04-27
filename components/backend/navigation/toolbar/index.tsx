@@ -6,14 +6,15 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import React from 'react';
 
-import { useContentContext } from "@/app/contexts/content";
-import { useAccountContext } from "@/app/contexts/account";
-import { useRoleContext } from "@/app/contexts/role";
-import { useSideDrawerContext } from "@/app/contexts/side-drawer";
-import { useThemeContext } from "@/app/contexts/theme";
+import { useContentContext } from "@/utils/contexts/content";
+import { useAccountContext } from "@/utils/contexts/account";
+import { useRoleContext } from "@/utils/contexts/role";
+import { useSideDrawerContext } from "@/utils/contexts/side-drawer";
+import { useThemeContext } from "@/utils/contexts/theme";
 
-import Theme from "@/app/types/enums/theme";
+import Theme from "@/utils/types/enums/theme";
 
 import LanguageSelect from "./language-select";
 import Logout from "./logout";

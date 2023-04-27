@@ -1,11 +1,11 @@
-import { ComponentProps, ReactNode, useState } from "react";
+import React, { ComponentProps, ReactNode, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-import { useSideDrawerContext } from "@/app/contexts/side-drawer";
-import { classNames } from "@/app/helpers/utils";
-import { useWindowSize } from "@/app/hooks";
-import IconType from "@/app/types/icon";
+import { useSideDrawerContext } from "@/utils/contexts/side-drawer";
+import { classNames } from "@/utils/helpers";
+import { useWindowSize } from "@/utils/hooks";
+import IconType from "@/utils/types/icon";
 
 interface NavItemProps {
   href: string;

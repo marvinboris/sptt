@@ -2,9 +2,9 @@ import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, ReactNode } from "react";
+import React, { Fragment, ReactNode } from "react";
 
-import IconType from "@/app/types/icon";
+import IconType from "@/utils/types/icon";
 
 const classNames = (...classes: string[]) => classes.filter(Boolean).join(" ");
 

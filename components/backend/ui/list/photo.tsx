@@ -1,6 +1,6 @@
 import { EyeIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 import View from "../../../ui/view";
 

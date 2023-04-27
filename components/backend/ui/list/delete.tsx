@@ -1,6 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { TrashIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { ComponentProps, Fragment, useState } from "react";
+import React, { ComponentProps, Fragment, useState } from "react";
 
 import Button from "../form/button";
 

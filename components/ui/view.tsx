@@ -1,4 +1,4 @@
-import { useState, Fragment, ReactNode } from "react";
+import React, { useState, Fragment, ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 interface ViewProps {

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { ComponentProps, useEffect, useState } from "react";
+import React, { ComponentProps, useEffect, useState } from "react";
 
-import { classNames } from "../../../app/helpers/utils";
+import { classNames } from "../../../utils/helpers";
 
 type LoadingProps = ComponentProps<"div"> & {
   isAuthenticated?: boolean;

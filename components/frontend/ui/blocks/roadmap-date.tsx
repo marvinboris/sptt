@@ -1,5 +1,8 @@
-import { classNames } from "@/app/helpers/utils";
+import React from 'react';
+
 import SvgIcon from "@/components/ui/svg-icon";
+
+import { classNames } from "@/utils/helpers";
 
 type RoadmapDateBlockProps = {
     achieved?: boolean;

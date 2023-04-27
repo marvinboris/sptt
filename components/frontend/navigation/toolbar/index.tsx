@@ -10,13 +10,13 @@ import {
   ArrowRightOnRectangleIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/outline";
-import { Fragment } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import React, { Fragment } from "react";
 
-import { useContentContext } from "@/app/contexts/content";
-import { classNames } from "@/app/helpers/utils";
-import IconType from "@/app/types/icon";
+import { useContentContext } from "@/utils/contexts/content";
+import { classNames } from "@/utils/helpers";
+import IconType from "@/utils/types/icon";
 
 import Logo from "@/components/ui/logo";
 import SvgIcon from "@/components/ui/svg-icon";

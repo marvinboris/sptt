@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, useEffect, useState } from "react";
+import React, { ComponentProps, ReactNode, useEffect, useState } from "react";
 
 interface PageTitleProps {
   title: ReactNode;

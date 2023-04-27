@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function PageLoader() {
   return (
     <div className="flex min-h-[400px] items-center justify-center">

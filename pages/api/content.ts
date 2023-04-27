@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import ApiMessageType from "../../app/types/api/message";
+import ApiMessageType from "../../utils/types/api/message";
 
 import { getCms, handleError } from "../../lib/utils";
 

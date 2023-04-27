@@ -1,7 +1,7 @@
-import { FC } from "react";
+import React from "react";
 
-import { useContentContext } from "../../../../app/contexts/content";
-import { classNames } from "../../../../app/helpers/utils";
+import { useContentContext } from "../../../../utils/contexts/content";
+import { classNames } from "../../../../utils/helpers";
 
 export default function Status({ value }: { value: boolean }) {
   const { content } = useContentContext();

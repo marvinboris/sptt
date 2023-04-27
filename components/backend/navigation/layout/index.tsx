@@ -1,12 +1,11 @@
-import { ReactNode, useEffect, useState } from "react";
 import NextHead from "next/head";
 import { useRouter } from "next/router";
+import React, { ReactNode, useEffect, useState } from "react";
 
-import SideDrawerContext from "../../../../app/contexts/side-drawer";
+import SideDrawerContext from "@/utils/contexts/side-drawer";
 
 import Footer from "../footer";
 import Toolbar from "../toolbar";
-
 import SideDrawer from "./side-drawer";
 
 interface LayoutProps {

@@ -21,8 +21,8 @@ import {
 import axios, { AxiosError } from "axios";
 import _ from "lodash";
 
-import ResourceType from "../types/resource";
-import ValidationType from "../types/validation";
+import ResourceType from "./types/resource";
+import ValidationType from "./types/validation";
 
 export const setAuthToken = (token?: string | undefined | null) => {
   if (token) axios.defaults.headers.common["x-auth-token"] = token;

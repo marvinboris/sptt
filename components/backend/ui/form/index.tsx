@@ -1,6 +1,6 @@
 import { ListBulletIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { ComponentProps, ReactNode } from "react";
+import React, { ComponentProps, ReactNode } from "react";
 
 import Button from "./button";
 

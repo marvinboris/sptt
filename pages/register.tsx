@@ -12,7 +12,7 @@ import Layout, { Head } from "@/components/frontend/navigation/layout";
 import SvgIcon from "@/components/ui/svg-icon";
 
 import { NextPageWithLayout } from "./_app";
-import { useWindowSize } from "@/app/hooks";
+import { useWindowSize } from "@/utils/hooks";
 
 const params = {
   link: "/register",

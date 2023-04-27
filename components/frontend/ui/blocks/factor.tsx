@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 import SvgIcon from "@/components/ui/svg-icon";
 

@@ -1,9 +1,9 @@
-import React, { ComponentProps, ReactNode } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import React, { ComponentProps, ReactNode } from "react";
 
-import { classNames } from "@/app/helpers/utils";
 import SvgIcon from "@/components/ui/svg-icon";
+import { classNames } from "@/utils/helpers";
 
 interface NavItemProps {
   exact?: boolean;

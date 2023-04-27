@@ -1,5 +1,5 @@
-import { ComponentProps, ReactNode } from "react";
-import { classNames } from "../../../../app/helpers/utils";
+import React, { ComponentProps, ReactNode } from "react";
+import { classNames } from "@/utils/helpers";
 
 type SectionTitleProps = ComponentProps<"div"> & {
   head?: ReactNode;

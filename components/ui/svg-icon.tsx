@@ -1,4 +1,5 @@
 import Image, { ImageProps } from "next/image";
+import React from 'react';
 
 type SvgIconProps = Omit<ImageProps, 'src' | 'alt'> & {
   name: string;

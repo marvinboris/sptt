@@ -1,8 +1,9 @@
 import { CheckIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import { ChangeEvent, InputHTMLAttributes, ReactNode, useState } from "react";
+import React, { ChangeEvent, InputHTMLAttributes, ReactNode, useState } from "react";
 
-import { checkValidity, classNames } from "../../../../app/helpers/utils";
-import ValidationType from "../../../../app/types/validation";
+import { checkValidity, classNames } from "@/utils/helpers";
+
+import ValidationType from "@/utils/types/validation";
 
 type TextAreaProps = InputHTMLAttributes<HTMLTextAreaElement> & {
   label?: ReactNode;
