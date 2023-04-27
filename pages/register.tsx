@@ -4,7 +4,7 @@ import {
   LockClosedIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 
 import Button from "@/components/auth/ui/form/button";
 import Input from "@/components/auth/ui/form/input";

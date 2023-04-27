@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
-import { ReactElement, ReactNode } from "react";
+import React, { ReactElement, ReactNode } from "react";
 
 import Wrapper from "../hoc/wrapper";
 

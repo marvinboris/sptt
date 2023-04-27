@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import ApiMessageType from "../../utils/types/api/message";
-
 import { getCms, handleError } from "../../lib/utils";
+
+import ApiMessageType from "../../utils/types/api/message";
 
 export default async function handler(
   req: NextApiRequest,
