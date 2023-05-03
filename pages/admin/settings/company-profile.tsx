@@ -1,8 +1,6 @@
 import {
-  BriefCaseIcon,
-  CheckCircleIcon,
+  BriefcaseIcon,
   EnvelopeIcon,
-  LockClosedIcon,
   MapPinIcon,
   PhoneIcon,
   PlusIcon,
@@ -74,7 +72,7 @@ const AdminSettingsMethodsPage: NextPageWithLayout = () => {
                 id="name"
                 name="name"
                 label="Company name"
-                icon={BriefCaseIcon}
+                icon={BriefcaseIcon}
                 defaultValue="info@spreadtt.io"
               />
               <Input
@@ -98,7 +96,7 @@ const AdminSettingsMethodsPage: NextPageWithLayout = () => {
                 type="tel"
                 name="phone"
                 label="Phone No. 2"
-                icon={BriefCaseIcon}
+                icon={BriefcaseIcon}
                 defaultValue="+237 612 34 56 78"
               />
             </form>
