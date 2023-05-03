@@ -1,7 +1,10 @@
 import Image, { ImageProps } from "next/image";
-import React from 'react';
+import React from "react";
+
+import { classNames } from "@/utils/helpers";
 
 export default function Logo({
+  className,
   ...props
 }: Omit<ImageProps, "height" | "src" | "alt">) {
   return (
@@ -13,7 +16,7 @@ export default function Logo({
         priority
         src="/sptt.svg"
         alt="Logo"
-        className="h-[60px] w-auto"
+        className={classNames("w-auto", className || "h-[60px]")}
       />
     </div>
   );

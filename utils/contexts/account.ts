@@ -1,29 +1,34 @@
 import { createContext, useContext } from "react";
 
 import UserAccountType from "../types/account/user";
-import RoleInterface from "../types/models/role";
+import AdminAccountType from "../types/account/admin";
 
-type Type = UserAccountType;
+type Type = UserAccountType | AdminAccountType;
 
 const AccountContext = createContext<{
   account: Type;
   setAccount: (account: Type) => void;
 }>({
   account: {
-    photo: 'string',
-    first_name: 'string',
-    last_name: 'string',
-    name: 'string',
-    aid: 'string',
-    email: 'string',
-    phone: 'string',
-    birthdate: 'string',
-    role: {
-      name: '',
-      description: '',
-      features: [],
-    },
-    notifications: [],
+    photo: "/images/user-pic.svg",
+    first_name: "Merani",
+    last_name: "Carto",
+    name: "Merani Carto",
+    aid: "string",
+    email: "merani.carto@gmail.com",
+    phone: "555 555 555",
+    birthdate: "01/01/1991",
+    notifications: [
+      {
+        notification: {
+          id: "1",
+          type: "Test",
+          message: "This is a test",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      },
+    ],
   },
   setAccount: () => {},
 });

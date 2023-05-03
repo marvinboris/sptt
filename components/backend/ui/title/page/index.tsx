@@ -1,11 +1,13 @@
 import React, { ComponentProps, ReactNode, useEffect, useState } from "react";
 
+import IconType from '@/utils/types/icon';
+
 interface PageTitleProps {
   title: ReactNode;
   subtitle: ReactNode;
   animated?: boolean;
   animationSubtitle?: ReactNode;
-  icon: (props: ComponentProps<"svg">) => JSX.Element;
+  icon: IconType;
 }
 
 export default function PageTitle({

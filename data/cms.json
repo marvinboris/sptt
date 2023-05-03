@@ -1,7 +1,7 @@
 {
   "global": {
-    "app_name": "PSR",
-    "company_name": "Palais sur le Rocher",
+    "app_name": "Spread Tech Token",
+    "company_name": "Spread Tech Token",
     "company_logo": "/images/dc901424c9f9a147b431585c8.png",
     "favicon": "/images/dc901424c9f9a147b431585c9.png",
     "logo": {
@@ -134,108 +134,52 @@
         "config": "Config"
       },
       "menu": {
-        "dashboard": { "title": "Tableau de bord" },
-        "admins": {
-          "title": "Administrateurs",
-          "add": "Ajouter un administrateur",
-          "index": "Liste des administrateurs"
-        },
+        "dashboard": { "title": "Dashboard" },
         "users": {
-          "title": "Utilisateurs",
-          "add": "Ajouter un utilisateur",
-          "index": "Liste des utilisateurs"
+          "title": "Users",
+          "add": "Add user",
+          "index": "User list"
         },
-        "roles": {
-          "title": "Rôles",
-          "add": "Ajouter un rôle",
-          "index": "Liste des rôles"
+        "packs": {
+          "title": "Course Packs",
+          "add": "Add pack",
+          "index": "Pack list"
         },
-        "features": {
-          "title": "Fonctionnalités",
-          "add": "Ajouter une fonctionnalité",
-          "index": "Liste des fonctionnalités"
+        "holders": {
+          "title": "Holders",
+          "add": "Add holder",
+          "index": "Holder list"
         },
         "cms": {
-          "title": "CMS",
+          "title": "CMS settings",
           "global": "Global",
-          "general": "Général",
-          "auth": "Authentification",
+          "general": "General",
+          "auth": "Authentication",
           "backend": "Backend",
           "frontend": "Frontend"
         },
         "notifications": { "title": "Notifications" },
         "settings": {
-          "title": "Paramètres"
+          "title": "System settings",
+          "system_user": "System user",
+          "company_profile": "Company profile",
+          "methods": "Payment methods",
+          "kyc": "User KYC",
+          "generation": "Generation",
+          "mlm": "MLM settings",
+          "send_token": "Send token",
+          "language": "Language settings"
         },
-        "events": {
-          "title": "Evènements",
-          "add": "Ajouter un service",
-          "index": "Liste des évènements"
+        "payouts": {
+          "title": "Payouts",
+          "add": "Add payout",
+          "index": "Payout list"
         },
-        "ministries": {
-          "title": "Ministères",
-          "add": "Ajouter un ministère",
-          "index": "Liste des ministères"
-        },
-        "methods": {
-          "title": "Méthodes",
-          "add": "Ajouter un méthode",
-          "index": "Liste des méthodes"
-        },
-        "donations": {
-          "title": "Donations",
-          "add": "Ajouter une donation",
-          "index": "Liste des donations"
-        },
-        "tithes": {
-          "title": "Dîmes",
-          "add": "Ajouter une dîme",
-          "index": "Liste des dîmes"
-        },
-        "transactions": {
-          "title": "Transactions",
-          "add": "Ajouter une transaction",
-          "index": "Liste des transactions"
-        },
-        "lessons": {
-          "title": "Enseignements",
-          "add": "Ajouter un enseignement",
-          "index": "Liste des enseignements"
-        },
-        "categories": {
-          "title": "Catégories",
-          "add": "Ajouter une catégorie",
-          "index": "Liste des catégories"
-        },
-        "subscribers": {
-          "title": "Abonnés",
-          "add": "Ajouter un abonné",
-          "index": "Liste des abonnés"
-        },
-        "publications": {
-          "title": "Publications",
-          "add": "Ajouter une publication",
-          "index": "Liste des publications"
-        },
-        "staff_members": {
-          "title": "Membres du staff",
-          "add": "Ajouter un membre",
-          "index": "Liste des membres"
-        },
-        "members": {
-          "title": "Membres",
-          "add": "Ajouter un membre",
-          "index": "Liste des membres"
-        },
-        "testimonials": {
-          "title": "Témoignages",
-          "add": "Ajouter un témoignage",
-          "index": "Liste des témoignages"
-        },
-        "images": {
-          "title": "Images",
-          "add": "Ajouter une image",
-          "index": "Liste des images"
+        "reports": {
+          "title": "Reports",
+          "purchase": "Purchase report",
+          "paid_bonus": "Paid bonus report",
+          "commission": "Commission report"
         }
       }
     },
@@ -252,21 +196,21 @@
       },
       "list": {
         "action": "Action",
-        "all": "Tous",
-        "first": "Première",
-        "last": "Dernière",
-        "loading": "Chargement en cours",
-        "print": "Imprimer",
+        "all": "All",
+        "first": "First",
+        "last": "Last",
+        "loading": "Loading",
+        "print": "Print",
         "pdf": "PDF",
         "csv": "CSV",
         "excel": "Excel",
-        "search": "Rechercher",
-        "see": "Voir",
-        "show": "Afficher",
+        "search": "Type to search",
+        "see": "See",
+        "show": "Show",
         "sl": "SL",
-        "showing": "Affichant",
-        "from": "sur",
-        "entries": { "singular": "entrée", "plural": "entrées" }
+        "showing": "Showing",
+        "from": "from",
+        "entries": { "singular": "entry", "plural": "entries" }
       }
     },
     "messages": {
@@ -391,8 +335,8 @@
     "pages": {
       "dashboard": {
         "admin": {
-          "title": "Panneau de l'administrateur",
-          "subtitle": "Tableau de bord",
+          "title": "Dashboard",
+          "subtitle": "Dashboard",
           "blocks": {
             "users": "Utilisateurs",
             "testimonials": "Témoignages",
@@ -402,7 +346,7 @@
         },
         "user": {
           "title": "Panneau de l'utilisateur",
-          "subtitle": "Tableau de bord",
+          "subtitle": "Dashboard",
           "blocks": {
             "users": "Utilisateurs",
             "testimonials": "Témoignages",
@@ -434,27 +378,11 @@
           "company_logo": "Logo de l'entreprise"
         }
       },
-      "admins": {
-        "title": "Administrateurs",
-        "add": "Ajouter un administrateur",
-        "edit": "Modifier un administrateur",
-        "index": "Liste des administrateurs",
-        "form": {
-          "name": "Nom de l'administrateur",
-          "full_name": "Nom complet",
-          "phone": "Numéro de téléphone",
-          "password": "Mot de passe",
-          "password_confirmation": "Confirmation de mot de passe",
-          "email": "Adresse mail",
-          "admin_photo": "Photo de l'administrateur",
-          "photo": "Photo"
-        }
-      },
       "users": {
-        "title": "Utilisateurs",
-        "add": "Ajouter un utilisateur",
-        "edit": "Modifier un utilisateur",
-        "index": "Liste des utilisateurs",
+        "title": "Users",
+        "add": "Add user",
+        "edit": "Edit user",
+        "index": "User list",
         "form": {
           "name": "Nom de l'utilisateur",
           "full_name": "Nom complet",
@@ -468,11 +396,11 @@
           "photo": "Photo"
         }
       },
-      "roles": {
-        "title": "Rôles",
-        "add": "Ajouter un rôle",
-        "edit": "Modifier un rôle",
-        "index": "Liste des rôles",
+      "packs": {
+        "title": "Course packs",
+        "add": "Create new",
+        "edit": "Edit pack",
+        "index": "Course packs",
         "form": {
           "name": "Nom",
           "description": "Description",
@@ -483,11 +411,11 @@
           "delete": "Supprimer"
         }
       },
-      "features": {
-        "title": "Fonctionnalités",
-        "add": "Ajouter une fonctionnalité",
-        "edit": "Modifier une fonctionnalité",
-        "index": "Liste des fonctionnalités",
+      "holders": {
+        "title": "Holders",
+        "add": "Add holder",
+        "edit": "Edit holder",
+        "index": "Holder list",
         "form": { "name": "Nom", "prefix": "Préfixe", "created_at": "Créée le" }
       },
       "notifications": {
@@ -503,10 +431,15 @@
         }
       },
       "settings": {
-        "title": "Paramètres",
-        "subtitle": "Paramètres du compte",
-        "form_title": "Paramètres du compte",
-        "form_subtitle": "Modifier ou gérer le compte",
+        "title": "System settings",
+        "system_user": "System user",
+        "company_profile": "Company profile",
+        "methods": "Payment methods",
+        "kyc": "User KYC",
+        "generation": "Generation",
+        "mlm": "MLM settings",
+        "send_token": "Send token",
+        "language": "Language settings",
         "form": {
           "name": "Nom complet",
           "email": "Adresse mail",
@@ -518,11 +451,11 @@
           "edit_settings": "Modifier"
         }
       },
-      "events": {
-        "title": "Evènements",
-        "add": "Ajouter un évènement",
-        "edit": "Modifier un évènement",
-        "index": "Liste des évènements",
+      "payouts": {
+        "title": "Payouts",
+        "add": "Add payout",
+        "edit": "Edit payout",
+        "index": "Payouts",
         "form": {
           "title": "Titre",
           "description": "Description",
@@ -534,11 +467,11 @@
           "created_at": "Créé le"
         }
       },
-      "ministries": {
-        "title": "Ministères",
-        "add": "Ajouter un ministère",
-        "edit": "Modifier un ministère",
-        "index": "Liste des ministères",
+      "reports": {
+        "title": "Reports",
+        "purchase": "Purchase report",
+        "paid_bonus": "Paid bonus report",
+        "commission": "Commission report",
         "form": {
           "name": "Nom",
           "description": "Description",
@@ -548,184 +481,6 @@
           "is_active": "Statut",
           "select_status": "Sélectionner le statut",
           "created_at": "Créé le"
-        }
-      },
-      "categories": {
-        "title": "Catégories",
-        "add": "Ajouter une catégorie",
-        "edit": "Modifier une catégorie",
-        "index": "Liste des catégories",
-        "form": {
-          "name": "Nom",
-          "is_active": "Statut",
-          "select_status": "Sélectionner le statut",
-          "created_at": "Créée le"
-        }
-      },
-      "subscribers": {
-        "title": "Abonnés",
-        "add": "Ajouter un abonné",
-        "edit": "Modifier un abonné",
-        "index": "Liste des abonnés",
-        "form": {
-          "first_name": "Prénom(s)",
-          "email": "Adresse mail",
-          "created_at": "Créée le"
-        }
-      },
-      "publications": {
-        "title": "Publications",
-        "add": "Ajouter une publication",
-        "edit": "Modifier une publication",
-        "index": "Liste des publications",
-        "form": {
-          "title": "Titre",
-          "description": "Description",
-          "body": "Contenu",
-          "category": "Catégorie",
-          "select_category": "Sélectionner une catégorie",
-          "photo": "Photo",
-          "publication_photo": "Photo de la publication",
-          "is_active": "Statut",
-          "select_status": "Sélectionner le statut",
-          "created_at": "Créée le"
-        }
-      },
-      "lessons": {
-        "title": "Enseignements",
-        "add": "Ajouter un enseignement",
-        "edit": "Modifier un enseignement",
-        "index": "Liste des enseignements",
-        "form": {
-          "episode": "Episode",
-          "date": "Date",
-          "description": "Description",
-          "subtitle": "Sous-titre",
-          "notes": "Notes",
-          "audio": "Audio",
-          "lesson_audio": "Audio de l'enseignement",
-          "download": "Télécharger",
-          "created_at": "Créé le"
-        }
-      },
-      "methods": {
-        "title": "Méthodes",
-        "add": "Ajouter une méthode",
-        "edit": "Modifier une méthode",
-        "index": "Liste des méthodes",
-        "form": {
-          "name": "Nom",
-          "description": "Description",
-          "logo": "Logo",
-          "method_logo": "Logo de la méthode",
-          "is_active": "Statut",
-          "select_status": "Sélectionner le statut",
-          "created_at": "Créée le"
-        }
-      },
-      "donations": {
-        "title": "Donations",
-        "add": "Ajouter une donation",
-        "edit": "Modifier une donation",
-        "index": "Liste des donations",
-        "form": {
-          "method": "Méthode de paiement",
-          "select_method": "Sélectionner une méthode de paiement",
-          "amount": "Montant",
-          "created_at": "Créé le"
-        }
-      },
-      "tithes": {
-        "title": "Dîmes",
-        "add": "Ajouter une dîme",
-        "edit": "Modifier une dîme",
-        "index": "Liste des dîmes",
-        "form": {
-          "member": "Membre",
-          "select_member": "Sélectionner un membre",
-          "method": "Méthode de paiement",
-          "select_method": "Sélectionner une méthode de paiement",
-          "amount": "Montant",
-          "created_at": "Créée le"
-        }
-      },
-      "transactions": {
-        "title": "Transactions",
-        "add": "Ajouter une transaction",
-        "edit": "Modifier une transaction",
-        "index": "Liste des transactions",
-        "form": {
-          "address": "Adresse",
-          "currency": "Devise",
-          "tx_id": "Identifiant",
-          "tx_hash": "Hash",
-          "status": "Statut",
-          "method": "Méthode de paiement",
-          "amount": "Montant",
-          "created_at": "Créée le"
-        }
-      },
-      "testimonials": {
-        "title": "Témoignages",
-        "add": "Ajouter un témoignage",
-        "edit": "Modifier un témoignage",
-        "index": "Liste des témoignages",
-        "form": {
-          "name": "Nom",
-          "title": "Titre",
-          "body": "Contenu",
-          "photo": "Photo",
-          "testimony_photo": "Photo du témoignage",
-          "is_active": "Statut",
-          "select_status": "Sélectionner le statut",
-          "created_at": "Créé le"
-        }
-      },
-      "staff_members": {
-        "title": "Membres du staff",
-        "add": "Ajouter un membre",
-        "edit": "Modifier un membre",
-        "index": "Liste des membres",
-        "form": {
-          "name": "Nom",
-          "title": "Titre",
-          "description": "Description",
-          "photo": "Photo",
-          "staff_member_photo": "Photo du membre",
-          "principal": "Principal",
-          "is_active": "Statut",
-          "select_status": "Sélectionner le statut",
-          "created_at": "Créé le"
-        }
-      },
-      "members": {
-        "title": "Membres",
-        "add": "Ajouter un membre",
-        "edit": "Modifier un membre",
-        "index": "Liste des membres",
-        "form": {
-          "first_name": "Prénom(s)",
-          "last_name": "Nom(s)",
-          "name": "Nom complet",
-          "photo": "Photo",
-          "member_photo": "Photo du membre",
-          "is_active": "Statut",
-          "qr_code": "Code QR",
-          "member_qr": "Code QR du membre",
-          "select_status": "Sélectionner le statut",
-          "created_at": "Créé le"
-        }
-      },
-      "images": {
-        "title": "Images",
-        "add": "Ajouter une image",
-        "edit": "Modifier une image",
-        "index": "Liste des images",
-        "form": {
-          "src": "Lien",
-          "photo": "Photo",
-          "download": "Télécharger",
-          "created_at": "Créée le"
         }
       }
     }

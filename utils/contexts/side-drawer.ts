@@ -1,15 +1,15 @@
-import { createContext, useContext } from "react";
+import React from "react";
 
 type Type = boolean;
 
-const SideDrawerContext = createContext<{
+const SideDrawerContext = React.createContext<{
   open: Type;
-  setOpen: (open: Type) => void;
+  setOpen: React.Dispatch<React.SetStateAction<Type>>;
 }>({
   open: false,
   setOpen: () => {},
 });
 
-export const useSideDrawerContext = () => useContext(SideDrawerContext);
+export const useSideDrawerContext = () => React.useContext(SideDrawerContext);
 
 export default SideDrawerContext;

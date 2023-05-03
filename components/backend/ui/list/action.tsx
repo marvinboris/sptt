@@ -1,15 +1,12 @@
 import {
+  ArrowDownOnSquareIcon,
   EyeIcon,
   LinkIcon,
   PencilIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import React from 'react';
-
-import UserAccountType from "@/utils/types/account/user";
-
-import ApiAccountUserType from "@/utils/types/api/account/user";
+import React from "react";
 
 import { useAccountContext } from "@/utils/contexts/account";
 import { useRoleContext } from "@/utils/contexts/role";
@@ -23,7 +20,7 @@ type ActionProps = {
 };
 
 export default function Action({ item, resource, props }: ActionProps) {
-  const {account: data} = useAccountContext();
+  const { account: data } = useAccountContext();
   const { role } = useRoleContext();
 
   if (props) {
@@ -31,22 +28,18 @@ export default function Action({ item, resource, props }: ActionProps) {
 
     let additionalContent;
     if (role === "user") {
-      const feature = data.role.features.find(
-        (f) => f.prefix === resource
-      );
+      if (!("role" in data)) return null;
+      const feature = data.role.features.find((f) => f.prefix === resource);
 
       additionalContent = (
         <>
           {feature && feature.access.includes("u") && (
-            <Link
-              href={`/${role}/${resource}/${item._id}/edit`}
-              className="mx-1"
-            >
+            <Link href={`/${role}/${resource}/${item._id}/edit`}>
               <PencilIcon className="w-5 text-sky" />
             </Link>
           )}
           {feature && feature.access.includes("d") && (
-            <span className="mx-1">
+            <span>
               <Delete deleteAction={() => props.delete(item._id!)}>
                 <TrashIcon className="w-5 cursor-pointer text-red" />
               </Delete>
@@ -57,27 +50,36 @@ export default function Action({ item, resource, props }: ActionProps) {
     } else if (role === "admin")
       additionalContent = (
         <>
-          <Link href={`/${role}/${resource}/${item._id}/edit`} className="mx-1">
-            <PencilIcon className="w-5 text-sky" />
+          <Link
+            href={`/${role}/${resource}/${item._id}/edit`}
+            className="h-6 w-6 flex items-center justify-center rounded-md bg-sky text-white"
+          >
+            <PencilIcon className="w-3.5 flex-none" />
           </Link>
-          <span className="mx-1">
+
+          <span>
             <Delete deleteAction={() => props.delete(item._id!)}>
-              <TrashIcon className="w-5 cursor-pointer text-red" />
+              <span className="h-6 w-6 flex items-center justify-center rounded-md bg-green text-white">
+                <ArrowDownOnSquareIcon className="w-3.5 flex-none" />
+              </span>
             </Delete>
           </span>
         </>
       );
 
     return (
-      <div className="flex items-center text-center">
+      <div className="flex items-center gap-4 text-center">
         {item.link && (
-          <a href={item.link} target="_blank" rel="noreferrer" className="mx-1">
+          <a href={item.link} target="_blank" rel="noreferrer">
             <LinkIcon className="w-5 text-blue" />
           </a>
         )}
 
-        <Link href={`/${role}/${resource}/${item._id}`} className="mx-1">
-          <EyeIcon className="w-5 text-green" />
+        <Link
+          href={`/${role}/${resource}/${item._id}`}
+          className="h-6 w-6 flex items-center justify-center rounded-md bg-primary-400 text-white"
+        >
+          <EyeIcon className="w-3.5 flex-none" />
         </Link>
 
         {additionalContent}

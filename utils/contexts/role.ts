@@ -6,7 +6,7 @@ const RoleContext = createContext<{
   role: Type;
   setRole: (role: Type) => void;
 }>({
-  role: 'user',
+  role: 'admin',
   setRole: () => {},
 });
 

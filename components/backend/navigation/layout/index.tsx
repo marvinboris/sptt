@@ -1,30 +1,35 @@
 import NextHead from "next/head";
 import { useRouter } from "next/router";
-import React, { ReactNode, useEffect, useState } from "react";
+import React from "react";
 
 import SideDrawerContext from "@/utils/contexts/side-drawer";
 
-import Footer from "../footer";
 import Toolbar from "../toolbar";
 import SideDrawer from "./side-drawer";
+import IconType from "@/utils/types/icon";
 
 interface LayoutProps {
-  children: ReactNode;
+  children?: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const router = useRouter();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
 
   return (
     <SideDrawerContext.Provider value={{ open, setOpen }}>
-      <div className="font-body relative flex h-screen overflow-hidden">
+      <div className="relative flex h-screen overflow-hidden bg-nightblue font-body">
         <SideDrawer />
 
-        <div className="flex h-screen flex-1 flex-col overflow-y-auto bg-secondary-100 dark:bg-secondary-900 scrollbar-app">
+        <div className="scrollbar-app flex h-screen flex-1 flex-col overflow-y-auto">
           <Toolbar />
-          <div className="relative flex flex-1 flex-col">{children}</div>
-          <Footer />
+    
+          <div className="relative flex flex-1 flex-col">
+            <main className="flex-1">
+              <div className="px-[33px] pb-[54px] pr-[76px] pt-[29px] xl:pl-[33px] xl:pt-[47px]">
+                {children}
+              </div>
+            </main>
+          </div>
         </div>
       </div>
     </SideDrawerContext.Provider>

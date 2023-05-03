@@ -37,7 +37,7 @@ export default function Notifications() {
       className={classNames(
         "group relative z-0 mr-3",
         notifications.length > 0
-          ? "after:absolute after:top-0 after:right-0 after:block after:h-[12.72px] after:w-[12.72px] after:rounded-full after:bg-yellow"
+          ? "after:absolute after:top-0 after:right-0 after:block after:h-[12.72px] after:w-[12.72px] after:rounded-full after:bg-green"
           : ""
       )}
     >

@@ -100,22 +100,15 @@ export default interface ContentType {
           notifications: { title: string };
           admins: { title: string; add: string; index: string };
           users: { title: string; add: string; index: string };
-          roles: { title: string; add: string; index: string };
-          features: { title: string; add: string; index: string };
-          testimonials: { title: string; add: string; index: string };
-          events: { title: string; add: string; index: string };
-          ministries: { title: string; add: string; index: string };
-          categories: { title: string; add: string; index: string };
-          subscribers: { title: string; add: string; index: string };
-          publications: { title: string; add: string; index: string };
-          lessons: { title: string; add: string; index: string };
-          methods: { title: string; add: string; index: string };
-          donations: { title: string; add: string; index: string };
-          tithes: { title: string; add: string; index: string };
-          transactions: { title: string; add: string; index: string };
-          staff_members: { title: string; add: string; index: string };
-          members: { title: string; add: string; index: string };
-          images: { title: string; add: string; index: string };
+          packs: { title: string; add: string; index: string };
+          holders: { title: string; add: string; index: string };
+          payouts: { title: string; add: string; index: string };
+          reports: {
+            title: string;
+            purchase: string;
+            paid_bonus: string;
+            commission: string;
+          };
           cms: {
             title: string;
             global: string;
@@ -124,7 +117,17 @@ export default interface ContentType {
             backend: string;
             frontend: string;
           };
-          settings: { title: string };
+          settings: {
+            title: string;
+            system_user: string;
+            company_profile: string;
+            methods: string;
+            kyc: string;
+            generation: string;
+            mlm: string;
+            send_token: string;
+            language: string;
+          };
         };
       };
       components: {
@@ -323,22 +326,6 @@ export default interface ContentType {
             company_logo: string;
           };
         };
-        admins: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            name: string;
-            full_name: string;
-            phone: string;
-            password: string;
-            password_confirmation: string;
-            email: string;
-            admin_photo: string;
-            photo: string;
-          };
-        };
         users: {
           title: string;
           add: string;
@@ -357,7 +344,7 @@ export default interface ContentType {
             photo: string;
           };
         };
-        roles: {
+        packs: {
           title: string;
           add: string;
           edit: string;
@@ -372,14 +359,14 @@ export default interface ContentType {
             delete: string;
           };
         };
-        features: {
+        holders: {
           title: string;
           add: string;
           edit: string;
           index: string;
           form: { name: string; prefix: string; created_at: string };
         };
-        events: {
+        payouts: {
           title: string;
           add: string;
           edit: string;
@@ -395,130 +382,17 @@ export default interface ContentType {
             created_at: string;
           };
         };
-        ministries: {
+        reports: {
           title: string;
-          add: string;
-          edit: string;
-          index: string;
+          purchase: string;
+          paid_bonus: string;
+          commission: string;
           form: {
             name: string;
             description: string;
             body: string;
             photo: string;
             ministry_photo: string;
-            is_active: string;
-            select_status: string;
-            created_at: string;
-          };
-        };
-        categories: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            name: string;
-            is_active: string;
-            select_status: string;
-            created_at: string;
-          };
-        };
-        subscribers: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: { first_name: string; email: string; created_at: string };
-        };
-        publications: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            title: string;
-            description: string;
-            body: string;
-            category: string;
-            select_category: string;
-            publication_photo: string;
-            is_active: string;
-            select_status: string;
-            photo: string;
-          };
-        };
-        methods: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            name: string;
-            description: string;
-            logo: string;
-            method_logo: string;
-            is_active: string;
-            select_status: string;
-            created_at: string;
-          };
-        };
-        donations: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            method: string;
-            select_method: string;
-            amount: string;
-            created_at: string;
-          };
-        };
-        tithes: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            member: string;
-            select_member: string;
-            method: string;
-            select_method: string;
-            amount: string;
-            created_at: string;
-          };
-        };
-        transactions: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            address: string;
-            currency: string;
-            tx_id: string;
-            tx_hash: string;
-            status: string;
-            select_status: string;
-            method: string;
-            amount: string;
-            created_at: string;
-          };
-        };
-        lessons: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            episode: string;
-            date: string;
-            description: string;
-            subtitle: string;
-            notes: string;
-            audio: string;
-            lesson_audio: string;
-            download: string;
             is_active: string;
             select_status: string;
             created_at: string;
@@ -538,9 +412,14 @@ export default interface ContentType {
         };
         settings: {
           title: string;
-          subtitle: string;
-          form_title: string;
-          form_subtitle: string;
+          system_user: string;
+          company_profile: string;
+          methods: string;
+          kyc: string;
+          generation: string;
+          mlm: string;
+          send_token: string;
+          language: string;
           form: {
             name: string;
             email: string;
@@ -551,69 +430,6 @@ export default interface ContentType {
             photo: string;
             save_settings: string;
             edit_settings: string;
-          };
-        };
-        staff_members: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            name: string;
-            title: string;
-            description: string;
-            photo: string;
-            staff_member_photo: string;
-            is_active: string;
-            principal: string;
-            select_status: string;
-            created_at: string;
-          };
-        };
-        members: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            first_name: string;
-            last_name: string;
-            name: string;
-            photo: string;
-            member_photo: string;
-            qr_code: string;
-            member_qr: string;
-            is_active: string;
-            select_status: string;
-            created_at: string;
-          };
-        };
-        testimonials: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            name: string;
-            title: string;
-            body: string;
-            photo: string;
-            testimonial_photo: string;
-            is_active: string;
-            select_status: string;
-            created_at: string;
-          };
-        };
-        images: {
-          title: string;
-          add: string;
-          edit: string;
-          index: string;
-          form: {
-            src: string;
-            photo: string;
-            download: string;
-            created_at: string;
           };
         };
       };

@@ -28,10 +28,10 @@ export default function Button({
       {...rest}
       onClick={onClick}
       className={classNames(
-        size === "sm" ? "h-9" : "h-12",
-        justify === "center" ? "center" : "pr-9",
-        `group inline-flex items-center justify-start truncate px-[15px] text-sm transition-all duration-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2`,
-        pill ? "rounded-[300px]" : "rounded-lg",
+        size === "sm" ? "h-9" : "h-11",
+        justify === "center" ? "justify-center" : "justify-start pr-9",
+        `group inline-flex items-center truncate px-[15px] text-sm transition-all duration-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2`,
+        pill ? "rounded-full" : "rounded-[10px]",
         color === "green"
           ? "bg-green text-white focus-visible:outline-green hover:text-secondary-100 active:text-green/10"
           : color === "night"
@@ -42,7 +42,7 @@ export default function Button({
           ? "bg-yellow text-white focus-visible:outline-yellow hover:text-secondary-100 active:text-yellow/10"
           : color === "white"
           ? "focus-visible:outline-white"
-          : "bg-primary-600 text-white focus-visible:outline-primary-600 hover:text-secondary-100 active:text-primary-600/10",
+          : "bg-gradient-to-r from-primary-700 to-primary-400 text-white focus-visible:outline-primary-600 hover:text-secondary-100 active:text-primary-600/10",
         rest.className!
       )}
     >

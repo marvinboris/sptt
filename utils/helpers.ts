@@ -117,24 +117,11 @@ export const checkValidity = (value = "", rules: ValidationType) => {
 
 export const resourceIcon = (resource: ResourceType) =>
   ({
-    admins: UserPlusIcon,
     users: UserGroupIcon,
-    roles: TagIcon,
-    features: CogIcon,
-    events: CalendarDaysIcon,
-    ministries: HomeIcon,
-    subscribers: UserIcon,
-    categories: RectangleStackIcon,
-    publications: ChatBubbleLeftEllipsisIcon,
-    methods: CreditCardIcon,
-    lessons: BookOpenIcon,
-    staff_members: UsersIcon,
-    members: UserIcon,
-    testimonials: ChatBubbleOvalLeftEllipsisIcon,
-    images: PhotoIcon,
-    donations: GiftIcon,
-    tithes: BanknotesIcon,
-    transactions: ArrowsRightLeftIcon,
+    packs: TagIcon,
+    holders: CogIcon,
+    payouts: CalendarDaysIcon,
+    reports: HomeIcon,
     notifications: BellIcon,
   }[resource]);
 

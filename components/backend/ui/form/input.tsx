@@ -43,14 +43,14 @@ export default function Input({
         <label htmlFor={props.id ? props.id : props.name}>{label}</label>
       )}
 
-      <div className="flex h-12 items-center rounded-[8px] bg-secondary-700/10 dark:bg-secondary-900 md:bg-secondary-100">
+      <div className="flex h-11 items-center rounded-[10px] bg-[#5A657D33]">
         <div>
           <div
             className={
               Icon || addon ? "flex min-w-[47px] justify-center" : "w-3"
             }
           >
-            {Icon && <Icon className="w-[18px]" />}
+            {Icon && <Icon className="w-[18px] text-white/40" />}
             {addon}
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function Input({
           <input
             {...props}
             onChange={onChange}
-            className="h-full w-full flex-1 border-none bg-transparent text-sm text-inherit outline-none focus:ring-0"
+            className="h-full w-full flex-1 border-none bg-transparent text-sm text-white/70 outline-none focus:ring-0"
           />
 
           {touched && validation ? (

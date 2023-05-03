@@ -6,11 +6,11 @@ import { useSideDrawerContext } from "@/utils/contexts/side-drawer";
 import { classNames } from "@/utils/helpers";
 import { useWindowSize } from "@/utils/hooks";
 import IconType from "@/utils/types/icon";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 interface NavItemProps {
   href: string;
   children?: ReactNode;
-  main?: boolean;
   items?: { href: string; label: string }[];
   icon: IconType;
 }
@@ -18,7 +18,6 @@ interface NavItemProps {
 export default function NavItem({
   href,
   icon: Icon,
-  main,
   children,
   items,
 }: NavItemProps) {
@@ -39,61 +38,71 @@ export default function NavItem({
       <button
         onClick={() => setNavItemOpen((status) => !status)}
         className={classNames(
-          "flex w-full items-center truncate rounded-[12.5106px] transition-all duration-200",
-          main
-            ? "font-display relative scale-[0.87] bg-primary-600 py-4 font-medium text-white shadow-lg after:absolute after:inset-y-3 after:left-2 after:w-1 after:rounded-xl after:bg-orange after:shadow-md"
-            : active
-            ? "mr-6 bg-primary-600/10 py-3 px-[11px] font-medium text-primary-600"
-            : "px-[11px] text-secondary-700 hover:text-primary-600 dark:text-secondary-300"
+          "flex h-[54px] w-full items-center gap-4 truncate rounded-[14px] p-4 text-white/80 transition-all duration-200",
+          active
+            ? "border border-primary-600 bg-black/10 font-display font-bold shadow-lg shadow-primary-600/10"
+            : "font-medium"
         )}
       >
-        <div
+        <Icon
           className={classNames(
-            main ? "mr-[11.68px] pl-[29.19px]" : "mr-[22px]"
+            active ? "text-primary-400" : "text-white/80",
+            "w-[21px] flex-none opacity-60"
           )}
-        >
-          <Icon
+        />
+
+        <div>{children}</div>
+
+        <div className="ml-auto">
+          <ChevronDownIcon
             className={classNames(
-              main ? "w-4 text-white/20" : "w-6 text-primary-600/50"
+              "w-3.5 text-white/80 transition-all duration-200",
+              navItemOpen ? "rotate-180 relative z-0 after:absolute after:inset-0 after:-z-10 after:rounded-full after:bg-secondary-100/20" : ""
             )}
           />
         </div>
-
-        <div>{children}</div>
       </button>
 
       <div
         className={classNames(
-          "relative overflow-hidden text-sm transition-all duration-200",
-          navItemOpen ? "max-h-96 py-2" : "max-h-0"
+          "relative mx-2 overflow-hidden rounded-b-xl text-sm transition-all duration-200",
+          navItemOpen ? "max-h-96 pb-[18px] pt-3" : "max-h-0",
+          active ? "bg-primary-400/10" : ""
         )}
       >
-        <div className="absolute -top-[18px] left-[23px] h-full w-[1px] opacity-20">
-          <div className="h-full w-full bg-primary-600" />
+        <div className="absolute -top-1 left-[23px] h-full w-[5px] opacity-20">
+          <div className="h-full w-full bg-gradient-to-b from-transparent from-10% via-white/50 via-80% to-transparent" />
         </div>
 
         <div className="space-y-2.5">
-          {items.map(({ href: _href, label }) => (
-            <div
-              key={`nav-item-${href}-items-${_href}`}
-              className="relative ml-[64px]"
-            >
-              <div className="absolute top-1/2 -left-[39px] h-[1px] w-7 -translate-y-1/2 bg-primary-600/20" />
+          {items.map(({ href: link, label }) => {
+            const active = router.asPath.startsWith(href + link);
 
-              <Link
-                onClick={hideSideDrawer}
-                className={classNames(
-                  router.asPath.startsWith(href + _href)
-                    ? "font-medium text-primary-600"
-                    : "",
-                  "transition-all duration-200"
-                )}
-                href={href + _href}
+            return (
+              <div
+                key={`nav-item-${href}-items-${link}`}
+                className="relative ml-14"
               >
-                {label}
-              </Link>
-            </div>
-          ))}
+                <div
+                  className={classNames(
+                    "absolute -left-7 top-1/2 h-0.5 -translate-y-1/2 transition-all duration-200",
+                    active ? "w-3.5 bg-green" : "w-2 bg-white/40"
+                  )}
+                />
+
+                <Link
+                  onClick={hideSideDrawer}
+                  className={classNames(
+                    active ? "font-display font-bold text-green" : "text-white",
+                    "transition-all duration-200"
+                  )}
+                  href={href + link}
+                >
+                  {label}
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -102,25 +111,29 @@ export default function NavItem({
       href={href}
       onClick={hideSideDrawer}
       className={classNames(
-        "flex w-full items-center truncate rounded-[12.5106px] transition-all duration-200",
-        main
-          ? "font-display relative scale-[0.87] bg-primary-600 py-4 font-medium text-white shadow-lg after:absolute after:inset-y-3 after:left-2 after:w-1 after:rounded-xl after:bg-orange after:shadow-md"
-          : active
-          ? "mr-6 bg-primary-600/10 py-3 px-[11px] font-medium text-primary-600"
-          : "px-[11px] text-secondary-700 hover:text-primary-600 dark:text-secondary-300"
+        "block h-[54px] w-full rounded-[14px] bg-gradient-to-r shadow-lg transition-all duration-200",
+        active
+          ? "from-primary-400 to-blue p-px font-display font-bold shadow-primary-600/10"
+          : "from-transparent to-transparent p-0 font-medium shadow-transparent"
       )}
     >
       <div
-        className={classNames(main ? "mr-[11.68px] pl-[29.19px]" : "mr-[22px]")}
+        className={classNames(
+          "relative z-0 flex h-full gap-4 truncate rounded-[14px] text-white/80 transition-all duration-200 after:absolute after:inset-0 after:-z-10",
+          active
+            ? "bg-nightblue p-[15px] after:bg-black/40"
+            : "bg-transparent p-4 after:bg-transparent"
+        )}
       >
         <Icon
           className={classNames(
-            main ? "w-4 text-white/20" : "w-6 text-primary-600/50"
+            active ? "text-primary-400" : "text-white/80",
+            "w-[21px] flex-none opacity-60"
           )}
         />
-      </div>
 
-      <div>{children}</div>
+        <div>{children}</div>
+      </div>
     </Link>
   );
 }
