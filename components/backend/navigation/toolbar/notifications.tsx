@@ -1,10 +1,10 @@
 import { BellIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import { useAccountContext } from "@/utils/contexts/account";
 import { useContentContext } from "@/utils/contexts/content";
-import { useRoleContext } from "@/utils/contexts/role";
 import {
   classNames,
   convertDate,
@@ -12,10 +12,11 @@ import {
 } from "@/utils/helpers";
 import NotificationInterface from "@/utils/types/models/notification";
 
-
 export default function Notifications() {
   const { account: data } = useAccountContext()
-  const { role } = useRoleContext()
+  
+  const { route } = useRouter();
+  const role = route.split('/')[1]
 
   const { content } = useContentContext();
   const {

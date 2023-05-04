@@ -19,8 +19,8 @@ This app includes the following features:
 - Home page with information about Spread Tech Token and links to other pages.
 - Login page
 - Registration page
-- Admin panel interface (coming soon)
-- Customer panel interface (coming soon)
+- Admin panel interface
+- Customer panel interface
 
 ## Technologies Used
 

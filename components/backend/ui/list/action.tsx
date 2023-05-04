@@ -6,10 +6,10 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 import React from "react";
 
 import { useAccountContext } from "@/utils/contexts/account";
-import { useRoleContext } from "@/utils/contexts/role";
 
 import Delete from "./delete";
 
@@ -21,7 +21,9 @@ type ActionProps = {
 
 export default function Action({ item, resource, props }: ActionProps) {
   const { account: data } = useAccountContext();
-  const { role } = useRoleContext();
+  
+  const { route } = useRouter();
+  const role = route.split('/')[1]
 
   if (props) {
     resource = resource.split("_").join("-");

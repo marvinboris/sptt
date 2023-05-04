@@ -10,6 +10,7 @@ export default interface UserAccountType {
   email: string;
   phone: string;
   birthdate: string;
+  kyc?: boolean;
   role: RoleInterface;
   notifications: {
     notification: NotificationInterface;

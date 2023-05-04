@@ -45,7 +45,7 @@ export default function Select({
         <label htmlFor={props.id ? props.id : props.name}>{label}</label>
       )}
 
-      <div className="flex h-12 items-center rounded-[8px] bg-secondary-700/10 dark:bg-secondary-900 md:bg-secondary-100">
+      <div className="flex h-11 items-center rounded-[10px] bg-[#5A657D33]">
         <div>
           <div
             className={

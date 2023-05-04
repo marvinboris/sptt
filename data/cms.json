@@ -124,6 +124,7 @@
       "all_rights": "Tous droits réservés par"
     },
     "sidebar": {
+      "customer": "Client",
       "admin": "Administrateur",
       "user": "Utilisateur",
       "titles": {
@@ -180,6 +181,21 @@
           "purchase": "Purchase report",
           "paid_bonus": "Paid bonus report",
           "commission": "Commission report"
+        },
+        "courses": {
+          "title": "My packs"
+        },
+        "commissions": {
+          "title": "Commissions"
+        },
+        "bonus": {
+          "title": "Bonus"
+        },
+        "transfer": {
+          "title": "Transfer token"
+        },
+        "kyc": {
+          "title": "KYC"
         }
       }
     },
@@ -334,6 +350,16 @@
     },
     "pages": {
       "dashboard": {
+        "customer": {
+          "title": "Dashboard",
+          "subtitle": "Dashboard",
+          "blocks": {
+            "users": "Utilisateurs",
+            "testimonials": "Témoignages",
+            "events": "Evènements",
+            "images": "Images"
+          }
+        },
         "admin": {
           "title": "Dashboard",
           "subtitle": "Dashboard",
@@ -439,49 +465,34 @@
         "generation": "Generation",
         "mlm": "MLM settings",
         "send_token": "Send token",
-        "language": "Language settings",
-        "form": {
-          "name": "Nom complet",
-          "email": "Adresse mail",
-          "phone": "123 456 789",
-          "locale": "Langue",
-          "password": "Mot de passe",
-          "password_confirmation": "Confirmation de mot de passe",
-          "save_settings": "Enregistrer",
-          "edit_settings": "Modifier"
-        }
+        "language": "Language settings"
       },
       "payouts": {
         "title": "Payouts",
         "add": "Add payout",
         "edit": "Edit payout",
-        "index": "Payouts",
-        "form": {
-          "title": "Titre",
-          "description": "Description",
-          "body": "Contenu",
-          "photo": "Photo",
-          "event_photo": "Photo du évènement",
-          "is_active": "Statut",
-          "select_status": "Sélectionner le statut",
-          "created_at": "Créé le"
-        }
+        "index": "Payouts"
       },
       "reports": {
         "title": "Reports",
         "purchase": "Purchase report",
         "paid_bonus": "Paid bonus report",
-        "commission": "Commission report",
-        "form": {
-          "name": "Nom",
-          "description": "Description",
-          "body": "Contenu",
-          "photo": "Photo",
-          "ministry_photo": "Photo du ministère",
-          "is_active": "Statut",
-          "select_status": "Sélectionner le statut",
-          "created_at": "Créé le"
-        }
+        "commission": "Commission report"
+      },
+      "courses": {
+        "title": "My packs"
+      },
+      "commissions": {
+        "title": "Commissions"
+      },
+      "bonus": {
+        "title": "Bonus"
+      },
+      "transfer": {
+        "title": "Transfer token"
+      },
+      "kyc": {
+        "title": "KYC"
       }
     }
   },

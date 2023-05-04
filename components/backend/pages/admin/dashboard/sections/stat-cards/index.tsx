@@ -2,16 +2,14 @@ import React from "react";
 
 import StatCard from "./stat-card";
 
-interface Props {
-  blocks: {
-    totalPurchase: string;
-    totalTokenHolders: number;
-    totalCoursesPakcs: number;
-    todaysPurchase: string;
-  };
-}
+const blocks = {
+  totalPurchase: "38.45k",
+  totalTokenHolders: 102,
+  totalCoursesPakcs: 18,
+  todaysPurchase: "65.89k",
+};
 
-export default function AdminDashboardStatCardsSection({ blocks }: Props) {
+export default function AdminDashboardStatCardsSection() {
   return (
     <section
       id="stat-cards"

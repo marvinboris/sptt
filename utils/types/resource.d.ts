@@ -1,4 +1,10 @@
 type ResourceType =
+  | "courses"
+  | "commissions"
+  | "bonus"
+  | "transfer"
+  | "kyc"
+  | "settings"
   | "holders"
   | "packs"
   | "payouts"

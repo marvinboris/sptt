@@ -9,6 +9,7 @@ export default interface AdminAccountType {
   email: string;
   phone: string;
   birthdate: string;
+  kyc?: boolean;
   notifications: {
     notification: NotificationInterface;
     readAt?: Date;

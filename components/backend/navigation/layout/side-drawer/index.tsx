@@ -1,51 +1,43 @@
 import {
   AdjustmentsHorizontalIcon,
-  ComputerDesktopIcon,
-  UserPlusIcon,
   Cog8ToothIcon,
-  BellIcon,
   ArrowUpIcon,
   ArrowRightIcon,
+  HomeIcon,
+  WalletIcon,
+  UsersIcon,
+  CubeIcon,
+  UserGroupIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+  PresentationChartLineIcon,
+  Cog6ToothIcon,
+  PencilSquareIcon,
 } from "@heroicons/react/24/outline";
 import { Transition } from "@headlessui/react";
+import Image from "next/image";
 import Link from "next/link";
-import React, { Fragment, ReactNode } from "react";
+import { useRouter } from "next/router";
+import React, { Fragment } from "react";
 
 import NavItem from "./nav-item";
 
 import Logo from "@/components/ui/logo";
+import SvgIcon from "@/components/ui/svg-icon";
+import Button from "@/components/backend/ui/form/button";
 
 import { useAccountContext } from "@/utils/contexts/account";
 import { useContentContext } from "@/utils/contexts/content";
-import { useRoleContext } from "@/utils/contexts/role";
 import { useSideDrawerContext } from "@/utils/contexts/side-drawer";
-import { resourceIcon } from "@/utils/helpers";
+import { classNames, resourceIcon } from "@/utils/helpers";
 import { useWindowSize } from "@/utils/hooks";
-
-import UserAccountType from "@/utils/types/account/user";
-import NotificationInterface from "@/utils/types/models/notification";
-import RoleInterface from "@/utils/types/models/role";
 import ResourceType from "@/utils/types/resource";
-import Image from "next/image";
-import SvgIcon from "@/components/ui/svg-icon";
-
-const Group = (props: { title: string; children?: ReactNode }) => (
-  <div>
-    <GroupTitle>{props.title}</GroupTitle>
-    <div className="space-y-3">{props.children}</div>
-  </div>
-);
-
-const GroupTitle = (props: { children?: ReactNode }) => (
-  <div className="mb-1 px-3 py-2 text-lg font-semibold uppercase">
-    {props.children}
-  </div>
-);
 
 const UserNavItem = (props: { resource: ResourceType }) => {
   const { content } = useContentContext();
   const { account: data } = useAccountContext();
-  const { role } = useRoleContext();
+
+  const { route } = useRouter();
+  const role = route.split("/")[1];
 
   const {
     cms: { backend: cms },
@@ -88,15 +80,15 @@ export default function SideDrawer() {
   const { open, setOpen } = useSideDrawerContext();
   const { content } = useContentContext();
   const { account: data } = useAccountContext();
-  const { role } = useRoleContext();
+
+  const { route } = useRouter();
+  const role = route.split("/")[1];
+
+  const isCustomer = role === "customer";
 
   const {
     cms: { backend: cms },
   } = content!;
-
-  const notifications = (data.notifications || []).filter(
-    ({ readAt }) => !readAt
-  );
 
   return (
     <Transition
@@ -120,89 +112,143 @@ export default function SideDrawer() {
               </Link>
             </div>
 
-            <div className="mt-12 rounded-[20px] bg-black/20 px-3 pb-2.5 pt-3">
-              <div className="flex items-center gap-2">
-                <Image
-                  width={100}
-                  height={100}
-                  src="/images/token.webp"
-                  alt="Token Icon"
-                  className="w-5 flex-none"
-                />
-
-                <div className="text-sm">Current SPTT price</div>
+            {isCustomer ? (
+              <div className="mt-24">
+                <Button
+                  className="w-full text-sm font-bold"
+                  icon={WalletIcon}
+                  color="green"
+                >
+                  Connect wallet
+                </Button>
               </div>
-
-              <div className="mt-2.5">
-                <div className="ml-7 flex items-center gap-px font-display font-bold">
-                  <span>$0.0058</span>
-
-                  <ArrowUpIcon className="w-3.5 flex-none text-green" />
-                </div>
-
-                <div className="ml-4 mt-4 flex items-end justify-between">
-                  <SvgIcon
-                    name="curve-green"
-                    className="h-[22px] w-auto flex-none"
+            ) : (
+              <div className="mt-12 rounded-[20px] bg-black/20 px-3 pb-2.5 pt-3">
+                <div className="flex items-center gap-2">
+                  <Image
+                    width={100}
+                    height={100}
+                    src="/images/token.webp"
+                    alt="Token Icon"
+                    className="w-5 flex-none"
                   />
 
-                  <button className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-white/10 text-white">
-                    <ArrowRightIcon className="w-3.5 flex-none" />
-                  </button>
+                  <div className="text-sm">Current SPTT price</div>
+                </div>
+
+                <div className="mt-2.5">
+                  <div className="ml-7 flex items-center gap-px font-display font-bold">
+                    <span>$0.0058</span>
+
+                    <ArrowUpIcon className="w-3.5 flex-none text-green" />
+                  </div>
+
+                  <div className="ml-4 mt-4 flex items-end justify-between">
+                    <SvgIcon
+                      name="curve-green"
+                      className="h-[22px] w-auto flex-none"
+                    />
+
+                    <button className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-white/10 text-white">
+                      <ArrowRightIcon className="w-3.5 flex-none" />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
-            <div className="scrollbar-app mt-9 flex flex-1 flex-col">
+            <div
+              className={classNames(
+                "scrollbar-app flex flex-1 flex-col",
+                isCustomer ? "mt-14" : "mt-9"
+              )}
+            >
               <div>
-                <NavItem icon={ComputerDesktopIcon} href={`/${role}/dashboard`}>
+                <NavItem icon={HomeIcon} href={`/${role}/dashboard`}>
                   {cms.sidebar.menu.dashboard.title}
                 </NavItem>
-                <UserNavItem resource="users" />
-                <UserNavItem resource="packs" />
-                <UserNavItem resource="holders" />
-                <UserNavItem resource="payouts" />
 
-                <NavItem
-                  icon={resourceIcon("reports")}
-                  href={`/${role}/reports`}
-                  items={Object.entries(cms.sidebar.menu.reports)
-                    .filter(([key]) => key !== "title")
-                    .map(([key, label]) => ({
-                      href: `/${key.split("_").join("-")}`,
-                      label,
-                    }))}
-                >
-                  {cms.sidebar.menu.reports.title}
-                </NavItem>
+                {isCustomer ? (
+                  <>
+                    <NavItem icon={UsersIcon} href={`/${role}/courses`}>
+                      My courses
+                    </NavItem>
+                    <NavItem icon={CubeIcon} href={`/${role}/packs`}>
+                      Packs list
+                    </NavItem>
+                    <NavItem icon={UserGroupIcon} href={`/${role}/commissions`}>
+                      Commissions
+                    </NavItem>
+                    <NavItem
+                      icon={ChatBubbleOvalLeftEllipsisIcon}
+                      href={`/${role}/bonus`}
+                    >
+                      Bonus
+                    </NavItem>
+                    <NavItem
+                      icon={PresentationChartLineIcon}
+                      href={`/${role}/transfer`}
+                    >
+                      Transfer token
+                    </NavItem>
+                    <NavItem icon={Cog6ToothIcon} href={`/${role}/kyc`}>
+                      KYC
+                    </NavItem>
+                    <NavItem icon={PencilSquareIcon} href={`/${role}/settings`}>
+                      Settings
+                    </NavItem>
+                  </>
+                ) : (
+                  <>
+                    <UserNavItem resource="users" />
+                    <UserNavItem resource="packs" />
+                    <UserNavItem resource="holders" />
+                    <UserNavItem resource="payouts" />
 
-                <NavItem
-                  icon={AdjustmentsHorizontalIcon}
-                  href={`/${role}/settings`}
-                  items={Object.entries(cms.sidebar.menu.settings)
-                    .filter(([key]) => key !== "title")
-                    .map(([key, label]) => ({
-                      href: `/${key.split("_").join("-")}`,
-                      label,
-                    }))}
-                >
-                  {cms.sidebar.menu.settings.title}
-                </NavItem>
+                    <NavItem
+                      icon={resourceIcon("reports")}
+                      href={`/${role}/reports`}
+                      items={Object.entries(cms.sidebar.menu.reports)
+                        .filter(([key]) => key !== "title")
+                        .map(([key, label]) => ({
+                          href: `/${key.split("_").join("-")}`,
+                          label,
+                        }))}
+                    >
+                      {cms.sidebar.menu.reports.title}
+                    </NavItem>
 
-                {role === "admin" ||
-                (data &&
-                  "role" in data &&
-                  data.role.features.find(({ prefix }) => prefix === "cms")) ? (
-                  <NavItem
-                    icon={Cog8ToothIcon}
-                    href={`/${role}/cms`}
-                    items={Object.entries(cms.sidebar.menu.cms)
-                      .filter(([key]) => !["icon", "title"].includes(key))
-                      .map(([key, label]) => ({ href: `/${key}`, label }))}
-                  >
-                    {cms.sidebar.menu.cms.title}
-                  </NavItem>
-                ) : null}
+                    <NavItem
+                      icon={AdjustmentsHorizontalIcon}
+                      href={`/${role}/settings`}
+                      items={Object.entries(cms.sidebar.menu.settings)
+                        .filter(([key]) => key !== "title")
+                        .map(([key, label]) => ({
+                          href: `/${key.split("_").join("-")}`,
+                          label,
+                        }))}
+                    >
+                      {cms.sidebar.menu.settings.title}
+                    </NavItem>
+
+                    {role === "admin" ||
+                    (data &&
+                      "role" in data &&
+                      data.role.features.find(
+                        ({ prefix }) => prefix === "cms"
+                      )) ? (
+                      <NavItem
+                        icon={Cog8ToothIcon}
+                        href={`/${role}/cms`}
+                        items={Object.entries(cms.sidebar.menu.cms)
+                          .filter(([key]) => !["icon", "title"].includes(key))
+                          .map(([key, label]) => ({ href: `/${key}`, label }))}
+                      >
+                        {cms.sidebar.menu.cms.title}
+                      </NavItem>
+                    ) : null}
+                  </>
+                )}
               </div>
             </div>
           </div>

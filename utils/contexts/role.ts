@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 
-type Type = 'user' | 'admin';
+type Type = 'user' | 'admin' | 'customer';
 
 const RoleContext = createContext<{
   role: Type;

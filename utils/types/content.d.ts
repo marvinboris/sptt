@@ -86,6 +86,7 @@ export default interface ContentType {
       };
       footer: { copyright: string; all_rights: string };
       sidebar: {
+        customer: string;
         admin: string;
         user: string;
         titles: {
@@ -128,6 +129,11 @@ export default interface ContentType {
             send_token: string;
             language: string;
           };
+          courses: { title: string };
+          commissions: { title: string };
+          bonus: { title: string };
+          transfer: { title: string };
+          kyc: { title: string };
         };
       };
       components: {
@@ -280,6 +286,17 @@ export default interface ContentType {
       };
       pages: {
         dashboard: {
+          customer: {
+            icon: string;
+            title: string;
+            subtitle: string;
+            blocks: {
+              users: string;
+              testimonials: string;
+              events: string;
+              images: string;
+            };
+          };
           admin: {
             icon: string;
             title: string;
@@ -331,72 +348,30 @@ export default interface ContentType {
           add: string;
           edit: string;
           index: string;
-          form: {
-            name: string;
-            full_name: string;
-            phone: string;
-            password: string;
-            password_confirmation: string;
-            email: string;
-            role: string;
-            select_role: string;
-            user_photo: string;
-            photo: string;
-          };
         };
         packs: {
           title: string;
           add: string;
           edit: string;
           index: string;
-          form: {
-            name: string;
-            description: string;
-            features: string;
-            created_at: string;
-            create: string;
-            update: string;
-            delete: string;
-          };
         };
         holders: {
           title: string;
           add: string;
           edit: string;
           index: string;
-          form: { name: string; prefix: string; created_at: string };
         };
         payouts: {
           title: string;
           add: string;
           edit: string;
           index: string;
-          form: {
-            title: string;
-            description: string;
-            body: string;
-            photo: string;
-            event_photo: string;
-            is_active: string;
-            select_status: string;
-            created_at: string;
-          };
         };
         reports: {
           title: string;
           purchase: string;
           paid_bonus: string;
           commission: string;
-          form: {
-            name: string;
-            description: string;
-            body: string;
-            photo: string;
-            ministry_photo: string;
-            is_active: string;
-            select_status: string;
-            created_at: string;
-          };
         };
         notifications: {
           title: string;
@@ -420,18 +395,12 @@ export default interface ContentType {
           mlm: string;
           send_token: string;
           language: string;
-          form: {
-            name: string;
-            email: string;
-            phone: string;
-            locale: string;
-            password: string;
-            password_confirmation: string;
-            photo: string;
-            save_settings: string;
-            edit_settings: string;
-          };
         };
+        courses: { title: string };
+        commissions: { title: string };
+        bonus: { title: string };
+        transfer: { title: string };
+        kyc: { title: string };
       };
     };
     frontend: {

@@ -2,9 +2,9 @@ import {
   AdjustmentsHorizontalIcon,
   ArrowRightOnRectangleIcon,
   Bars3BottomLeftIcon,
-  ChatBubbleOvalLeftEllipsisIcon,
   ClipboardDocumentIcon,
   HomeIcon,
+  XCircleIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,37 +17,41 @@ import Notifications from "./notifications";
 
 import { useAccountContext } from "@/utils/contexts/account";
 import { useContentContext } from "@/utils/contexts/content";
-import { useRoleContext } from "@/utils/contexts/role";
 import { useSideDrawerContext } from "@/utils/contexts/side-drawer";
-import { useThemeContext } from "@/utils/contexts/theme";
+import { classNames, resourceIcon } from "@/utils/helpers";
 import ResourceType from "@/utils/types/resource";
 
 export default function Toolbar() {
   const { open, setOpen } = useSideDrawerContext();
-  const { setTheme } = useThemeContext();
   const { account } = useAccountContext();
-  const { role } = useRoleContext();
-  const router = useRouter()
 
-  const section = router.route.split('/')[2] as ResourceType | 'dashboard' | 'notifications'
+  const { route } = useRouter();
+  const role = route.split("/")[1] as "admin" | "user" | "customer";
+  const section = route.split("/")[2] as ResourceType | "dashboard";
 
   const { content } = useContentContext();
   const {
     cms: {
-      backend: { header ,
-        pages: {
-          [section]: cms
-        },},
+      backend: {
+        header,
+        pages: { [section]: cms },
+      },
     },
   } = content!;
 
-  const Icon = HomeIcon
+  const Icon = section === "dashboard" ? HomeIcon : resourceIcon(section);
+  const isCustomer = role === "customer";
 
   const handleLogout = () => {};
 
   return (
-    <header className="sticky top-0 mt-14 z-30 ml-8 mr-20 flex items-center overflow-hidden rounded-[14px] h-[69px] bg-nightblue after:absolute after:inset-0 after:z-0 after:bg-lightblue/10">
-      <div className="flex flex-1 items-center pl-[33px] pr-4 md:pl-[26px] md:pr-6 relative">
+    <header
+      className={classNames(
+        "sticky top-0 z-30 ml-8 mr-20 mt-14 flex flex-none items-center overflow-hidden rounded-[14px] bg-nightblue after:absolute after:inset-0 after:z-0 after:bg-lightblue/10",
+        isCustomer ? "h-[84px]" : "h-[69px]"
+      )}
+    >
+      <div className="relative flex flex-1 items-center pl-[33px] pr-4 md:pl-[26px] md:pr-6">
         <div
           className="hidden cursor-pointer"
           onClick={() => setOpen((open) => !open)}
@@ -61,14 +65,22 @@ export default function Toolbar() {
           <div className="h-1.5 w-1.5 flex-none rounded-full bg-white/10" />
 
           <div className="font-body text-white/80">
-            <span className="font-display font-bold">{'title' in cms ? cms.title : cms[role as 'admin' | 'user'].title}</span> / home
+            <span className="font-display font-bold">
+              {"title" in cms ? cms.title : cms[role].title}
+            </span>{" "}
+            / home
           </div>
         </div>
 
-        <div className="ml-auto rounded-full border border-white/30 bg-black/[0.04] py-2.5 px-3.5 flex items-center gap-2.5">
-          <div className="text-sm font-body opacity-60"><span className="font-display font-bold">https://www.spreadtt.io/</span>ref?=0x023810...3k5G</div>
+        <div className="ml-auto flex items-center gap-2.5 rounded-full border border-white/30 bg-black/[0.04] px-3.5 py-2.5">
+          <div className="font-body text-sm opacity-60">
+            <span className="font-display font-bold">
+              https://www.spreadtt.io/
+            </span>
+            ref?=0x023810...3k5G
+          </div>
 
-          <div className="flex items-center justify-center flex-none aspect-square rounded-full bg-green text-white w-[22px]">
+          <div className="flex aspect-square w-[22px] flex-none items-center justify-center rounded-full bg-green text-white">
             <ClipboardDocumentIcon className="w-3.5" />
           </div>
         </div>
@@ -81,12 +93,42 @@ export default function Toolbar() {
         </div>
       </div>
 
-      <div className="h-10 w-[3px] rounded-full bg-secondary-700/10 flex-none" />
+      <div className="h-10 w-[3px] flex-none rounded-full bg-secondary-700/10" />
 
-      <div className="flex items-center justify-between pr-9 gap-7 ml-8">
+      <div className="ml-8 flex items-center justify-between gap-7 pr-9">
         <div className="hidden md:block">
-          <div className="font-display font-bold">Admin Account</div>
-          <div className="mt-px font-body text-sm opacity-60">{account.name}</div>
+          <div className="font-display font-bold">
+            {isCustomer ? account.name : "Admin Account"}
+          </div>
+
+          {isCustomer ? (
+            <div
+              className={classNames(
+                "mt-1 inline-flex h-6 items-center gap-[5px] rounded-md pl-[7px] pr-2.5",
+                account.kyc ? "bg-white/10" : "bg-red/20"
+              )}
+            >
+              <XCircleIcon
+                className={classNames(
+                  "w-3",
+                  account.kyc ? "text-green" : "text-red opacity-60"
+                )}
+              />
+
+              <span
+                className={classNames(
+                  "text-[10px] text-white",
+                  account.kyc ? "" : "opacity-60"
+                )}
+              >
+                {account.kyc ? "Verified user" : "Not verified"}
+              </span>
+            </div>
+          ) : (
+            <div className="mt-px font-body text-sm opacity-60">
+              {account.name}
+            </div>
+          )}
         </div>
 
         <div className="group relative">

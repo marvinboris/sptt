@@ -84,7 +84,7 @@ export default function List({
       <input type="hidden" id="table-show" value={show} />
       <input type="hidden" id="table-search" value={search} />
 
-      <div className="rounded-[40px] bg-darkblue/40 pb-14 pl-12 pr-16 pt-8">
+      <div className="rounded-[40px] bg-darkblue/40 pb-14 pl-12 pr-16 pt-8 w-full">
         <div className="mb-[30.89px] flex flex-wrap items-center justify-between">
           <div>
             <div className="text-[25px]/[1.21] font-bold font-display">

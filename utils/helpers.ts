@@ -1,21 +1,11 @@
 import {
-  ArrowsRightLeftIcon,
-  BanknotesIcon,
   BellIcon,
-  BookOpenIcon,
-  CalendarDaysIcon,
-  ChatBubbleLeftEllipsisIcon,
   ChatBubbleOvalLeftEllipsisIcon,
-  CogIcon,
-  CreditCardIcon,
-  GiftIcon,
-  HomeIcon,
-  PhotoIcon,
-  RectangleStackIcon,
-  TagIcon,
+  Cog6ToothIcon,
+  CubeIcon,
+  PencilSquareIcon,
+  PresentationChartLineIcon,
   UserGroupIcon,
-  UserIcon,
-  UserPlusIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
 import axios, { AxiosError } from "axios";
@@ -117,12 +107,19 @@ export const checkValidity = (value = "", rules: ValidationType) => {
 
 export const resourceIcon = (resource: ResourceType) =>
   ({
-    users: UserGroupIcon,
-    packs: TagIcon,
-    holders: CogIcon,
-    payouts: CalendarDaysIcon,
-    reports: HomeIcon,
+    users: UsersIcon,
+    packs: CubeIcon,
+    holders: UserGroupIcon,
+    payouts: ChatBubbleOvalLeftEllipsisIcon,
+    reports: PresentationChartLineIcon,
     notifications: BellIcon,
+
+    courses: UsersIcon,
+    commissions: UserGroupIcon,
+    bonus: ChatBubbleOvalLeftEllipsisIcon,
+    transfer: PresentationChartLineIcon,
+    kyc: Cog6ToothIcon,
+    settings: PencilSquareIcon,
   }[resource]);
 
 export const htmlEntities = (str: string) => {
