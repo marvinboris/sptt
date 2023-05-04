@@ -10,7 +10,6 @@ import React, { ReactElement } from "react";
 import Layout, { Head } from "@/components/backend/navigation/layout";
 import Button from "@/components/backend/ui/form/button";
 import Input from "@/components/backend/ui/form/input";
-import Switch from "@/components/backend/ui/form/switch";
 
 import { useContentContext } from "@/utils/contexts/content";
 import { useRoleContext } from "@/utils/contexts/role";

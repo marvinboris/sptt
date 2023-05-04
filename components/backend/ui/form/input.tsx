@@ -1,7 +1,12 @@
 import { CheckIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import React, { ChangeEvent, InputHTMLAttributes, ReactNode, useState } from "react";
+import React, {
+  ChangeEvent,
+  InputHTMLAttributes,
+  ReactNode,
+  useState,
+} from "react";
 
-import { checkValidity, classNames } from "@/utils/helpers";
+import { checkValidity } from "@/utils/helpers";
 
 import IconType from "@/utils/types/icon";
 import ValidationType from "@/utils/types/validation";
@@ -40,17 +45,27 @@ export default function Input({
   return (
     <div className={className}>
       {label && (
-        <label htmlFor={props.id ? props.id : props.name}>{label}</label>
+        <label
+          htmlFor={props.id ? props.id : props.name}
+          className="mb-3.5 flex items-end gap-2.5"
+        >
+          {Icon && <Icon className="mb-0.5 w-[21px] text-white/40" />}
+          <span className="font-display font-bold text-white/70">{label}</span>
+        </label>
       )}
 
       <div className="flex h-11 items-center rounded-[10px] bg-[#5A657D33]">
         <div>
           <div
             className={
-              Icon || addon ? "flex min-w-[47px] justify-center" : "w-3"
+              label
+                ? "w-8"
+                : Icon || addon
+                ? "flex min-w-[47px] justify-center"
+                : "w-3"
             }
           >
-            {Icon && <Icon className="w-[18px] text-white/40" />}
+            {!label && Icon && <Icon className="w-[18px] text-white/40" />}
             {addon}
           </div>
         </div>
