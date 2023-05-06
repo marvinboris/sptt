@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply scrollbar-app bg-secondary-900 text-white/80;
+  @apply scrollbar-app bg-secondary-900 text-white/80 leading-tight;
 }
 
 header,

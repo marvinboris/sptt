@@ -1,13 +1,13 @@
 import React, { ReactElement } from "react";
 
-import { NextPageWithLayout } from "../_app";
+import { NextPageWithLayout } from "../../_app";
 
 import Layout, { Head } from "@/components/backend/navigation/layout";
-import AdminPacks from "@/components/backend/pages/admin/packs";
+import AdminPacksCreate from "@/components/backend/pages/admin/packs/create";
 
 import { useContentContext } from "@/utils/contexts/content";
 
-const AdminUsersPage: NextPageWithLayout = () => {
+const AdminPacksCreatePage: NextPageWithLayout = () => {
   const { content } = useContentContext();
 
   const {
@@ -15,13 +15,13 @@ const AdminUsersPage: NextPageWithLayout = () => {
       global: { app_name },
       backend: {
         pages: {
-          packs: { index: title, add },
+          packs: { add: title },
         },
       },
     },
   } = content!;
 
-  const subtitle = "List of training course packs"
+  const subtitle = "List of training course packs";
 
   return (
     <>
@@ -30,15 +30,13 @@ const AdminUsersPage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <div className="w-3/4">
-        <AdminPacks add={add} title={title} subtitle={subtitle} />
-      </div>
+        <AdminPacksCreate title={title} subtitle={subtitle} />
     </>
   );
 };
 
-AdminUsersPage.getLayout = function getLayout(page: ReactElement) {
+AdminPacksCreatePage.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export default AdminUsersPage;
+export default AdminPacksCreatePage;

@@ -1,8 +1,8 @@
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
-import List from "../../ui/list";
-import Action from "../../ui/list/action";
+import List from "../../../ui/list";
+import Action from "../../../ui/list/action";
 import { classNames, updateObject } from "@/utils/helpers";
 
 const fields = [
@@ -33,6 +33,7 @@ export default function AdminPacks({ add, title, subtitle }: Props) {
     <List
       toSearch
       toAdd={add}
+      link="/admin/packs/create"
       title={title}
       subtitle={subtitle}
       array={array.map((item) =>

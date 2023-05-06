@@ -6,12 +6,13 @@ import React, {
   useState,
 } from "react";
 
-import { checkValidity } from "@/utils/helpers";
+import { checkValidity, classNames } from "@/utils/helpers";
 
 import IconType from "@/utils/types/icon";
 import ValidationType from "@/utils/types/validation";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  inputSize?: "lg";
   icon?: IconType;
   label?: ReactNode;
   addon?: ReactNode;
@@ -19,6 +20,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 export default function Input({
+  inputSize,
   icon: Icon,
   label,
   addon,
@@ -43,29 +45,52 @@ export default function Input({
     : () => {};
 
   return (
-    <div className={className}>
+    <div className={classNames("group relative", className || "")}>
       {label && (
         <label
           htmlFor={props.id ? props.id : props.name}
-          className="mb-3.5 flex items-end gap-2.5"
+          className={
+            inputSize === "lg"
+              ? "absolute transition-all duration-200 left-[60px] top-1/2 -translate-y-1/2 text-white/[0.28] group-focus-within:left-7 group-focus-within:top-0 group-focus-within:text-xs group-focus-within:text-white/70"
+              : "mb-3.5 flex items-end gap-2.5 font-display font-bold text-white/70"
+          }
         >
-          {Icon && <Icon className="mb-0.5 w-[21px] text-white/40" />}
-          <span className="font-display font-bold text-white/70">{label}</span>
+          {inputSize === "lg"
+            ? null
+            : Icon && <Icon className="mb-0.5 w-[21px] text-white/40" />}
+          <span>{label}</span>
         </label>
       )}
 
-      <div className="flex h-11 items-center rounded-[10px] bg-[#5A657D33]">
+      <div
+        className={classNames(
+          "flex items-center rounded-[10px] bg-white/[0.04]",
+          inputSize === "lg"
+            ? "h-[60px] focus-within:border-2 focus-within:border-secondary-500/40"
+            : "h-11"
+        )}
+      >
         <div>
           <div
             className={
-              label
+              label && inputSize !== "lg"
                 ? "w-8"
                 : Icon || addon
-                ? "flex min-w-[47px] justify-center"
+                ? classNames(
+                    "flex justify-center",
+                    inputSize === "lg" ? "min-w-[60px]" : "min-w-[47px]"
+                  )
                 : "w-3"
             }
           >
-            {!label && Icon && <Icon className="w-[18px] text-white/40" />}
+            {(!label || (label && inputSize === "lg")) && Icon && (
+              <Icon
+                className={classNames(
+                  "text-white/40",
+                  inputSize === "lg" ? "w-6" : "w-[18px]"
+                )}
+              />
+            )}
             {addon}
           </div>
         </div>
@@ -74,7 +99,7 @@ export default function Input({
           <input
             {...props}
             onChange={onChange}
-            className="h-full w-full flex-1 border-none bg-transparent text-sm text-white/70 outline-none focus:ring-0"
+            className="h-full w-full flex-1 border-none bg-transparent text-white/70 outline-none focus:ring-0"
           />
 
           {touched && validation ? (

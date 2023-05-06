@@ -1,10 +1,11 @@
-import React from "react";
-import StatChart from "./stat-chart";
-import Button from "@/components/backend/ui/form/button";
-import SvgIcon from "@/components/ui/svg-icon";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
-import LineChart from "./line-chart";
+import Link from "next/link";
+import React from "react";
+
 import DonutChart from "./donut-chart";
+import LineChart from "./line-chart";
+import StatChart from "./stat-chart";
+import SvgIcon from "@/components/ui/svg-icon";
 
 export default function AdminDashboardStatChartsSection() {
   return (
@@ -15,11 +16,11 @@ export default function AdminDashboardStatChartsSection() {
         subtitle="Total token holders"
         className="col-span-2"
         action={
-          <button className="inline-flex h-11 items-center gap-3 rounded-full bg-gradient-to-r from-primary-700 to-primary-400 px-[22px]">
+          <Link href="/admin/reports/purchase" className="inline-flex h-11 items-center gap-3 rounded-full bg-gradient-to-r from-primary-700 to-primary-400 px-[22px]">
             <SvgIcon name="activity" className="w-[18px] flex-none" />
 
             <span className="font-display font-bold">View report</span>
-          </button>
+          </Link>
         }
       >
         <div className="flex items-center">

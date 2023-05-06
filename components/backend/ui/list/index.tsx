@@ -13,6 +13,7 @@ import { useContentContext } from "../../../../utils/contexts/content";
 import { classNames } from "../../../../utils/helpers";
 import Input from "../form/input";
 import Button from "@/components/backend/ui/form/button";
+import Link from "next/link";
 
 let timeout: NodeJS.Timeout | null;
 
@@ -24,6 +25,7 @@ type ListProps = {
   toShow?: boolean;
   toSearch?: boolean;
   toAdd?: ReactNode;
+  link?: string;
   toExport?: boolean;
   loading?: boolean;
   fields: { key: string; name: string; className?: string }[];
@@ -43,6 +45,7 @@ export default function List({
   toShow,
   toSearch,
   toAdd,
+  link = "#",
   toExport,
   loading,
 }: ListProps) {
@@ -84,56 +87,66 @@ export default function List({
       <input type="hidden" id="table-show" value={show} />
       <input type="hidden" id="table-search" value={search} />
 
-      <div className="rounded-[40px] bg-darkblue/40 pb-14 pl-12 pr-16 pt-8 w-full">
+      <div className="w-full rounded-[40px] bg-darkblue/40 pb-14 pl-12 pr-16 pt-8">
         <div className="mb-[30.89px] flex flex-wrap items-center justify-between">
           <div>
-            <div className="text-[25px]/[1.21] font-bold font-display">
+            <div className="font-display text-[25px]/[1.21] font-bold">
               {title}
             </div>
 
-            {subtitle ? <div className="mt-px text-sm text-white/40">{subtitle}</div> : null}
+            {subtitle ? (
+              <div className="mt-px text-sm text-white/40">{subtitle}</div>
+            ) : null}
 
             <div className="mt-3.5 h-[7px] w-8 rounded-full bg-green" />
           </div>
 
-          <div className="mb-8 gap-8 flex items-center md:mb-0 md:ml-0">
-            {toShow ? <div className="flex h-11 items-center rounded-[10px] bg-[#5A657D33]">
-              <div className="divide-x-secondary-300 flex items-center divide-x-[0.5px] text-sm">
-                <div className="flex h-[39px] items-center justify-center px-3">
-                  {cms.show}
-                </div>
+          <div className="mb-8 flex items-center gap-8 md:mb-0 md:ml-0">
+            {toShow ? (
+              <div className="flex h-11 items-center rounded-[10px] bg-[#5A657D33]">
+                <div className="divide-x-secondary-300 flex items-center divide-x-[0.5px] text-sm">
+                  <div className="flex h-[39px] items-center justify-center px-3">
+                    {cms.show}
+                  </div>
 
-                <div className="relative flex h-[39px] w-[59px] items-center justify-center">
-                  <select
-                    name="show"
-                    id="show"
-                    onChange={inputChangedHandler}
-                    value={show}
-                    className="border-0 bg-transparent p-0 font-bold outline-none"
-                  >
-                    <option value="5">05</option>
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="All">{cms.all}</option>
-                  </select>
+                  <div className="relative flex h-[39px] w-[59px] items-center justify-center">
+                    <select
+                      name="show"
+                      id="show"
+                      onChange={inputChangedHandler}
+                      value={show}
+                      className="border-0 bg-transparent p-0 font-bold outline-none"
+                    >
+                      <option value="5">05</option>
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="All">{cms.all}</option>
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div> : null}
+            ) : null}
 
-            {toSearch ? <div>
-              <Input
-                type="search"
-                name="search"
-                icon={MagnifyingGlassIcon}
-                onChange={inputChangedHandler}
-                value={search}
-                placeholder={cms.search}
-              />
-            </div> : null}
+            {toSearch ? (
+              <div>
+                <Input
+                  type="search"
+                  name="search"
+                  icon={MagnifyingGlassIcon}
+                  onChange={inputChangedHandler}
+                  value={search}
+                  placeholder={cms.search}
+                />
+              </div>
+            ) : null}
           </div>
 
           <div>
-            {toAdd ? <Button icon={PlusIcon}>{toAdd}</Button> : null}
+            {toAdd ? (
+              <Link href={link}>
+                <Button icon={PlusIcon}>{toAdd}</Button>
+              </Link>
+            ) : null}
             {toExport ? (
               <Button icon={ArrowDownOnSquareIcon}>Export table</Button>
             ) : null}

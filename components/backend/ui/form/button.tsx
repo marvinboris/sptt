@@ -40,6 +40,8 @@ export default function Button({
           ? "bg-red text-white focus-visible:outline-red hover:text-secondary-100 active:text-red/10"
           : color === "yellow"
           ? "bg-yellow text-white focus-visible:outline-yellow hover:text-secondary-100 active:text-yellow/10"
+          : color === "secondary"
+          ? "bg-secondary-600 text-white focus-visible:outline-secondary-600 hover:text-secondary-100 active:text-secondary-600/10"
           : color === "white"
           ? "focus-visible:outline-white"
           : "bg-gradient-to-r from-primary-700 to-primary-400 text-white focus-visible:outline-primary-600 hover:text-secondary-100 active:text-primary-600/10",
