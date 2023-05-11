@@ -29,7 +29,7 @@ export default function CustomerKycVerifySection() {
   return (
     <div className="rounded-[40px] bg-darkblue/40 px-6 py-8">
       <div>
-        <div className="flex gap-3 font-display text-[25px]/[1.21] font-bold">
+        <div className="flex gap-3 font-display text-[25px] font-bold">
           <span>Verify account</span>
         </div>
 

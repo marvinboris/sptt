@@ -17,7 +17,7 @@ export default function AdminSettingsCompanyProfileFormSection() {
     >
       <div className="flex justify-between">
         <div>
-          <div className="font-display text-[25px]/[1.21] font-bold">
+          <div className="font-display text-[25px] font-bold">
             Company profile
           </div>
 
@@ -28,7 +28,7 @@ export default function AdminSettingsCompanyProfileFormSection() {
           <div className="mt-3.5 h-[7px] w-8 rounded-full bg-green" />
         </div>
 
-        <div>
+        <div className="hidden md:block">
           <Button
             className="font-display text-sm font-bold"
             color="green"
@@ -39,7 +39,7 @@ export default function AdminSettingsCompanyProfileFormSection() {
         </div>
       </div>
 
-      <form className="mt-8 grid grid-cols-2 gap-8">
+      <form className="mt-8 grid gap-8 md:grid-cols-2">
         <Input
           id="name"
           name="name"
@@ -71,6 +71,16 @@ export default function AdminSettingsCompanyProfileFormSection() {
           icon={BriefcaseIcon}
           defaultValue="+237 612 34 56 78"
         />
+
+        <div className="md:hidden">
+          <Button
+            className="font-display text-sm font-bold"
+            color="green"
+            icon={PlusIcon}
+          >
+            Save settings
+          </Button>
+        </div>
       </form>
     </section>
   );

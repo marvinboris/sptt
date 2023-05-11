@@ -30,7 +30,7 @@ const AdminPacksPage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <div className="w-3/4">
+      <div className="xl:w-3/4">
         <AdminPacks add={add} title={title} subtitle={subtitle} />
       </div>
     </>

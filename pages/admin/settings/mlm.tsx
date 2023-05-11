@@ -30,7 +30,7 @@ const AdminSettingsMlmPage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <div className="w-4/5">
+      <div className="xl:w-11/12 2xl:w-4/5">
         <AdminSettingsMlm subtitle={subtitle} />
       </div>
     </>

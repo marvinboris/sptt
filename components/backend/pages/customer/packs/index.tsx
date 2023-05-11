@@ -50,5 +50,5 @@ export default function CustomerPacks() {
     <Pack key={"pack-" + i} {...pack} index={i % 4} />
   ));
 
-  return <div className="grid grid-cols-4 gap-4">{packs}</div>;
+  return <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">{packs}</div>;
 }

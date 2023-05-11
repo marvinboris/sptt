@@ -14,7 +14,7 @@ import ValidationType from "@/utils/types/validation";
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   inputSize?: "lg";
   icon?: IconType;
-  label?: ReactNode;
+  label?: string;
   addon?: ReactNode;
   validation?: ValidationType;
 };
@@ -45,19 +45,13 @@ export default function Input({
     : () => {};
 
   return (
-    <div className={classNames("group relative", className || "")}>
-      {label && (
+    <div className={classNames("relative", className || "")}>
+      {label && inputSize !== "lg" && (
         <label
           htmlFor={props.id ? props.id : props.name}
-          className={
-            inputSize === "lg"
-              ? "absolute transition-all duration-200 left-[60px] top-1/2 -translate-y-1/2 text-white/[0.28] group-focus-within:left-7 group-focus-within:top-0 group-focus-within:text-xs group-focus-within:text-white/70"
-              : "mb-3.5 flex items-end gap-2.5 font-display font-bold text-white/70"
-          }
+          className="mb-3.5 flex items-end gap-2.5 font-display font-bold text-white/70"
         >
-          {inputSize === "lg"
-            ? null
-            : Icon && <Icon className="mb-0.5 w-[21px] text-white/40" />}
+          {Icon && <Icon className="mb-0.5 w-[21px] text-white/40" />}
           <span>{label}</span>
         </label>
       )}
@@ -66,7 +60,7 @@ export default function Input({
         className={classNames(
           "flex items-center rounded-[10px] bg-white/[0.04]",
           inputSize === "lg"
-            ? "h-[60px] focus-within:border-2 focus-within:border-secondary-500/40"
+            ? "h-[60px] border-2 border-transparent focus-within:border-secondary-500/40"
             : "h-11"
         )}
       >
@@ -99,8 +93,21 @@ export default function Input({
           <input
             {...props}
             onChange={onChange}
-            className="h-full w-full flex-1 border-none bg-transparent text-white/70 outline-none focus:ring-0"
+            placeholder={props.placeholder || label}
+            className={classNames(
+              "peer h-full w-full flex-1 border-none bg-transparent text-white/70 outline-none focus:ring-0",
+              label && inputSize === "lg" ? "placeholder:text-transparent" : ""
+            )}
           />
+
+          {label && inputSize === "lg" && (
+            <label
+              htmlFor={props.id ? props.id : props.name}
+              className="absolute -left-8 top-0 -translate-y-1/2 text-xs text-white/70 transition-all duration-200 peer-placeholder-shown:left-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-white/[0.28] peer-focus:-left-8 peer-focus:top-0 peer-focus:text-xs peer-focus:text-white/70"
+            >
+              {label}
+            </label>
+          )}
 
           {touched && validation ? (
             <div className="relative flex h-full w-[47px] items-center justify-center">

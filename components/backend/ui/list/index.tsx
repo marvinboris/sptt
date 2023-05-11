@@ -90,7 +90,7 @@ export default function List({
       <div className="w-full rounded-[40px] bg-darkblue/40 pb-14 pl-12 pr-16 pt-8">
         <div className="mb-[30.89px] flex flex-wrap items-center justify-between">
           <div>
-            <div className="font-display text-[25px]/[1.21] font-bold">
+            <div className="font-display text-[25px] font-bold">
               {title}
             </div>
 

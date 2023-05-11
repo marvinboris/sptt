@@ -30,7 +30,7 @@ const AdminSettingsGenerationPage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <div className="w-3/5">
+      <div className="xl:w-4/5 2xl:w-3/5">
         <AdminSettingsGeneration title={title} subtitle={subtitle} />
       </div>
     </>

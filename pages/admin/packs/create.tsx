@@ -30,7 +30,7 @@ const AdminPacksCreatePage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-        <AdminPacksCreate title={title} subtitle={subtitle} />
+        <AdminPacksCreate />
     </>
   );
 };

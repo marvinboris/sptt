@@ -24,7 +24,7 @@ export default function Layout({ children }: LayoutProps) {
 
           <div className="relative flex flex-1 flex-col">
             <main className="flex-1">
-              <div className="px-[33px] pb-[54px] pr-[76px] pt-[29px] xl:pl-[33px] xl:pt-[47px]">
+              <div className="px-[33px] pb-[54px] xl:pr-[76px] pt-[29px] xl:pl-[33px] xl:pt-[47px]">
                 {children}
               </div>
             </main>

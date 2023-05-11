@@ -11,7 +11,7 @@ export default function CustomerSettingsPasswordSection() {
       className="rounded-[40px] bg-darkblue/40 pb-[76px] pl-12 pr-14 pt-8"
     >
       <div>
-        <div className="font-display text-[25px]/[1.21] font-bold">
+        <div className="font-display text-[25px] font-bold">
           Change password
         </div>
 

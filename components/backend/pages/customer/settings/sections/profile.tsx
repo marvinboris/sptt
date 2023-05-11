@@ -17,7 +17,7 @@ export default function CustomerSettingsProfileSection() {
     >
       <div className="flex justify-between">
         <div>
-          <div className="font-display text-[25px]/[1.21] font-bold">
+          <div className="font-display text-[25px] font-bold">
             User profile
           </div>
 
@@ -28,7 +28,7 @@ export default function CustomerSettingsProfileSection() {
           <div className="mt-3.5 h-[7px] w-8 rounded-full bg-green" />
         </div>
 
-        <div>
+        <div className="hidden md:block">
           <Button
             className="font-display text-sm font-bold"
             color="green"
@@ -39,7 +39,7 @@ export default function CustomerSettingsProfileSection() {
         </div>
       </div>
 
-      <form className="mt-8 grid grid-cols-2 gap-8">
+      <form className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
         <Input
           id="first-name"
           name="first_name"
@@ -70,6 +70,17 @@ export default function CustomerSettingsProfileSection() {
           icon={PhoneIcon}
           defaultValue="+237 612 34 56 78"
         />
+
+        <div className="md:hidden">
+          <Button
+            justify="center"
+            className="w-full font-display text-sm font-bold"
+            color="green"
+            icon={PlusIcon}
+          >
+            Save settings
+          </Button>
+        </div>
       </form>
     </section>
   );

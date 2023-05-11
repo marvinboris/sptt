@@ -1,7 +1,4 @@
-import {
-  CheckCircleIcon,
-  XCircleIcon,
-} from "@heroicons/react/24/outline";
+import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
 import List from "@/components/backend/ui/list";
@@ -42,7 +39,7 @@ interface Props {
 export default function CustomerKycListSection({ title, subtitle }: Props) {
   return (
     <div className="relative flex w-full items-stretch">
-      <div className="absolute right-16 top-14 flex items-center gap-1 text-[#F45F5F]">
+      <div className="absolute right-16 top-14 hidden items-center gap-1 text-[#F45F5F] md:flex">
         <XCircleIcon className="w-5 flex-none opacity-60" />
         <span className="text-lg font-bold">Account not verified</span>
       </div>

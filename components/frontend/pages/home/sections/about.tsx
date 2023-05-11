@@ -52,6 +52,7 @@ export default function HomeAboutSection() {
             src="/images/home-computer/Other-07_habeqb_c_scale,w_1400.webp"
             alt="Home - Computer"
             className="relative z-0"
+            data-aos="fade-left"
           />
         </div>
 

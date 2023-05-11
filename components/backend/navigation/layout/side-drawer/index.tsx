@@ -105,7 +105,7 @@ export default function SideDrawer() {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <div className="absolute z-0 ml-[18px] flex h-full w-[246px] flex-col bg-black/20 px-5 pb-[95px] pt-[18px] md:relative">
+          <div className="absolute z-0 flex h-full w-[246px] flex-col bg-nightblue after:-z-10 after:absolute after:inset-0 after:bg-black/20 px-5 py-[18px] md:relative">
             <div>
               <Link href="/">
                 <Logo className="h-10" />
@@ -159,11 +159,10 @@ export default function SideDrawer() {
 
             <div
               className={classNames(
-                "scrollbar-app flex flex-1 flex-col",
+                "scrollbar-none flex-1 overflow-auto",
                 isCustomer ? "mt-14" : "mt-9"
               )}
             >
-              <div>
                 <NavItem icon={HomeIcon} href={`/${role}/dashboard`}>
                   {cms.sidebar.menu.dashboard.title}
                 </NavItem>
@@ -249,7 +248,6 @@ export default function SideDrawer() {
                     ) : null}
                   </>
                 )}
-              </div>
             </div>
           </div>
         </Transition.Child>

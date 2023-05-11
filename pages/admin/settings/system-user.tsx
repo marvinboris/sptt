@@ -30,7 +30,7 @@ const AdminSettingsSystemUserPage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <div className="w-3/4">
+      <div className="xl:w-3/4">
         <AdminSettingsSystemUser title={title} subtitle={subtitle} />
       </div>
     </>

@@ -1,16 +1,23 @@
 import { CheckIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import React, { ChangeEvent, InputHTMLAttributes, ReactNode, useState } from "react";
+import React, {
+  ChangeEvent,
+  InputHTMLAttributes,
+  ReactNode,
+  useState,
+} from "react";
 
 import { checkValidity, classNames } from "@/utils/helpers";
 
 import ValidationType from "@/utils/types/validation";
 
 type TextAreaProps = InputHTMLAttributes<HTMLTextAreaElement> & {
+  inputSize?: "lg";
   label?: ReactNode;
   validation?: ValidationType;
 };
 
 export default function TextArea({
+  inputSize,
   label,
   validation,
   ...props
@@ -42,18 +49,19 @@ export default function TextArea({
         </label>
       )}
 
-      <div className="relative rounded-lg bg-secondary-100 dark:bg-secondary-900">
+      <div className="relative rounded-xl bg-white/[0.04]">
         <textarea
           {...props}
           onChange={onChange}
           className={classNames(
-            "min-h-[100px] w-full border-none bg-transparent p-5 text-sm text-inherit outline-none focus:ring-0",
-            validation ? "pr-[59px]" : ""
+            "w-full border-none bg-transparent text-white/70 placeholder:text-white/[0.28] outline-none focus:ring-0",
+            validation ? "pr-[59px]" : "",
+            inputSize === "lg" ? "min-h-[145px] px-7 py-5" : "min-h-[100px] text-sm p-5"
           )}
         />
 
         {touched && validation ? (
-          <div className="absolute top-0 right-0 flex h-12 w-[47px] items-center justify-center">
+          <div className="absolute right-0 top-0 flex h-12 w-[47px] items-center justify-center">
             {valid ? (
               <CheckIcon className="w-[18px] text-green" />
             ) : (

@@ -29,8 +29,8 @@ const CustomerSettingsPage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <div className="grid grid-cols-3 gap-8">
-        <div className="col-span-2 flex items-stretch">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="xl:col-span-2 flex items-stretch">
           <CustomerSettingsProfileSection />
         </div>
 
@@ -38,7 +38,7 @@ const CustomerSettingsPage: NextPageWithLayout = () => {
           <CustomerSettingsPasswordSection />
         </div>
 
-        <div className="col-span-2 flex items-stretch">
+        <div className="xl:col-span-2 flex items-stretch">
           <CustomerSettingsCscSection />
         </div>
 

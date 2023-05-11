@@ -3,6 +3,7 @@ import React from "react";
 import Pack from "./pack";
 
 import Button from "@/components/backend/ui/form/button";
+import OwlCarousel from "@/components/frontend/ui/owl-carousel";
 
 const array = [
   {
@@ -48,10 +49,30 @@ export default function CustomerDashboardTrainingPacksSection() {
           <div className="h-[7px] w-8 rounded-full bg-green" />
         </div>
 
-        <Button justify="center" className="w-[152px]">View pack list</Button>
+        <Button justify="center" className="hidden w-[152px] md:block">
+          View pack list
+        </Button>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 mt-5">{packs}</div>
+      <div className="mt-5">
+        <div className="hidden grid-cols-4 gap-4 xl:grid">{packs}</div>
+
+        <div className="xl:hidden">
+          <OwlCarousel
+            key="packs-carousel"
+            role="list"
+            loop
+            responsive={{
+              0: { items: 1 },
+              768: { items: 2 },
+              1280: { items: 3 },
+            }}
+            margin={30}
+          >
+            {packs}
+          </OwlCarousel>
+        </div>
+      </div>
     </section>
   );
 }

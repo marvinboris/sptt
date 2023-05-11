@@ -9,21 +9,21 @@ import SvgIcon from "@/components/ui/svg-icon";
 
 export default function AdminDashboardStatChartsSection() {
   return (
-    <section id="stat-charts" className="mt-[26px] grid grid-cols-3 gap-8">
+    <section id="stat-charts" className="mt-[26px] grid xl:grid-cols-3 gap-8">
       <StatChart
         icon="coins"
         title="Token purchase report"
         subtitle="Total token holders"
-        className="col-span-2"
+        className="xl:col-span-2"
         action={
-          <Link href="/admin/reports/purchase" className="inline-flex h-11 items-center gap-3 rounded-full bg-gradient-to-r from-primary-700 to-primary-400 px-[22px]">
+          <Link href="/admin/reports/purchase" className="hidden sm:inline-flex h-11 items-center gap-3 rounded-full bg-gradient-to-r from-primary-700 to-primary-400 px-[22px]">
             <SvgIcon name="activity" className="w-[18px] flex-none" />
 
             <span className="font-display font-bold">View report</span>
           </Link>
         }
       >
-        <div className="flex items-center">
+        <div className="flex flex-wrap md:flex-nowrap items-center">
           <div>
             <h4 className="text-sm font-medium text-secondary-300">
               Total sales of SPTT this month
@@ -40,7 +40,7 @@ export default function AdminDashboardStatChartsSection() {
             </div>
           </div>
 
-          <div className="flex-1">
+          <div className="md:flex-1">
             <LineChart className="w-full" />
           </div>
         </div>

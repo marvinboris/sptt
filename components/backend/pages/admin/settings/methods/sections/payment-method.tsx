@@ -13,7 +13,7 @@ export default function AdminSettingsMethodsPaymentMethodSection() {
   return (
     <div className="rounded-[40px] bg-darkblue/40 px-6 py-8">
       <div>
-        <div className="flex gap-3 font-display text-[25px]/[1.21] font-bold">
+        <div className="flex gap-3 font-display text-[25px] font-bold">
           <span>Paypal</span>
 
           <div className="inline-flex h-6 w-[72px] flex-none items-center justify-center gap-1 rounded-md bg-green/10 text-xs font-normal text-green">
