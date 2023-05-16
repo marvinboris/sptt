@@ -12,7 +12,7 @@ import ValidationType from "@/utils/types/validation";
 
 type TextAreaProps = InputHTMLAttributes<HTMLTextAreaElement> & {
   inputSize?: "lg";
-  label?: ReactNode;
+  label?: string;
   validation?: ValidationType;
 };
 
@@ -40,12 +40,12 @@ export default function TextArea({
 
   return (
     <div className={props.className}>
-      {label && (
+      {label && inputSize !== "lg" && (
         <label
-          className="block truncate"
           htmlFor={props.id ? props.id : props.name}
+          className="mb-3.5 font-display font-bold text-white/70"
         >
-          {label}
+          <span>{label}</span>
         </label>
       )}
 
@@ -53,12 +53,25 @@ export default function TextArea({
         <textarea
           {...props}
           onChange={onChange}
+          placeholder={props.placeholder || label}
           className={classNames(
-            "w-full border-none bg-transparent text-white/70 placeholder:text-white/[0.28] outline-none focus:ring-0",
+            "peer w-full border-none bg-transparent text-white/70 outline-none placeholder:text-white/[0.28] focus:ring-0",
             validation ? "pr-[59px]" : "",
-            inputSize === "lg" ? "min-h-[145px] px-7 py-5" : "min-h-[100px] text-sm p-5"
+            inputSize === "lg"
+              ? "min-h-[145px] px-7 py-5"
+              : "min-h-[100px] p-5 text-sm",
+            label && inputSize === "lg" ? "placeholder:text-transparent" : ""
           )}
         />
+
+        {label && inputSize === "lg" && (
+          <label
+            htmlFor={props.id ? props.id : props.name}
+            className="absolute -left-8 top-0 z-0 -translate-y-1/2 bg-gradient-to-t from-nightblue from-[65%] to-transparent to-[65%] px-1 text-xs text-white/70 transition-all duration-200 before:absolute before:inset-0 before:-z-20 before:bg-gradient-to-t before:from-darkblue/40 before:from-[65%] before:to-transparent before:to-[65%] after:absolute after:inset-0 after:-z-10 after:bg-gradient-to-t after:from-white/[0.04] after:from-[65%] after:to-transparent after:to-[65%] peer-placeholder-shown:left-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-white/[0.28] peer-focus:-left-8 peer-focus:top-0 peer-focus:text-xs peer-focus:text-white/70"
+          >
+            {label}
+          </label>
+        )}
 
         {touched && validation ? (
           <div className="absolute right-0 top-0 flex h-12 w-[47px] items-center justify-center">

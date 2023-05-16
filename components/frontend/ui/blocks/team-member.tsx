@@ -21,7 +21,7 @@ export default function TeamMemberBlock({
           <Image
             width={500}
             height={500}
-            src={`/images/${photo}.png`}
+            src={`/images/${photo}.webp`}
             alt={`Photo - ${name.toLowerCase()}`}
             className="image-cover rounded-full bg-white"
           />
