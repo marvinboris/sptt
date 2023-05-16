@@ -189,7 +189,7 @@ export default function AdminPacksCreate() {
                   inputSize="lg"
                   id="description"
                   name="description"
-                  placeholder="Course description"
+                  label="Course description"
                   className="col-span-2"
                 />
               </div>
