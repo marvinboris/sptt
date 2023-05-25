@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import React from 'react';
+import React from "react";
 
 import Button from "@/components/frontend/ui/form/button";
 import SvgIcon from "@/components/ui/svg-icon";

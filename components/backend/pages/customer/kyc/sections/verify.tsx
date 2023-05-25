@@ -11,7 +11,10 @@ import Select from "@/components/backend/ui/form/select";
 
 const FilePicker = ({ id = "", label = "" }) => (
   <>
-    <button type="button" className="flex h-11 items-center justify-center gap-2.5 rounded-[10px] bg-sky/20 text-sm text-white">
+    <button
+      type="button"
+      className="flex h-11 items-center justify-center gap-2.5 rounded-[10px] bg-sky/20 text-sm text-white"
+    >
       <label htmlFor={id}>{label}</label>
       <CloudArrowUpIcon className="w-[22px] text-sky" />
     </button>

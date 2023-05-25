@@ -105,7 +105,7 @@ export default function SideDrawer() {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <div className="absolute z-0 flex h-full w-[246px] flex-col bg-nightblue after:-z-10 after:absolute after:inset-0 after:bg-black/20 px-5 py-[18px] md:relative">
+          <div className="absolute z-0 flex h-full w-[246px] flex-col bg-nightblue px-5 py-[18px] after:absolute after:inset-0 after:-z-10 after:bg-black/20 md:relative">
             <div>
               <Link href="/">
                 <Logo className="h-10" />
@@ -159,95 +159,95 @@ export default function SideDrawer() {
 
             <div
               className={classNames(
-                "scrollbar-none flex-1 overflow-auto",
+                "flex-1 overflow-auto scrollbar-none",
                 isCustomer ? "mt-14" : "mt-9"
               )}
             >
-                <NavItem icon={HomeIcon} href={`/${role}/dashboard`}>
-                  {cms.sidebar.menu.dashboard.title}
-                </NavItem>
+              <NavItem icon={HomeIcon} href={`/${role}/dashboard`}>
+                {cms.sidebar.menu.dashboard.title}
+              </NavItem>
 
-                {isCustomer ? (
-                  <>
-                    <NavItem icon={UsersIcon} href={`/${role}/courses`}>
-                      My courses
-                    </NavItem>
-                    <NavItem icon={CubeIcon} href={`/${role}/packs`}>
-                      Packs list
-                    </NavItem>
-                    <NavItem icon={UserGroupIcon} href={`/${role}/commissions`}>
-                      Commissions
-                    </NavItem>
-                    <NavItem
-                      icon={ChatBubbleOvalLeftEllipsisIcon}
-                      href={`/${role}/bonus`}
-                    >
-                      Bonus
-                    </NavItem>
-                    <NavItem
-                      icon={PresentationChartLineIcon}
-                      href={`/${role}/transfer`}
-                    >
-                      Transfer token
-                    </NavItem>
-                    <NavItem icon={Cog6ToothIcon} href={`/${role}/kyc`}>
-                      KYC
-                    </NavItem>
-                    <NavItem icon={PencilSquareIcon} href={`/${role}/settings`}>
-                      Settings
-                    </NavItem>
-                  </>
-                ) : (
-                  <>
-                    <UserNavItem resource="users" />
-                    <UserNavItem resource="packs" />
-                    <UserNavItem resource="holders" />
-                    <UserNavItem resource="payouts" />
+              {isCustomer ? (
+                <>
+                  <NavItem icon={UsersIcon} href={`/${role}/courses`}>
+                    My courses
+                  </NavItem>
+                  <NavItem icon={CubeIcon} href={`/${role}/packs`}>
+                    Packs list
+                  </NavItem>
+                  <NavItem icon={UserGroupIcon} href={`/${role}/commissions`}>
+                    Commissions
+                  </NavItem>
+                  <NavItem
+                    icon={ChatBubbleOvalLeftEllipsisIcon}
+                    href={`/${role}/bonus`}
+                  >
+                    Bonus
+                  </NavItem>
+                  <NavItem
+                    icon={PresentationChartLineIcon}
+                    href={`/${role}/transfer`}
+                  >
+                    Transfer token
+                  </NavItem>
+                  <NavItem icon={Cog6ToothIcon} href={`/${role}/kyc`}>
+                    KYC
+                  </NavItem>
+                  <NavItem icon={PencilSquareIcon} href={`/${role}/settings`}>
+                    Settings
+                  </NavItem>
+                </>
+              ) : (
+                <>
+                  <UserNavItem resource="users" />
+                  <UserNavItem resource="packs" />
+                  <UserNavItem resource="holders" />
+                  <UserNavItem resource="payouts" />
 
-                    <NavItem
-                      icon={resourceIcon("reports")}
-                      href={`/${role}/reports`}
-                      items={Object.entries(cms.sidebar.menu.reports)
-                        .filter(([key]) => key !== "title")
-                        .map(([key, label]) => ({
-                          href: `/${key.split("_").join("-")}`,
-                          label,
-                        }))}
-                    >
-                      {cms.sidebar.menu.reports.title}
-                    </NavItem>
+                  <NavItem
+                    icon={resourceIcon("reports")}
+                    href={`/${role}/reports`}
+                    items={Object.entries(cms.sidebar.menu.reports)
+                      .filter(([key]) => key !== "title")
+                      .map(([key, label]) => ({
+                        href: `/${key.split("_").join("-")}`,
+                        label,
+                      }))}
+                  >
+                    {cms.sidebar.menu.reports.title}
+                  </NavItem>
 
-                    <NavItem
-                      icon={AdjustmentsHorizontalIcon}
-                      href={`/${role}/settings`}
-                      items={Object.entries(cms.sidebar.menu.settings)
-                        .filter(([key]) => key !== "title")
-                        .map(([key, label]) => ({
-                          href: `/${key.split("_").join("-")}`,
-                          label,
-                        }))}
-                    >
-                      {cms.sidebar.menu.settings.title}
-                    </NavItem>
+                  <NavItem
+                    icon={AdjustmentsHorizontalIcon}
+                    href={`/${role}/settings`}
+                    items={Object.entries(cms.sidebar.menu.settings)
+                      .filter(([key]) => key !== "title")
+                      .map(([key, label]) => ({
+                        href: `/${key.split("_").join("-")}`,
+                        label,
+                      }))}
+                  >
+                    {cms.sidebar.menu.settings.title}
+                  </NavItem>
 
-                    {role === "admin" ||
-                    (data &&
-                      "role" in data &&
-                      data.role.features.find(
-                        ({ prefix }) => prefix === "cms"
-                      )) ? (
-                      <NavItem
-                        icon={Cog8ToothIcon}
-                        href={`/${role}/cms`}
-                        items={Object.entries(cms.sidebar.menu.cms)
-                          .filter(([key]) => !["icon", "title"].includes(key))
-                          .map(([key, label]) => ({ href: `/${key}`, label }))}
-                      >
-                        {cms.sidebar.menu.cms.title}
-                      </NavItem>
-                    ) : null}
-                  </>
-                )}
+                  {role === "admin" ||
+                  (data &&
+                    "role" in data &&
+                    data.role.features.find(
+                      ({ prefix }) => prefix === "cms"
+                    )) ? (
+                    <NavItem
+                      icon={Cog8ToothIcon}
+                      href={`/${role}/cms`}
+                      items={Object.entries(cms.sidebar.menu.cms)
+                        .filter(([key]) => !["icon", "title"].includes(key))
+                        .map(([key, label]) => ({ href: `/${key}`, label }))}
+                    >
+                      {cms.sidebar.menu.cms.title}
+                    </NavItem>
+                  ) : null}
+                </>
+              )}
             </div>
           </div>
         </Transition.Child>

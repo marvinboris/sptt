@@ -1,5 +1,5 @@
 import { CheckCircleIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
-import React from 'react';
+import React from "react";
 
 type InputFileProps = {
   label: string;

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function LineChart(props: React.ComponentProps<'svg'>) {
+export default function LineChart(props: React.ComponentProps<"svg">) {
   return (
     <svg
       width="421"

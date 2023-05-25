@@ -21,7 +21,7 @@ const AdminReportsPaidBonusPage: NextPageWithLayout = () => {
     },
   } = content!;
 
-  const subtitle = "Bonus report"
+  const subtitle = "Bonus report";
 
   return (
     <>

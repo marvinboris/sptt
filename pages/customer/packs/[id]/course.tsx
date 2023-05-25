@@ -1,27 +1,23 @@
 import React, { ReactElement } from "react";
 
-import { NextPageWithLayout } from "../../_app";
-
 import Layout, { Head } from "@/components/backend/navigation/layout";
-import AdminPacksCreate from "@/components/backend/pages/admin/packs/create";
+import CustomerPackCourse from "@/components/backend/pages/customer/packs/course";
+
+import { NextPageWithLayout } from "@/pages/_app";
 
 import { useContentContext } from "@/utils/contexts/content";
 
-const AdminPacksCreatePage: NextPageWithLayout = () => {
+const CustomerPackCoursePage: NextPageWithLayout = () => {
   const { content } = useContentContext();
 
   const {
     cms: {
       global: { app_name },
-      backend: {
-        pages: {
-          packs: { add: title },
-        },
-      },
     },
   } = content!;
 
-  const subtitle = "List of training course packs";
+  const title = "Course details";
+  const subtitle = "View all details on pack's course details";
 
   return (
     <>
@@ -30,13 +26,13 @@ const AdminPacksCreatePage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <AdminPacksCreate />
+      <CustomerPackCourse />
     </>
   );
 };
 
-AdminPacksCreatePage.getLayout = function getLayout(page: ReactElement) {
+CustomerPackCoursePage.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export default AdminPacksCreatePage;
+export default CustomerPackCoursePage;

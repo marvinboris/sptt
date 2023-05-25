@@ -57,7 +57,9 @@ export default function NavItem({
           <ChevronDownIcon
             className={classNames(
               "w-3.5 text-white/80 transition-all duration-200",
-              navItemOpen ? "rotate-180 relative z-0 after:absolute after:inset-0 after:-z-10 after:rounded-full after:bg-secondary-100/20" : ""
+              navItemOpen
+                ? "relative z-0 rotate-180 after:absolute after:inset-0 after:-z-10 after:rounded-full after:bg-secondary-100/20"
+                : ""
             )}
           />
         </div>

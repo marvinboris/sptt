@@ -32,7 +32,9 @@ export default function Button({
         className || ""
       )}
     >
-      <span className={classNames(size === "sm" ? "" : "mr-2 font-bold text-lg")}>
+      <span
+        className={classNames(size === "sm" ? "" : "mr-2 text-lg font-bold")}
+      >
         {status ? (
           <>
             <div

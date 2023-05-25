@@ -6,7 +6,7 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import React from "react";
 
 import { useAccountContext } from "@/utils/contexts/account";
@@ -21,9 +21,9 @@ type ActionProps = {
 
 export default function Action({ item, resource, props }: ActionProps) {
   const { account: data } = useAccountContext();
-  
+
   const { route } = useRouter();
-  const role = route.split('/')[1]
+  const role = route.split("/")[1];
 
   if (props) {
     resource = resource.split("_").join("-");
@@ -54,14 +54,14 @@ export default function Action({ item, resource, props }: ActionProps) {
         <>
           <Link
             href={`/${role}/${resource}/${item._id}/edit`}
-            className="h-6 w-6 flex items-center justify-center rounded-md bg-sky text-white"
+            className="flex h-6 w-6 items-center justify-center rounded-md bg-sky text-white"
           >
             <PencilIcon className="w-3.5 flex-none" />
           </Link>
 
           <span>
             <Delete deleteAction={() => props.delete(item._id!)}>
-              <span className="h-6 w-6 flex items-center justify-center rounded-md bg-green text-white">
+              <span className="flex h-6 w-6 items-center justify-center rounded-md bg-green text-white">
                 <ArrowDownOnSquareIcon className="w-3.5 flex-none" />
               </span>
             </Delete>
@@ -79,7 +79,7 @@ export default function Action({ item, resource, props }: ActionProps) {
 
         <Link
           href={`/${role}/${resource}/${item._id}`}
-          className="h-6 w-6 flex items-center justify-center rounded-md bg-primary-400 text-white"
+          className="flex h-6 w-6 items-center justify-center rounded-md bg-primary-400 text-white"
         >
           <EyeIcon className="w-3.5 flex-none" />
         </Link>

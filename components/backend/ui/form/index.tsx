@@ -26,7 +26,7 @@ const Form = ({
   link,
   disabled,
 }: FormProps) => (
-  <div className="mb-[25px] rounded-[30px] bg-white py-8 px-[38.36px] shadow-2xl dark:bg-secondary-800">
+  <div className="mb-[25px] rounded-[30px] bg-white px-[38.36px] py-8 shadow-2xl dark:bg-secondary-800">
     <div className="mb-[46.94px] flex flex-wrap items-center justify-between md:flex-nowrap">
       <div className="order-2 space-y-[4.63px] md:order-1">
         <div className="text-[25px] font-bold md:text-[22.21px] md:font-medium">
@@ -38,7 +38,7 @@ const Form = ({
         <div className="h-[6.5732px] w-[30.24px] rounded-xl bg-yellow" />
       </div>
 
-      <div className="order-1 ml-auto mb-8 flex items-center md:order-2 md:ml-0 md:mb-0">
+      <div className="order-1 mb-8 ml-auto flex items-center md:order-2 md:mb-0 md:ml-0">
         {list && link ? (
           <Link href={link}>
             <Button icon={ListBulletIcon}>

@@ -43,7 +43,7 @@ export default function View({ title, action, children }: ViewProps) {
             leaveTo="opacity-0 scale-95"
           >
             <div className="container">
-              <Dialog.Panel className="mx-auto w-full max-w-2xl rounded-2xl bg-white px-4 pt-3 pb-5 dark:bg-secondary-800">
+              <Dialog.Panel className="mx-auto w-full max-w-2xl rounded-2xl bg-white px-4 pb-5 pt-3 dark:bg-secondary-800">
                 <Dialog.Title className="mb-3 border-b border-secondary-100 pb-3 text-lg font-semibold dark:border-secondary-500">
                   {title}
                 </Dialog.Title>

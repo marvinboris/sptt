@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import { classNames } from "@/utils/helpers";
 
@@ -20,7 +20,7 @@ export default function Alert({ color = "info", ...rest }: AlertProps) {
           : color === "warning"
           ? "border-yellow-200 bg-yellow-100 text-yellow-600 border"
           : "",
-        "rounded py-2 px-4 font-medium",
+        "rounded px-4 py-2 font-medium",
         rest.className || ""
       )}
     >

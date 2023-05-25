@@ -24,7 +24,7 @@ export default function Layout({ children }: LayoutProps) {
         </header>
 
         <div className="flex flex-1 flex-col items-center justify-center">
-          <div className="relative w-full max-w-4xl rounded-[40.8836px] bg-white pt-[44px] pb-[50px] shadow-lg dark:bg-secondary-800 md:pt-[51px] md:pb-[66px]">
+          <div className="relative w-full max-w-4xl rounded-[40.8836px] bg-white pb-[50px] pt-[44px] shadow-lg dark:bg-secondary-800 md:pb-[66px] md:pt-[51px]">
             {children}
           </div>
         </div>

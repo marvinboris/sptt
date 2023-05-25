@@ -5,19 +5,23 @@ import {
   ArrowRightIcon,
   CalendarDaysIcon,
   CircleStackIcon,
+  CloudArrowUpIcon,
   CubeIcon,
   CurrencyDollarIcon,
+  PlusIcon,
 } from "@heroicons/react/24/outline";
+import { DocumentUpload } from "iconsax-react";
 import React from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsCheck2Circle } from "react-icons/bs";
+import { FaRegEdit } from "react-icons/fa";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { DocumentUpload } from "iconsax-react";
+import { ImSpinner } from "react-icons/im";
+
+import Select from "@/components/backend/ui/form/select";
 
 const checkCircle = <BsCheck2Circle className="h-4 w-4" />;
-const loading = (
-  <div className="h-4 w-4 animate-spin rounded-full border-2 border-yellow border-b-transparent" />
-);
+const loading = <ImSpinner className="h-4 w-4 animate-spin text-yellow" />;
 
 const data = {
   titles: {
@@ -32,12 +36,23 @@ const data = {
   },
   steps: { 1: "Course details", 2: "Upload files", 3: "Review details" },
   files: [
-    { name: "Initiation_au_trading.MP4", status: 2 },
-    { name: "Analyse_fondamentale.MP4", status: 2 },
-    { name: "Analyse_technique.MP4", status: 2 },
-    { name: "Mise_en_pratique.MP4", status: 1 },
-    { name: "Cours_theorique.PDF", status: 0 },
-    { name: "Comprendre_les_bougies.PDF", status: 0 },
+    { name: "Initiation_au_trading.MP4", loaded: true },
+    { name: "Analyse_fondamentale.MP4", loaded: true },
+    { name: "Analyse_technique.MP4", loaded: true },
+    { name: "Mise_en_pratique.MP4" },
+    { name: "Cours_theorique.PDF" },
+    { name: "Comprendre_les_bougies.PDF" },
+  ],
+  features: [
+    "Introduction générale du les Cryptomonnaies.",
+    "Lexique des cryptomonnaies et de la blockchain.",
+    "Etude de l’interface de coinmarketcap (CMC)",
+    "Étude de l’interface d’un Centralised Exchange (CEX).",
+    "Étude de l’interface d’un CEX.",
+    "Exchanges et portefeuille des cryptomonnaies (CEX, DEX) ; Étude générale.",
+    "Évaluations (Théorique et pratique) avec corrections.",
+    "Bonus : Token offert pour les pratiques",
+    "Attestation de fin de formation",
   ],
 };
 
@@ -77,31 +92,38 @@ const PageBlock = ({ pageNumber = 1, page = 1, children }: PageBlockProps) => (
   </div>
 );
 
+const Feature = ({ children }: React.ComponentProps<"div">) => (
+  <div className="group flex text-sm text-[#5B5B5B]">
+    <BsCheck2Circle className="h-4 w-4" />
+
+    <span className="ml-2">{children}</span>
+
+    <FaRegEdit className="ml-3.5 h-[18px] w-[18px] text-sky opacity-0 transition-all duration-200 group-hover:opacity-100" />
+  </div>
+);
+
 type FileProps = {
   rank: number;
   name: string;
-  status: number;
+  loaded?: boolean;
 };
-const File = ({ rank, name, status }: FileProps) => (
-  <div className="flex gap-2.5">
+const File = ({ rank, name, loaded }: FileProps) => (
+  <div className="group inline-flex gap-2.5">
     <div
       className={classNames(
-        "flex h-11 flex-none items-center gap-2.5 rounded-[10px] border border-white/10 bg-black/10 px-2.5 text-sm",
-        status === 1 ? "w-[267px] font-bold text-white/80" : "w-[257px]"
+        "flex h-11 w-[257px] flex-none items-center gap-2.5 rounded-[10px] border border-white/10 bg-black/10 px-2.5 text-sm transition-all duration-200 group-hover:w-[267px] group-hover:font-bold group-hover:text-white/80"
       )}
     >
       <div>
         {rank}. {name}
       </div>
 
-      <div className="text-green">{status === 2 ? checkCircle : loading}</div>
+      <div className="text-green">{loaded ? checkCircle : loading}</div>
     </div>
 
-    {status === 1 ? (
-      <button className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl border border-white/10 bg-red text-white">
-        <AiOutlineDelete className="w-4 flex-none" />
-      </button>
-    ) : null}
+    <button className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl border border-white/10 bg-red text-white opacity-0 transition-all duration-200 group-hover:opacity-100">
+      <AiOutlineDelete className="w-4 flex-none" />
+    </button>
   </div>
 );
 
@@ -121,10 +143,10 @@ export default function AdminPacksCreate() {
     });
 
   return (
-    <div className="grid grid-cols-5 2xl:grid-cols-7 gap-5">
+    <div className="grid grid-cols-5 gap-5 2xl:grid-cols-7">
       <section
         id="form"
-        className="col-span-3 2xl:col-span-4 rounded-[40px] bg-darkblue/40 pb-[76px] pl-12 pr-14 pt-8"
+        className="col-span-3 rounded-[40px] bg-darkblue/40 pb-[76px] pl-12 pr-14 pt-8 2xl:col-span-4"
       >
         <div className="flex items-start">
           {page > 1 ? (
@@ -151,7 +173,9 @@ export default function AdminPacksCreate() {
         </div>
 
         <form className="mt-8 grid grid-cols-2 gap-3.5">
-          <div className="relative col-span-2 h-[300px]">
+          <input type="file" className="hidden" id="banner" name="banner" />
+
+          <div className="relative col-span-2 h-[350px]">
             <PageBlock page={page}>
               <div className="grid grid-cols-2 gap-3.5">
                 <Input
@@ -161,6 +185,7 @@ export default function AdminPacksCreate() {
                   icon={CubeIcon}
                   label="Course name"
                 />
+
                 <Input
                   inputSize="lg"
                   id="price"
@@ -169,6 +194,7 @@ export default function AdminPacksCreate() {
                   icon={CurrencyDollarIcon}
                   label="Course price"
                 />
+
                 <Input
                   inputSize="lg"
                   id="roi"
@@ -177,6 +203,7 @@ export default function AdminPacksCreate() {
                   icon={CircleStackIcon}
                   label="Yearly ROI"
                 />
+
                 <Input
                   inputSize="lg"
                   id="validity"
@@ -185,6 +212,7 @@ export default function AdminPacksCreate() {
                   icon={CalendarDaysIcon}
                   label="Validity"
                 />
+
                 <TextArea
                   inputSize="lg"
                   id="description"
@@ -192,6 +220,29 @@ export default function AdminPacksCreate() {
                   label="Course description"
                   className="col-span-2"
                 />
+
+                <label htmlFor="banner" className="block">
+                  <button
+                    type="button"
+                    className="flex h-[60px] w-full items-center justify-between rounded-[10px] border-2 border-transparent bg-white/[0.04] pl-6 pr-[18px]"
+                  >
+                    <div className="font-medium text-white/70 opacity-40">
+                      Upload course banner
+                    </div>
+
+                    <CloudArrowUpIcon className="w-[22px] text-sky" />
+                  </button>
+                </label>
+
+                <Select
+                  inputSize="lg"
+                  id="state"
+                  name="state"
+                  label="Course state"
+                >
+                  <option value="1">Active</option>
+                  <option value="2">Inactive</option>
+                </Select>
               </div>
             </PageBlock>
 
@@ -243,29 +294,15 @@ export default function AdminPacksCreate() {
                   <div className="mt-[18px] space-y-[5px] text-sm opacity-40">
                     <p>Yearly ROI : 7%</p>
                     <p>Validity : 365 Days</p>
-                    <p>Validity : 365 Days</p>
+                    <p>Weekly reward : 34.09 SPTT</p>
                   </div>
 
-                  <div className="mt-2 rounded-[10px] border border-white/10 bg-black/10 opacity-40 text-xs px-5 pb-5 pt-3.5">
+                  <div className="mt-2 rounded-[10px] border border-white/10 bg-black/10 px-5 pb-5 pt-3.5 text-xs opacity-40">
                     you want to cancel file upload, hover on the file at the
                     right panel then select cancel and...
                   </div>
 
-                  <div className="text-[25px] mt-6 font-bold">$250 USD</div>
-                </div>
-
-                <div className="space-y-3 text-xl text-white/80 ml-[22px]">
-                  <div className="flex justify-between">
-                    <div className="font-medium">Total videos :</div>
-
-                    <div className="font-bold">08</div>
-                  </div>
-
-                  <div className="flex justify-between">
-                    <div className="font-medium">Files uploaded :</div>
-
-                    <div className="font-bold">03</div>
-                  </div>
+                  <div className="mt-6 text-[25px] font-bold">$250 USD</div>
                 </div>
               </div>
             </PageBlock>
@@ -297,19 +334,69 @@ export default function AdminPacksCreate() {
 
       <section
         className={classNames(
-          "col-span-2 2xl:col-span-3 2xl:mr-16 rounded-[30px] border border-white/20 px-6 py-7 text-white/40 transition-all duration-200",
-          page === 2 ? "opacity-100" : "opacity-0"
+          "relative col-span-2",
+          page < 3 ? "opacity-100" : "opacity-0"
         )}
       >
-        <div className="font-display text-[25px] font-bold">
-          Uploaded files
-        </div>
+        <PageBlock pageNumber={1} page={page}>
+          <div className="absolute inset-0 rounded-[30px] bg-darkblue/40 px-6 py-7 text-white/40 transition-all duration-200 2xl:col-span-3 2xl:mr-16">
+            <div>
+              <div className="font-display text-[25px] font-bold text-white">
+                Course features
+              </div>
+              <div className="mt-0.5 text-sm">Add course points</div>
+              <div className="mt-[11px] h-[7px] w-8 rounded-full bg-green" />
+            </div>
 
-        <div className="mt-7 space-y-[5px]">
-          {data.files.map((file, i) => (
-            <File key={"file-" + i} rank={i + 1} {...file} />
-          ))}
-        </div>
+            <div className="mt-8 flex h-[54px] items-stretch gap-3.5">
+              <input
+                className="rounded-[10px] bg-black/20 px-[18px] font-medium text-white/70 placeholder:opacity-40"
+                placeholder="Input text here"
+              />
+
+              <button className="flex w-[109px] items-center justify-center gap-2 rounded-[10px] bg-green font-bold text-white">
+                <PlusIcon className="w-3.5 flex-none" />
+                <span>Add</span>
+              </button>
+            </div>
+
+            <div className="mt-[58px] space-y-1">
+              {data.features.map((feature, i) => (
+                <Feature key={"feature-" + i}>{feature}</Feature>
+              ))}
+            </div>
+          </div>
+        </PageBlock>
+
+        <PageBlock pageNumber={2} page={page}>
+          <div
+            className={classNames(
+              "absolute inset-0 rounded-[30px] border border-white/20 px-6 py-7 text-white/40 transition-all duration-200 2xl:col-span-3 2xl:mr-16"
+            )}
+          >
+            <div className="font-display text-[25px] font-bold">
+              Uploaded files
+            </div>
+
+            <div className="mt-7 space-y-[5px]">
+              {data.files.map((file, i) => (
+                <File key={"file-" + i} rank={i + 1} {...file} />
+              ))}
+            </div>
+
+            <div className="mt-[71px] w-[190px] space-y-2.5">
+              <div className="flex items-center justify-between text-xl font-medium text-white/80">
+                <span>Total videos :</span>{" "}
+                <span className="font-bold text-white">08</span>
+              </div>
+
+              <div className="flex items-center justify-between text-xl font-medium text-white/80">
+                <span>Files uploaded :</span>{" "}
+                <span className="font-bold text-white">03</span>
+              </div>
+            </div>
+          </div>
+        </PageBlock>
       </section>
     </div>
   );

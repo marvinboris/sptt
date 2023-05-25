@@ -1,13 +1,13 @@
 import React, { ReactElement } from "react";
 
-import { NextPageWithLayout } from "../_app";
-
 import Layout, { Head } from "@/components/backend/navigation/layout";
-import CustomerPacks from "@/components/backend/pages/customer/packs";
+import CustomerPackDetails from "@/components/backend/pages/customer/packs/details";
+
+import { NextPageWithLayout } from "@/pages/_app";
 
 import { useContentContext } from "@/utils/contexts/content";
 
-const CustomerPacksPage: NextPageWithLayout = () => {
+const CustomerPackDetailsPage: NextPageWithLayout = () => {
   const { content } = useContentContext();
 
   const {
@@ -16,7 +16,7 @@ const CustomerPacksPage: NextPageWithLayout = () => {
     },
   } = content!;
 
-  const title = "Pack list";
+  const title = "Pack details";
   const subtitle = "View all details on packs";
 
   return (
@@ -26,13 +26,13 @@ const CustomerPacksPage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <CustomerPacks />
+      <CustomerPackDetails />
     </>
   );
 };
 
-CustomerPacksPage.getLayout = function getLayout(page: ReactElement) {
+CustomerPackDetailsPage.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
 
-export default CustomerPacksPage;
+export default CustomerPackDetailsPage;

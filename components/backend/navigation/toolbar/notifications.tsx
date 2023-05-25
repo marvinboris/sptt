@@ -1,22 +1,18 @@
 import { BellIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useRouter } from 'next/router';
-import React from 'react';
+import { useRouter } from "next/router";
+import React from "react";
 
 import { useAccountContext } from "@/utils/contexts/account";
 import { useContentContext } from "@/utils/contexts/content";
-import {
-  classNames,
-  convertDate,
-  convertTime,
-} from "@/utils/helpers";
+import { classNames, convertDate, convertTime } from "@/utils/helpers";
 import NotificationInterface from "@/utils/types/models/notification";
 
 export default function Notifications() {
-  const { account: data } = useAccountContext()
-  
+  const { account: data } = useAccountContext();
+
   const { route } = useRouter();
-  const role = route.split('/')[1]
+  const role = route.split("/")[1];
 
   const { content } = useContentContext();
   const {
@@ -38,13 +34,13 @@ export default function Notifications() {
       className={classNames(
         "group relative z-0 mr-3",
         notifications.length > 0
-          ? "after:absolute after:top-0 after:right-0 after:block after:h-[12.72px] after:w-[12.72px] after:rounded-full after:bg-green"
+          ? "after:absolute after:right-0 after:top-0 after:block after:h-[12.72px] after:w-[12.72px] after:rounded-full after:bg-green"
           : ""
       )}
     >
       <BellIcon className="w-[31px] cursor-pointer" />
 
-      <div className="absolute top-full right-0 origin-top-right scale-0 pt-1 opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100">
+      <div className="absolute right-0 top-full origin-top-right scale-0 pt-1 opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100">
         <div className="w-72 truncate rounded-[14px] border-[0.25px] bg-white py-1.5 shadow-sm dark:border-white/10 dark:bg-secondary-800">
           <div className="mb-2 px-3 text-lg font-semibold text-secondary-800 dark:text-secondary-200">
             {header.notifications}
@@ -66,7 +62,7 @@ export default function Notifications() {
                     <div className="mt-1.5 h-2 w-2 flex-none self-start rounded-full bg-primary-600" />
 
                     <div className="flex-1">
-                      <div className="whitespace-normal leading-tight line-clamp-2">
+                      <div className="line-clamp-2 whitespace-normal leading-tight">
                         <div className="font-semibold">
                           {notification.message}
                         </div>
@@ -90,7 +86,7 @@ export default function Notifications() {
                   </Link>
                 ))}
 
-                <div className="px-1 pt-3 pb-1 text-sm">
+                <div className="px-1 pb-1 pt-3 text-sm">
                   <Link
                     href={`/${role}/notifications`}
                     className="font-semibold text-primary-600"

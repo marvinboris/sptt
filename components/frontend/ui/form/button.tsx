@@ -2,7 +2,7 @@ import React, { type ReactNode } from "react";
 
 import { classNames } from "@/utils/helpers";
 import Status from "@/utils/types/enums/status";
-import IconType from '@/utils/types/icon';
+import IconType from "@/utils/types/icon";
 
 type ButtonProps = React.ComponentProps<"button"> & {
   color?: string;
@@ -31,7 +31,7 @@ export default function Button({
         `btn btn-${color} group relative`,
         icon ? "btn-icon" : "px-6",
         size === "sm" ? "h-10 px-4" : "",
-        className || ''
+        className || ""
       )}
     >
       <span className={classNames(size === "sm" ? "" : "mr-2 font-bold")}>
@@ -40,7 +40,7 @@ export default function Button({
             <div
               className={classNames(
                 status === Status.LOADING ? "opacity-100" : "opacity-0",
-                "absolute top-1/2 left-1/2 z-0 -ml-4 -mt-4 h-8 w-8 animate-spin rounded-full border-[2px] border-white border-t-transparent transition-all duration-200"
+                "absolute left-1/2 top-1/2 z-0 -ml-4 -mt-4 h-8 w-8 animate-spin rounded-full border-[2px] border-white border-t-transparent transition-all duration-200"
               )}
             />
             <div

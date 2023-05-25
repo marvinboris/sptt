@@ -1,6 +1,6 @@
 import React, { ComponentProps, ReactNode, useEffect, useState } from "react";
 
-import IconType from '@/utils/types/icon';
+import IconType from "@/utils/types/icon";
 
 interface PageTitleProps {
   title: ReactNode;
@@ -29,7 +29,7 @@ export default function PageTitle({
   }, [animated]);
 
   return (
-    <div className="relative z-0 flex space-x-[11px] bg-white pt-[11px] pb-[14px] pl-[30px] pr-[85px] transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:w-[9px] before:bg-yellow after:absolute after:inset-0 after:-z-10 after:bg-yellow/[0.07] dark:bg-secondary-800 md:items-center md:space-x-[14px] md:px-[33px]">
+    <div className="relative z-0 flex space-x-[11px] bg-white pb-[14px] pl-[30px] pr-[85px] pt-[11px] transition-all duration-200 before:absolute before:inset-y-0 before:left-0 before:w-[9px] before:bg-yellow after:absolute after:inset-0 after:-z-10 after:bg-yellow/[0.07] dark:bg-secondary-800 md:items-center md:space-x-[14px] md:px-[33px]">
       <div>
         <Icon className="w-[56px] text-yellow transition-all duration-200 md:w-[34px]" />
       </div>

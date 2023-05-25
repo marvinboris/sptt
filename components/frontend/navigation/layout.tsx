@@ -17,7 +17,7 @@ export default function Layout({
         className={classNames(
           "main-wrapper",
           auth
-            ? "relative flex flex-col justify-center overflow-x-clip pt-32 pb-24 md:justify-start md:pt-36"
+            ? "relative flex flex-col justify-center overflow-x-clip pb-24 pt-32 md:justify-start md:pt-36"
             : ""
         )}
       >

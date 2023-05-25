@@ -39,7 +39,7 @@ const RegisterPage: NextPageWithLayout = () => {
           />
           <SvgIcon
             name="../home-bg-light"
-            className="md:hidden block -z-10 absolute top-36 inset-x-0 w-full opacity-20 scale-[3]"
+            className="absolute inset-x-0 top-36 -z-10 block w-full scale-[3] opacity-20 md:hidden"
           />
 
           <header className="text-center md:text-left">

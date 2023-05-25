@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import React from 'react';
+import React from "react";
 
 import SvgIcon from "@/components/ui/svg-icon";
 import Button from "../form/button";
@@ -11,7 +11,7 @@ interface PackBlockProps {
 
 export default function PackBlock({ name, amount }: PackBlockProps) {
   return (
-    <div className="group flex-none rounded-[30px] bg-white px-6 pb-8 md:pb-12 pt-5 transition-all duration-200 md:hover:pb-8 md:w-[308px]">
+    <div className="group flex-none rounded-[30px] bg-white px-6 pb-8 pt-5 transition-all duration-200 md:w-[308px] md:pb-12 md:hover:pb-8">
       <h3 className="inline-flex h-11 items-center rounded-lg bg-blue/10 px-6 text-lg/none font-bold text-blue">
         {name}
       </h3>

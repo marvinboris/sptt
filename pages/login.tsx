@@ -24,22 +24,24 @@ const LoginPage: NextPageWithLayout = () => {
     <>
       <Head {...params} />
       <main className="container">
-        <div className="mx-auto max-w-md rounded-[40px] bg-black/20 px-10 pb-10 pt-12 md:pt-9 leading-none">
+        <div className="mx-auto max-w-md rounded-[40px] bg-black/20 px-10 pb-10 pt-12 leading-none md:pt-9">
           <SvgIcon
             name="../login-polygon"
-            className="hidden md:block -z-10 absolute left-0 top-28 w-[280px] h-[280px] -translate-x-1/2"
+            className="absolute left-0 top-28 -z-10 hidden h-[280px] w-[280px] -translate-x-1/2 md:block"
           />
           <SvgIcon
             name="../login-ellipse"
-            className="hidden md:block -z-10 absolute right-0 top-0 w-[500px] h-[500px] translate-x-1/4"
+            className="absolute right-0 top-0 -z-10 hidden h-[500px] w-[500px] translate-x-1/4 md:block"
           />
           <SvgIcon
             name="../home-bg-light"
-            className="md:hidden block -z-10 absolute top-36 inset-x-0 w-full opacity-20 scale-[3]"
+            className="absolute inset-x-0 top-36 -z-10 block w-full scale-[3] opacity-20 md:hidden"
           />
 
           <header className="text-center md:text-left">
-            <h2 className="text-[25px] md:text-[35px] font-bold text-white">Account login</h2>
+            <h2 className="text-[25px] font-bold text-white md:text-[35px]">
+              Account login
+            </h2>
 
             <div className="mt-2 font-body text-lg">Welcome back !</div>
           </header>
@@ -59,7 +61,7 @@ const LoginPage: NextPageWithLayout = () => {
               icon={LockClosedIcon}
             />
 
-            <div className="mt-8 md:mt-6 text-right font-body">
+            <div className="mt-8 text-right font-body md:mt-6">
               Forgot password ?{" "}
               <span className="cursor-pointer font-display font-bold text-primary-400">
                 Reset here

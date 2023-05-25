@@ -18,7 +18,7 @@ export default function PageTitle({
       <div className="flex items-center rounded-[30px] bg-secondary-800 py-6 pl-9 pr-12">
         <div className="relative mr-[22px] pr-[22px] text-white opacity-30">
           <Icon className="w-[52px]" />
-          <div className="absolute top-1/2 right-0 h-2.5 w-2.5 -translate-y-1/2 translate-x-1/2 rounded-full bg-white" />
+          <div className="absolute right-0 top-1/2 h-2.5 w-2.5 -translate-y-1/2 translate-x-1/2 rounded-full bg-white" />
         </div>
 
         <div>

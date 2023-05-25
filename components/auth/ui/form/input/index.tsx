@@ -43,9 +43,7 @@ export default function Input({
             >
               <Icon
                 className={classNames(
-                  inputSize === "sm"
-                    ? "w-4 text-white/20"
-                    : "w-6 text-white/20"
+                  inputSize === "sm" ? "w-4 text-white/20" : "w-6 text-white/20"
                 )}
               />
 
@@ -54,7 +52,7 @@ export default function Input({
           ) : null}
 
           {addon ? (
-            <div className="relative z-20 flex font-body md:text-lg items-center justify-center text-center min-w-[80px] pr-3 after:absolute after:h-6 after:w-0.5 after:bg-white/20 after:top-1/2 after:right-3 after:-translate-y-1/2 after:-translate-x-1/2">
+            <div className="relative z-20 flex min-w-[80px] items-center justify-center pr-3 text-center font-body after:absolute after:right-3 after:top-1/2 after:h-6 after:w-0.5 after:-translate-x-1/2 after:-translate-y-1/2 after:bg-white/20 md:text-lg">
               {addon}
             </div>
           ) : null}

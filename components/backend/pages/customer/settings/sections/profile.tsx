@@ -13,13 +13,11 @@ export default function CustomerSettingsProfileSection() {
   return (
     <section
       id="profile-section"
-      className="rounded-[40px] bg-darkblue/40 pb-[76px] pl-12 pr-14 pt-8 w-full"
+      className="w-full rounded-[40px] bg-darkblue/40 pb-[76px] pl-12 pr-14 pt-8"
     >
       <div className="flex justify-between">
         <div>
-          <div className="font-display text-[25px] font-bold">
-            User profile
-          </div>
+          <div className="font-display text-[25px] font-bold">User profile</div>
 
           <div className="mt-px text-sm text-white/40">
             View and manage your profile
@@ -39,7 +37,7 @@ export default function CustomerSettingsProfileSection() {
         </div>
       </div>
 
-      <form className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <form className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
         <Input
           id="first-name"
           name="first_name"

@@ -22,7 +22,7 @@ export default function Switch({
 }: SwitchProps) {
   return (
     <div className="flex gap-3">
-        <div className="text-xs md:w-1/2">{label}</div>
+      <div className="text-xs md:w-1/2">{label}</div>
 
       <div>
         <HSwitch
@@ -31,7 +31,7 @@ export default function Switch({
           onChange={onChange}
           name={name}
           className={classNames(
-            `relative inline-flex h-6 bg-white/10 w-[46px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`,
+            `relative inline-flex h-6 w-[46px] shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-white/10 transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`,
             className || ""
           )}
         >
@@ -44,7 +44,6 @@ export default function Switch({
           />
         </HSwitch>
       </div>
-
     </div>
   );
 }

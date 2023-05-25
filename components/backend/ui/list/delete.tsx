@@ -46,8 +46,8 @@ export default function Delete({ deleteAction, children }: DeleteProps) {
             leaveTo="opacity-0 scale-95"
           >
             <div className="container">
-              <Dialog.Panel className="relative mx-auto w-full max-w-4xl rounded-[40.8836px] bg-white pt-[44px] pb-[50px] text-secondary-700 md:pt-[51px] md:pb-[66px]">
-                <div className="absolute top-0 right-0 -translate-y-full xl:-right-10 xl:translate-x-full xl:-translate-y-1/2">
+              <Dialog.Panel className="relative mx-auto w-full max-w-4xl rounded-[40.8836px] bg-white pb-[50px] pt-[44px] text-secondary-700 md:pb-[66px] md:pt-[51px]">
+                <div className="absolute right-0 top-0 -translate-y-full xl:-right-10 xl:-translate-y-1/2 xl:translate-x-full">
                   <div
                     onClick={() => setIsOpen(false)}
                     className="inline-flex cursor-pointer items-center justify-center rounded-full xl:h-20 xl:w-20 xl:bg-white/20"

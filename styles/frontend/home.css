@@ -11,10 +11,10 @@
     }
 
     .team-member {
-      @apply shadow-xl p-px !important;
+      @apply p-px shadow-xl !important;
 
       .relative {
-        @apply after:bg-black/10 pt-8 !important;
+        @apply pt-8 after:bg-black/10 !important;
 
         .h-24 {
           @apply h-32 w-32 border-[12px] outline-8 !important;

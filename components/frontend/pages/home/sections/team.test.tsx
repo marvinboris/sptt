@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import React from 'react';
+import React from "react";
 
 import HomeTeamSection from "./team";
 
@@ -37,9 +37,9 @@ describe("HomeTeamSection", () => {
       const memberElements = getAllByText(
         new RegExp(`${member.props.children}`, "i")
       );
-      memberElements.forEach(memberElement => {
+      memberElements.forEach((memberElement) => {
         expect(memberElement).toBeInTheDocument();
-      })
+      });
     });
   });
 

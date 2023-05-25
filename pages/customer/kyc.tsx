@@ -27,8 +27,8 @@ const CustomerKycPage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-        <div className="xl:col-span-2 flex items-stretch">
+      <div className="grid grid-cols-1 gap-8 xl:grid-cols-3">
+        <div className="flex items-stretch xl:col-span-2">
           <CustomerKycListSection title={title} subtitle={subtitle} />
         </div>
 

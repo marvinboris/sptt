@@ -11,9 +11,7 @@ export default function CustomerSettingsPinSection() {
       className="rounded-[40px] bg-darkblue/40 pb-[76px] pl-12 pr-14 pt-8"
     >
       <div>
-        <div className="font-display text-[25px] font-bold">
-          Create Pin
-        </div>
+        <div className="font-display text-[25px] font-bold">Create Pin</div>
 
         <div className="mt-px text-sm text-white/40">Enhance security</div>
 

@@ -78,11 +78,13 @@ export default function CustomerCourses({ title, subtitle }: Props) {
       array={array.map((item) =>
         updateObject(item, {
           expDate: (
-            <div className="h-2 w-[88px] rounded-full bg-white/10 overflow-hidden">
+            <div className="h-2 w-[88px] overflow-hidden rounded-full bg-white/10">
               <div
                 className={classNames(
                   "h-full bg-gradient-to-r",
-                  item.expDate === 100 ? "from-[#B62B18] to-red opacity-60" : "from-[#92B618] to-green"
+                  item.expDate === 100
+                    ? "from-[#B62B18] to-red opacity-60"
+                    : "from-[#92B618] to-green"
                 )}
                 style={{ width: item.expDate + "%" }}
               />

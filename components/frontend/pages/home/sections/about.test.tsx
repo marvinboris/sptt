@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import React from 'react';
+import React from "react";
 
 import HomeAboutSection from "./about";
 
@@ -28,8 +28,8 @@ describe("HomeAboutSection component", () => {
 
     const joinUsButtons = screen.getAllByText(/join us/i);
 
-    joinUsButtons.forEach(joinUsButton => {
+    joinUsButtons.forEach((joinUsButton) => {
       expect(joinUsButton).toBeInTheDocument();
-    })
+    });
   });
 });

@@ -47,7 +47,7 @@ export default function Pack({
       </div>
 
       <div className="mt-2.5 flex items-center justify-between">
-        <div className="inline-flex items-center h-7 gap-[7px] rounded-[7px] bg-white/10 pl-2 pr-4">
+        <div className="inline-flex h-7 items-center gap-[7px] rounded-[7px] bg-white/10 pl-2 pr-4">
           <CubeIcon className="w-3.5 text-primary-400" />
 
           <div className="font-display font-bold text-white">{name}</div>

@@ -26,7 +26,7 @@ export default function StatChart({
     >
       <div className="flex items-start">
         <div className="flex items-center gap-4">
-          <div className="hidden sm:flex aspect-square w-14 items-center justify-center rounded-xl bg-white/10">
+          <div className="hidden aspect-square w-14 items-center justify-center rounded-xl bg-white/10 sm:flex">
             <SvgIcon
               name={icon}
               className={classNames("flex-none", action ? "w-6" : "w-9")}

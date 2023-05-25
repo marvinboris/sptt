@@ -49,7 +49,7 @@ export default function TextArea({
         </label>
       )}
 
-      <div className="relative rounded-xl bg-white/[0.04] border-2 border-transparent focus-within:border-secondary-500/40">
+      <div className="relative rounded-xl border-2 border-transparent bg-white/[0.04] focus-within:border-secondary-500/40">
         <textarea
           {...props}
           onChange={onChange}

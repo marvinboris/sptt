@@ -21,7 +21,7 @@ const AdminReportsCommissionPage: NextPageWithLayout = () => {
     },
   } = content!;
 
-  const subtitle = "View and manage commissions"
+  const subtitle = "View and manage commissions";
 
   return (
     <>

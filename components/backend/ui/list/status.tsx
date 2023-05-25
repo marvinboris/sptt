@@ -18,7 +18,7 @@ export default function Status({ value }: { value: boolean }) {
   return (
     <span
       className={classNames(
-        "rounded py-1 px-3 font-medium",
+        "rounded px-3 py-1 font-medium",
         value ? "bg-green/10 text-green" : "bg-red/10 text-red"
       )}
     >

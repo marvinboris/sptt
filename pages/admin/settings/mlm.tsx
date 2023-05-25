@@ -9,7 +9,7 @@ import { useContentContext } from "@/utils/contexts/content";
 
 const AdminSettingsMlmPage: NextPageWithLayout = () => {
   const { content } = useContentContext();
-  
+
   const {
     cms: {
       global: { app_name },
@@ -21,7 +21,7 @@ const AdminSettingsMlmPage: NextPageWithLayout = () => {
     },
   } = content!;
 
-  const subtitle = "View and manage bonus settings"
+  const subtitle = "View and manage bonus settings";
 
   return (
     <>

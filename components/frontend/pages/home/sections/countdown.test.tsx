@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import React from 'react';
+import React from "react";
 
 import HomeCountdownSection from "./countdown";
 import SvgIcon from "@/components/ui/svg-icon";
@@ -23,12 +23,12 @@ describe("HomeCountdownSection component", () => {
     countdownValues.forEach(([value, label]) => {
       const countdownValues = screen.getAllByText(new RegExp(`${value}`, "i"));
       const countdownLabels = screen.getAllByText(new RegExp(`${label}`, "i"));
-      countdownValues.forEach(countdownValue => {
+      countdownValues.forEach((countdownValue) => {
         expect(countdownValue).toBeInTheDocument();
-      })
-      countdownLabels.forEach(countdownLabel => {
+      });
+      countdownLabels.forEach((countdownLabel) => {
         expect(countdownLabel).toBeInTheDocument();
-      })
+      });
     });
   });
 

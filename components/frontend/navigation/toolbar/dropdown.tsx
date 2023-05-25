@@ -143,7 +143,7 @@ export default function Dropdown({
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute top-full left-0 z-10 w-full">
+            <Popover.Panel className="absolute left-0 top-full z-10 w-full">
               <div className="overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="bg-white px-5 py-6 dark:bg-secondary-800">
                   <div className="container grid grid-cols-1 gap-6 md:gap-8 md:p-8 lg:grid-cols-2 xl:grid-cols-3">
@@ -152,7 +152,7 @@ export default function Dropdown({
                 </div>
                 {actions && (
                   <div className="bg-secondary-50 px-5 py-5 dark:bg-secondary-900">
-                    <div className="container space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                    <div className="container space-y-6 sm:flex sm:space-x-10 sm:space-y-0 sm:px-8">
                       {actions.map(renderAction)}
                     </div>
                   </div>

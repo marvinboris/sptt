@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import React from 'react';
+import React from "react";
 
 import HomePacksSection from "./packs";
 
@@ -23,9 +23,9 @@ describe("HomePacksSection component", () => {
       const packElements = getAllByText(
         new RegExp(`${pack.props.children}`, "i")
       );
-      packElements.forEach(packElement => {
+      packElements.forEach((packElement) => {
         expect(packElement).toBeInTheDocument();
-      })
+      });
     });
   });
 

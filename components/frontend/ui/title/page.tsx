@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from 'react';
+import React from "react";
 
 interface PageTitleProps {
   title: string;
@@ -18,7 +18,7 @@ export default function PageTitle({ title, subtitle }: PageTitleProps) {
       <div className="absolute inset-0 -z-10 bg-grid-white/[0.05] after:absolute after:inset-0 after:bottom-0 after:-z-20 after:bg-gradient-to-t after:from-primary-600/70 after:to-primary-600/30" />
 
       <div className="container text-center text-white">
-        <h1 className="font-display mx-auto max-w-4xl text-4xl font-extrabold tracking-tight sm:text-6xl">
+        <h1 className="mx-auto max-w-4xl font-display text-4xl font-extrabold tracking-tight sm:text-6xl">
           {title}
         </h1>
 

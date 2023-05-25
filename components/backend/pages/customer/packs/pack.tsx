@@ -1,11 +1,13 @@
-import { classNames } from "@/utils/helpers";
 import { ArrowRightIcon, CubeIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import { classNames } from "@/utils/helpers";
+
 interface Props {
   index: number;
+  id: number;
   link?: string;
   photo: string;
   name: string;
@@ -14,8 +16,8 @@ interface Props {
 }
 
 export default function Pack({
+  id,
   index,
-  link = "#",
   photo,
   name,
   description,
@@ -47,14 +49,14 @@ export default function Pack({
       </div>
 
       <div className="mt-2.5 flex items-center justify-between">
-        <div className="inline-flex items-center h-7 gap-[7px] rounded-[7px] bg-white/10 pl-2 pr-4">
+        <div className="inline-flex h-7 items-center gap-[7px] rounded-[7px] bg-white/10 pl-2 pr-4">
           <CubeIcon className="w-3.5 text-primary-400" />
 
           <div className="font-display font-bold text-white">{name}</div>
         </div>
 
         <Link
-          href={link}
+          href={`packs/${id}`}
           className="inline-flex items-center gap-0.5 text-green"
         >
           <span>View details</span>

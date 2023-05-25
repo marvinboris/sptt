@@ -7,6 +7,7 @@ import ValidationType from "@/utils/types/validation";
 import IconType from "@/utils/types/icon";
 
 type SelectProps = ComponentProps<"select"> & {
+  inputSize?: "lg";
   icon?: IconType;
   label?: ReactNode;
   addon?: ReactNode;
@@ -15,6 +16,7 @@ type SelectProps = ComponentProps<"select"> & {
 };
 
 export default function Select({
+  inputSize,
   icon: Icon,
   label,
   addon,
@@ -41,18 +43,45 @@ export default function Select({
 
   return (
     <div className={className}>
-      {label && (
-        <label htmlFor={props.id ? props.id : props.name}>{label}</label>
+      {label && inputSize !== "lg" && (
+        <label
+          htmlFor={props.id ? props.id : props.name}
+          className="mb-3.5 flex items-end gap-2.5 font-display font-bold text-white/70"
+        >
+          {Icon && <Icon className="mb-0.5 w-[21px] text-white/40" />}
+          <span>{label}</span>
+        </label>
       )}
 
-      <div className="flex h-11 items-center rounded-[10px] bg-[#5A657D33]">
+      <div
+        className={classNames(
+          "flex items-center rounded-[10px] bg-white/[0.04]",
+          inputSize === "lg"
+            ? "h-[60px] border-2 border-transparent focus-within:border-secondary-500/40"
+            : "h-11"
+        )}
+      >
         <div>
           <div
             className={
-              Icon || addon ? "flex min-w-[47px] justify-center" : "w-3"
+              label && inputSize !== "lg"
+                ? "w-8"
+                : Icon || addon
+                ? classNames(
+                    "flex justify-center",
+                    inputSize === "lg" ? "min-w-[60px]" : "min-w-[47px]"
+                  )
+                : "w-3"
             }
           >
-            {Icon && <Icon className="w-[18px]" />}
+            {(!label || (label && inputSize === "lg")) && Icon && (
+              <Icon
+                className={classNames(
+                  "text-white/40",
+                  inputSize === "lg" ? "w-6" : "w-[18px]"
+                )}
+              />
+            )}
             {addon}
           </div>
         </div>
@@ -61,7 +90,7 @@ export default function Select({
           <select
             {...props}
             onChange={onChange}
-            className="h-full w-full flex-1 border-none bg-transparent text-sm text-inherit outline-none focus:ring-0"
+            className="peer h-full w-full flex-1 border-none bg-transparent text-white/70 outline-none focus:ring-0"
           />
 
           {touched && validation ? (

@@ -30,7 +30,7 @@ const AdminDashboardPage: NextPageWithLayout = () => {
         title={`${title} | ${app_name}`}
         description={`${app_name}: Your personal dashboard.`}
       />
-      
+
       <AdminDashboardStatCardsSection />
 
       <AdminDashboardStatChartsSection />

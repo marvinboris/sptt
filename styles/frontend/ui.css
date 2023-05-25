@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply scrollbar-app bg-secondary-900 text-white/80 leading-tight;
+  @apply scrollbar-app bg-secondary-900 leading-tight text-white/80;
 }
 
 header,
@@ -23,7 +23,7 @@ section {
 
 main.page-main > header {
   @apply relative z-10 flex h-[314px] flex-col justify-end pb-6 after:absolute after:inset-0 after:-z-10 after:bg-gradient-to-t after:from-primary-600 after:to-transparent md:h-[330px];
-  
+
   .bg-img {
     @apply absolute inset-0 z-0 after:absolute after:inset-0 after:bg-gradient-to-t after:from-primary-600 after:to-transparent;
   }
@@ -94,7 +94,11 @@ main.page-main section {
 }
 
 .border-gradient {
-  border-image-source: linear-gradient(to right, var(--color-primary-400), var(--color-blue));
+  border-image-source: linear-gradient(
+    to right,
+    var(--color-primary-400),
+    var(--color-blue)
+  );
   border-image-slice: 1;
   border-image-repeat: round;
 }

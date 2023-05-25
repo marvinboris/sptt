@@ -31,7 +31,7 @@ const AdminSettingsMethodsPage: NextPageWithLayout = () => {
         description={`${app_name}: ${subtitle}.`}
       />
 
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-8 xl:grid-cols-3">
         <div className="xl:col-span-2">
           <AdminSettingsMethodsPaymentMethodsSection
             title={title}

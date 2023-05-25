@@ -103,7 +103,7 @@ export default function Input({
           {label && inputSize === "lg" && (
             <label
               htmlFor={props.id ? props.id : props.name}
-              className="absolute -left-8 px-1 top-0 z-0 -translate-y-1/2 bg-gradient-to-t from-nightblue from-[65%] to-transparent to-[65%] text-xs text-white/70 transition-all duration-200 before:absolute before:inset-0 before:-z-20 before:bg-gradient-to-t before:from-darkblue/40 before:from-[65%] before:to-transparent before:to-[65%] after:absolute after:inset-0 after:-z-10 after:bg-gradient-to-t after:from-white/[0.04] after:from-[65%] after:to-transparent after:to-[65%] peer-placeholder-shown:left-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-white/[0.28] peer-focus:-left-8 peer-focus:top-0 peer-focus:text-xs peer-focus:text-white/70"
+              className="absolute -left-8 top-0 z-0 -translate-y-1/2 bg-gradient-to-t from-nightblue from-[65%] to-transparent to-[65%] px-1 text-xs text-white/70 transition-all duration-200 before:absolute before:inset-0 before:-z-20 before:bg-gradient-to-t before:from-darkblue/40 before:from-[65%] before:to-transparent before:to-[65%] after:absolute after:inset-0 after:-z-10 after:bg-gradient-to-t after:from-white/[0.04] after:from-[65%] after:to-transparent after:to-[65%] peer-placeholder-shown:left-0 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-white/[0.28] peer-focus:-left-8 peer-focus:top-0 peer-focus:text-xs peer-focus:text-white/70"
             >
               {label}
             </label>

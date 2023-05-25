@@ -6,7 +6,7 @@ import {
   PhoneIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import React from 'react';
+import React from "react";
 
 import Button from "@/components/frontend/ui/form/button";
 import Input from "@/components/frontend/ui/form/input";
@@ -24,7 +24,8 @@ export default function HomeContactSection() {
 
       <div className="relative mt-14 flex grid-cols-7 flex-col items-stretch md:grid">
         <div className="relative z-20 order-2 col-span-2 h-[200px] bg-white/50 md:order-1 md:h-auto">
-          <iframe role="iframe"
+          <iframe
+            role="iframe"
             src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3613.8073542448806!2d55.1406664!3d25.0745178!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2scm!4v1665798706407!5m2!1sen!2scm"
             className="absolute inset-0 h-full w-full"
           />
