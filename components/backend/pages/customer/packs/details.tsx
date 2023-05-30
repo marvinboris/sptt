@@ -76,7 +76,7 @@ const CourseDetails = ({ title, subtitle, bonus }: CourseDetailsProps) => (
 const CourseSection = ({ children }: React.ComponentProps<"div">) => (
   <div className="flex gap-2">
     <div className="text-green">
-      <FiCheckCircle className="w-4 h-4" />
+      <FiCheckCircle className="h-4 w-4" />
     </div>
 
     <div className="text-white/80 opacity-60">{children}</div>
@@ -100,7 +100,7 @@ export default function CustomerPackDetails() {
             </span>
 
             <div className="ml-auto text-right">
-              <div className="bg-gradient-to-r from-primary-400 to-blue bg-clip-text text-2xl font-bold text-transparent">
+              <div className="bg-gradient-to-r from-primary-400 to-blue bg-clip-text font-display text-2xl font-bold text-transparent">
                 $25000 USD
               </div>
               <div className="text-sm text-white/80 opacity-60">

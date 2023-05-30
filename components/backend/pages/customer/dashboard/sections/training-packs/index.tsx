@@ -7,12 +7,14 @@ import OwlCarousel from "@/components/frontend/ui/owl-carousel";
 
 const array = [
   {
+    id: 1,
     photo: "/images/customer-dashboard-packs-1.webp",
     name: "Starter 1",
     description:
       "In this course, you will learn the basic about blockchain technology",
   },
   {
+    id: 2,
     photo: "/images/customer-dashboard-packs-2.webp",
     name: "Starter 2",
     description:
@@ -20,6 +22,7 @@ const array = [
     amount: "569,450.89",
   },
   {
+    id: 3,
     photo: "/images/customer-dashboard-packs-3.webp",
     name: "Starter 3",
     description:
@@ -27,6 +30,7 @@ const array = [
     amount: "886,109.23",
   },
   {
+    id: 4,
     photo: "/images/customer-dashboard-packs-4.webp",
     name: "Starter 4",
     description:
